@@ -222,6 +222,14 @@ node {
 
     try {
       stage("Addons") {
+      // Gitstat fails if the date is (still) in the future
+      Date date = new Date()
+      String YESTERDAY = date.previous().format("yyyy-MM-dd")
+      echo YESTERDAY
+      if (YESTERDAY < GITSTATS_START_DATE){
+        GITSTATS_START_DATE = YESTERDAY
+        echo GITSTATS_START_DATE
+      }
         // Calculate Git-Statistics
         sh "gitstats -c start_date='${GITSTATS_START_DATE}' ${env.WORKSPACE} ${GITSTATS_DIR} >> ${GITSTATS_DIR}/gitstats.log"
 
