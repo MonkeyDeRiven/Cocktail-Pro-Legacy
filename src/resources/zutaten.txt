@@ -11,18 +11,3 @@ Limettensaft
 Tequilla
 Gin
 Noilly Prat
-<<<<<<< HEAD
-<<<<<<< HEAD
-Sophia
-=======
-Arian
-<<<<<<< HEAD
->>>>>>> 6a67d3b8e0863e84cdd4f90148e7378735f192de
-=======
-Arian
-Max
->>>>>>> 5fa8a493d7fa484158932a77525fc0da47eeba59
-=======
-Max
-Dies ist ein Text.
->>>>>>> cfa1d49dbd11c3e0fc77f0cebbd93d6214963cdb
