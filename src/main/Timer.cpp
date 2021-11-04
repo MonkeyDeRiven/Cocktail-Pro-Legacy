@@ -1,5 +1,5 @@
 //@(#) Timer.cpp
-
+//Max
 
 #include "Timer.h"
 
