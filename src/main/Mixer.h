@@ -1,5 +1,5 @@
 //@(#) Mixer.h
-
+//Das ist der Header vom Mixer
 #ifndef MIXER_H_H
 #define MIXER_H_H
 
