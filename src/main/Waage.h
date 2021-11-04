@@ -1,4 +1,5 @@
 //@(#) Waage.h
+//Arian
 
 #ifndef WAAGE_H_H
 #define WAAGE_H_H
