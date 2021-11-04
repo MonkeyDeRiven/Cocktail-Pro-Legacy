@@ -11,4 +11,7 @@ Limettensaft
 Tequilla
 Gin
 Noilly Prat
+<<<<<<< HEAD
 Kaan
+=======
+>>>>>>> 9b70b68191ae821bcba2500ad4138c780ae37e17
