@@ -8,7 +8,6 @@
 
 class Waage : public Subject {
  public:
-    bool change;
     void changeWeight(int v);
     int tara();
     int getWeight();

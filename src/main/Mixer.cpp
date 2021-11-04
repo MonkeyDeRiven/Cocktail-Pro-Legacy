@@ -1,5 +1,5 @@
 //@(#) Mixer.cpp
-
+//Kommentar
 
 #include "Mixer.h"
 
