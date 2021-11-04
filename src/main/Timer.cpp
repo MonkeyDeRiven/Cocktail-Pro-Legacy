@@ -1,5 +1,5 @@
 //@(#) Timer.cpp
-//Max
+//Der Max ist der Bruder von Moritz
 
 #include "Timer.h"
 
