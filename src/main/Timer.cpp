@@ -1,6 +1,6 @@
 //@(#) Timer.cpp
 //Max
-
+//Max ist gay
 #include "Timer.h"
 
 void Timer::set_Turbo(int turbo) {
