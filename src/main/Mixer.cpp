@@ -1,5 +1,5 @@
 //@(#) Mixer.cpp
-
+//Kaan ist gay
 
 #include "Mixer.h"
 
