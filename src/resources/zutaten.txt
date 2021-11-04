@@ -11,4 +11,8 @@ Limettensaft
 Tequilla
 Gin
 Noilly Prat
+<<<<<<< HEAD
 Sophia
+=======
+Arian
+>>>>>>> 6a67d3b8e0863e84cdd4f90148e7378735f192de
