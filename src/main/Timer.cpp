@@ -1,6 +1,6 @@
 //@(#) Timer.cpp
-//Max
-
+//Der Max ist der Bruder von Moritz
+//Max ist gay
 #include "Timer.h"
 
 void Timer::set_Turbo(int turbo) {
