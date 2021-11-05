@@ -9,70 +9,67 @@
 #include "CocktailZubereiter.h"
 
 /**
- * Gesamtsystem
+ * Overall system
  *@class CocktailPro
  *
- *@brief CocktailPro diese Klasse leitet die Einfuehrung in das Programm
+ *@brief CocktailPro this class initiates the start of the Program
  *
- * CocktailPro startet den Prozess
- * und in dem wird die Rezeptnummer ausgewaehlt.
+ * and it selects the recipe number
  */
 class CocktailPro {
  protected:
   /**
-  * Objekt von CocktailZubereiter
+  * object of CocktailZubereiter
   */
   CocktailZubereiter * theCocktailZubereiter;
   /**
-  * Objekt von DeviceVerwalter
+  * object of DeviceVerwalter
   */
   DeviceVerwalter * theDeviceVerwalter;
   /**
-  * Objekt von MischbaresRezeptbuch
+  * object of MischbaresRezeptbuch
   */
   MischbaresRezeptbuch * theMischbaresRezeptbuch;
   /**
-  *Objekt von VorhandeneZutaten
+  * object of VorhandeneZutaten
   */
   VorhandeneZutaten * theZutatenVerwalter;
 
  protected:
   /**
-  *@brief waehle() dient zum Rezeptnummerauswhl
-  *@return die ausgewaehlte Rezeptnummer oder -1 zum Beenden
+  *@brief waehle() is used to select the recipe number
+  *@return the selected recipe number or -1 to end
   *
-  *und gibt die erste Einleitung aus.
+  * and returns the first introduction
   */
   int waehle();
   /**
-  *@brief demo() macht das gleiche wie Methode start()
+  *@brief demo() does the same as the method start()
   *@see start()
   *
-  * aber die ausgewaelte Rezeptnummer ist festgestellt bzw. ist(0).
-  *d.h. es wird den Rezeptnamen gezeigt und das Cocktail wird vorbereitet.
-  *
+  * but the selected recipe number is zero
+  * which means the recipe name is shown and the cocktail gets prepared.
   */
   void demo();
 
  public:
   /**
-  *@brief Konstruktor erzeugt objekte von CocktailPro
-  *@return ein Zeiger auf das erzeugten Objekt
-  *@param argc ist die Anzahl der Befehlszeilenoptionen
-  *@param turbo Die einzelnen Befehlszeilenoptionen befinden sich im diesem Array.
+  *@brief constructor creates objects from CocktailPro
+  *@return a pointer to the created object
+  *@param argc is the number of command line options
+  *@param turbo the individual command line options are in this array.
   *
-  *da werden die im protected Variabeln mit dynamischen Objekte intialisiert.
+  * those in protected variables are initialized with dynamic objects
   *
   */
   CocktailPro(int argc, char * * turbo);
   /**
-  *@brief diese Methode startet den Prozess
+  *@brief this method starts the prozess
   *
-  *Diese Methode fragt den Benutzer nach einer Rezeptnummer
-  *,die er auswaehlen soll um den Prozess weiterzufuehren
-  *und kontroliert die ausgewaehlte Nummer, ob es sinnvoll ausgewaehlt oder nicht
-  * das Cocktail wir auch durch eine aufgerufte Methode vorbereitet.
-  *
+  * This method asks the user for a recipe number
+  * that he should select to continue the process
+  * and controls the selected number, whether it was selected sensibly or not.
+  * The cocktail is also called by a method.
   */
   void start();
 

@@ -15,12 +15,22 @@
 #include "Entleerer.h"
 #include "Waage.h"
 
-/**cd cd
- * Befuellt die Dosierer, verwaltet die Interne Hardware
- *  
+/**
+ * Subsystem
+ * @class DeviceVerwalter
+ *
+ * @brief DeviceVerwalter this class contains pointers to all
+ * components of the CocktailPros
+ *
+ * DeviceVerwalter erstellt die Geräte für die Zubereitung
  */
 class DeviceVerwalter {
 public:
+  /**
+   * @brief Konstruktor erzeugt Objekte von CocktailPro
+   *
+   * @param ze
+   */
     DeviceVerwalter(VorhandeneZutaten * ze);
 
     void rezeptSchrittZubereiten(std::string zutat, float menge);
@@ -30,7 +40,7 @@ public:
  private:
     void setZutatenVerwalter(VorhandeneZutaten * ze);
 
-  Mixer * myMixer;
+    Mixer * myMixer;
 
     Stampfer * myStampfer;
 
