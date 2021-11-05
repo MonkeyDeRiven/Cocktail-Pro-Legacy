@@ -10,22 +10,56 @@
 #include "InternalDevice.h"
 #include "Waage.h"
 
+/**
+*Subsystem
+*@class Dosierer
+*
+*@brief this class stores and regulates the amount of ingredients.
+*/
 class Dosierer : public InternalDevice, public Observer {
 public:
+    /**
+    *@brief constructor creates objects from Dosierer
+    *@return a pointer to the created object
+    *@param g is the amount in gram
+    *@param ze is the number of time units
+    *@param inhalt is the name of the ingredient
+    *@param wg is a pointer to the specific Waage
+    */
     Dosierer(float g, int ze, std::string inhalt, Waage * wg);
+    /**
+    *@brief this method regulates the amount put on myWaage
+    */
     virtual void update();
-
+    /**
+    *@brief this method executes the output of ingredients.
+    */
     void doIt(float gramm);
-
+    /**
+    *@brief this method returns grammProZeit
+    *@return grammProZeit
+    */
+    /**
+    * object of int
+    */
     int getStueckProZeit();
 
 private:
+    /**
+    * object of float
+    */
     float grammProZeit;
-
+    /**
+    * object of Waage
+    */
     Waage * myWaage;
-
+    /**
+    * object of float
+    */
     float gwicht;
-
+    /**
+    * object of std::string
+    */
     std::string inhalt;
 };
 
