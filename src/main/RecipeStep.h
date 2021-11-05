@@ -20,6 +20,9 @@ class RecipeStep {
 
  public:
 
+    /**
+     * @brief Construktor that initializes the variables
+     */
     RecipeStep(void);
 
     /** @brief Destructor
