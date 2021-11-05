@@ -32,7 +32,7 @@ public:
     */
     virtual void update();
     /**
-    *@brief this method executes the output of ingredients.
+    *@brief this method executes the output of ingredients on the Waage.
     */
     void doIt(float gramm);
     /**
