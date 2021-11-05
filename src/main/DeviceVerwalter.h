@@ -15,7 +15,7 @@
 #include "Entleerer.h"
 #include "Waage.h"
 
-/*
+/**cd cd
  * Befuellt die Dosierer, verwaltet die Interne Hardware
  *  
  */
