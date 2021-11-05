@@ -5,6 +5,12 @@
 
 #include "InternalDevice.h"
 
+/**
+ * @class Schuettler
+ *
+ * @brief Schuettler
+ *
+ */
 class Schuettler : public InternalDevice {
 public:
     Schuettler();
