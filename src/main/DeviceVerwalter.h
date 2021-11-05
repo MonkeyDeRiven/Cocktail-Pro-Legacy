@@ -42,20 +42,40 @@ public:
    * object of Entelerrer
    */
   Entleerer * myEntleerer;
+  /**
+  *map with string and InternalDevice
+  */
   std::map<std::string, InternalDevice *> * myDevices;
  private:
+    /**
+    *@brief this method defines myZutatenVerwalter
+    *@see myZutatenVerwalter
+    *@param ze defines myZutatenVerwalter 
+    */
     void setZutatenVerwalter(VorhandeneZutaten * ze);
-
+    /**
+    * object of Mixer
+    */
     Mixer * myMixer;
-
+    /**
+    * object of Stampfer
+    */
     Stampfer * myStampfer;
-
+    /**
+    * object of Schuettler
+    */
     Schuettler * mySchuettler;
-
+    /**
+    * object of VorhandeneZutaten
+    */
     VorhandeneZutaten * myZutatenVerwalter;
-
+    /**
+    * object of Waage
+    */
     Waage * theWaage;
-
+    /**
+    *@brief this method creates all needed devices and calibrates the Dosierer
+    */
     void createDevices();
 
 };
