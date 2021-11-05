@@ -22,19 +22,25 @@
  * @brief DeviceVerwalter this class contains pointers to all
  * components of the CocktailPros
  *
- * DeviceVerwalter erstellt die Geräte für die Zubereitung
+ * DeviceVerwalter creates the equipment for the preparation
  */
 class DeviceVerwalter {
 public:
   /**
-   * @brief Konstruktor erzeugt Objekte von CocktailPro
+   * @brief constructor creates objects from CocktailPro
    *
-   * @param ze
+   * @param ze points on VorhandeneZutaten
    */
     DeviceVerwalter(VorhandeneZutaten * ze);
-
+  /**
+   *@brief checks for "Limettenstücke"
+   *@param menge amount of ingredients
+   *@param zutat type of ingredient
+   */
     void rezeptSchrittZubereiten(std::string zutat, float menge);
-
+  /**
+   * object of Entelerrer
+   */
   Entleerer * myEntleerer;
   std::map<std::string, InternalDevice *> * myDevices;
  private:
