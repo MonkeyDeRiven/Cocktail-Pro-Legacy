@@ -27,7 +27,7 @@ class RecipeStep {
  public:
 
     /**
-     * @brief Construktor that initializes the variables
+     * @brief Constructor that initializes the variables
      */
     RecipeStep(void);
 

@@ -17,7 +17,7 @@ class Stampfer : public InternalDevice {
 public:
 
     /**
-     * @brief Construktor
+     * @brief Constructor
      */
     Stampfer();
 

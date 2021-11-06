@@ -16,7 +16,7 @@
 class Schuettler : public InternalDevice {
 public:
     /**
-     * @brief Construktor
+     * @brief Constructor
      */
     Schuettler();
 
