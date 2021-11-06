@@ -36,7 +36,7 @@ CocktailPro::CocktailPro(int argc, char * * param) {
             theTimer->set_Turbo(10);
         }
     }
-    // Mischen
+    // mix
 }
 
 void CocktailPro::demo() {
