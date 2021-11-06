@@ -6,7 +6,7 @@
 #include "Timer.h"
 
 /**
- *  @class Timer
+ *  @class InternalDevices
  *
  *  @brief base class for internal devices, such as dispenser or processing units.
  *
@@ -17,7 +17,7 @@
 
 class InternalDevice {
 public:
-    /** @brief implements a virtual base function for the task funktions of the internal devices.
+    /** @brief implements a virtual base function for the task functions of the internal devices.
      *  @param value is a float, which represents the time.
      */
     virtual void doIt(float value) = 0;
