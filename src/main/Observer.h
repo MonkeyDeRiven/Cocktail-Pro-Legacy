@@ -11,7 +11,7 @@
 class Observer {
 public:
     /**
-     * @brief provides a virtual update function for all devices which needs an update on its
+     * @brief virtual update function for all devices which needs an update on its
      * displays.
      */
     virtual void update() = 0;
