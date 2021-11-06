@@ -14,8 +14,14 @@
  */
 class RecipeStep {
  private:
+    /**
+     * object of string
+     */
     std::string m_Zutat;
 
+    /**
+     * object of float
+     */
     float m_Menge;
 
  public:
