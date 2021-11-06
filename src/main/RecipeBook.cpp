@@ -12,15 +12,15 @@
 
 RecipeBook::RecipeBook(void) {
     m_Recipe.clear();
-    
-       // create Stream
+
+    // create Stream
     std::ifstream in;
 
     std::string FileName = "Rezepte.csv";
     // open file
     in.open(FileName.c_str(), std::ios::in);
 
-    if (!in) {// File could't be opened
+    if (!in) {  // File could't be opened
     Recipe* r1;
 
     r1 = new Recipe;
@@ -141,7 +141,7 @@ RecipeBook::RecipeBook(void) {
           this->m_Recipe.push_back(r1);
         }
 
-        /* close file */
+        // close file
         in.close();
     } 
 }
