@@ -8,14 +8,14 @@
 #include <vector>
 #include <iostream>
 
+/**
+*@class Subject
+*/
 class Subject {
  public:
   /**
-   * @class Subject
-   *
    * @brief the method attach adds an Observer to our Observer vector
    * @param observer we give the method an instanf of Observer
-   *
    **/
   void attach(Observer * observer);
 
