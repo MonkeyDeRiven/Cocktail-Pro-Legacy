@@ -8,11 +8,9 @@
 /**
  * @class Waage
  */
-
 class Waage : public Subject {
  public:
   /**
-   *
    * @brief change our weight to a any given weight
    * @param v the weight we want
    */

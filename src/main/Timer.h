@@ -11,7 +11,6 @@ using namespace std::chrono;
 /**
  * @class Timer
  */
-
 class Timer {
  public:
   /**
