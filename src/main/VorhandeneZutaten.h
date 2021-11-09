@@ -13,12 +13,10 @@
 
 /**
  * @class VorhandeneZutaten
- *
  */
 class VorhandeneZutaten {
  public:
   /**
-   *
    * Constructor without Parameter => Standard constructor
    */
   VorhandeneZutaten(void);
@@ -34,7 +32,7 @@ class VorhandeneZutaten {
   /**
    * @brief All Ingredients have a value, what we use to get our Ingredients
    * @return is the Ingredient
-   * @param int i is the indicator for our Ingredients
+   * @param i is the indicator for our Ingredients
    */
   std::string getZutat(int i);
 
