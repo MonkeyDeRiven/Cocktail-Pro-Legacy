@@ -1,4 +1,4 @@
-git p//@(#) DeviceVerwalter.h
+//@(#) DeviceVerwalter.h
 
 #ifndef DEVICEVERWALTER_H_H
 #define DEVICEVERWALTER_H_H
