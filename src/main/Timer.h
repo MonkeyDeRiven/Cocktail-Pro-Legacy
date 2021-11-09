@@ -10,6 +10,8 @@ using namespace std::chrono;
 
 /**
  * @class Timer
+ * @brief the class implements a timer. It contains functions for timing actions and is able to
+ * enable a turbo mode.
  */
 class Timer {
  public:

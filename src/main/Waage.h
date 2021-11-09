@@ -7,6 +7,7 @@
 
 /**
  * @class Waage
+ * @brief the class can tare, measure weights and display it.
  */
 class Waage : public Subject {
  public:
