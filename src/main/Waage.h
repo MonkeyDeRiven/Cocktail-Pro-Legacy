@@ -1,5 +1,4 @@
 //@(#) Waage.h
-//Arian
 
 #ifndef WAAGE_H_H
 #define WAAGE_H_H
@@ -15,7 +14,7 @@ class Waage : public Subject {
   /**
    *
    * @brief change our weight to a any given weight
-   * @param int v the weight we want
+   * @param v the weight we want
    */
   void changeWeight(int v);
   /**
