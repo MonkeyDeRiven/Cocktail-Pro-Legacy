@@ -13,6 +13,9 @@
 
 /**
  * @class VorhandeneZutaten
+ * @brief this class contains every available ingredient. It can read in ingredients from a file,
+ * add new ingredients, print all ingredients, find a ingredient via index and return the amount of
+ * available ingredients.
  */
 class VorhandeneZutaten {
  public:
