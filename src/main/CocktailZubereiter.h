@@ -19,8 +19,8 @@ class CocktailZubereiter {
 public:
     /**
     *@brief constructor creates objects of CocktailZubereiter
+    *@param dv points to DeviceVerwalter
     *@return a pointer to the created object
-    *@param dv points to DeviceVerwalter 
     */
     CocktailZubereiter(DeviceVerwalter * dv);
     /**
