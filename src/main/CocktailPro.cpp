@@ -42,13 +42,10 @@ CocktailPro::CocktailPro(int argc, char * * param) {
 void CocktailPro::demo() {
     int CocktailNo = 1;
     int max = theMischbaresRezeptbuch->getNumberOfRecipes();
-    if (CocktailNo > 0 && CocktailNo <= max) {
-        Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(CocktailNo - 1);
-        std::cout << rezeptptr->getName() << std::endl;
-        theCocktailZubereiter->cocktailZubereiten(rezeptptr);
-    } else {
-        std::cout << "Falsche Cocktailnummer!" << std::endl;
-    }
+    Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(CocktailNo - 1);
+    std::cout << rezeptptr->getName() << std::endl;
+    theCocktailZubereiter->cocktailZubereiten(rezeptptr);
+
 }
 
 
