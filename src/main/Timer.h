@@ -3,19 +3,18 @@
 #ifndef TIMER_H_H
 #define TIMER_H_H
 
-/**
- * @brief the #include chrono is used to simulate the time
- **/
 #include <chrono>
 
 using namespace std::chrono;
 #include <iostream>
 
+/**
+ * @class Timer
+ */
+
 class Timer {
  public:
   /**
-    * @class Timer
-    *
     * @brief setter to set the booster from our instance
     * @param turbo is given to set a certain number to our booster
     */
