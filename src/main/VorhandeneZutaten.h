@@ -12,33 +12,62 @@
 #include <iostream>
 
 /**
- *  Liest Zutaten aus Liste ein.
- *  Merkt sich in der Liste die Zutaten + Aggregatszustand.
- *
+ * @class VorhandeneZutaten
+ * @brief this class contains every available ingredient. It can read in ingredients from a file,
+ * add new ingredients, print all ingredients, find a ingredient via index and return the amount of
+ * available ingredients.
  */
 class VorhandeneZutaten {
  public:
-    VorhandeneZutaten(void);
-    virtual ~VorhandeneZutaten();
+  /**
+   * Constructor without Parameter => Standard constructor
+   */
+  VorhandeneZutaten(void);
+  /**
+   * destructor for our Instances
+   */
+  virtual ~VorhandeneZutaten();
+/**
+ * @brief ???This method is called, but it happens NOTHING. (Info:Declared in vorhandeneZutaten.h)
+ */
+  void browse(void);
 
-    void browse(void);
+  /**
+   * @brief All Ingredients have a value, what we use to get our Ingredients
+   * @return is the Ingredient
+   * @param i is the indicator for our Ingredients
+   */
+  std::string getZutat(int i);
 
-    std::string getZutat(int);
-
-    int getAnzahlVorhandeneZutaten();
+  /**
+   * @brief getter for numb. of Ingredients
+   * @return we get the sum of all Ingredients
+   */
+  int getAnzahlVorhandeneZutaten();
 
  private:
-    std::vector<std::string> * zutaten;
+  /**
+   * @brief list of Ingredients
+   */
+  std::vector<std::string> * zutaten;
 
-    static const bool DEBUG = false;
-
+  static const bool DEBUG = false;
+/**
+ * @brief if we are in DEBUG mode, we read the ingredients from zutaten.txt
+ */
   void DummyZutatenEinfuegen();
-
-    virtual void ZutatenDateiEinlesen(std::string);
+/**
+ * @brief we can read our Ingredients from a given filaName
+ * @param string is our fileName from where we want to read and initialize our Ingredients
+ */
+  virtual void ZutatenDateiEinlesen(std::string);
 
 
   int anzahlDosierer;
 
 };
+/**
+ * declaring our fileName
+ */
 static std::string FileName;
 #endif

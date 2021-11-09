@@ -8,14 +8,36 @@
 #include <vector>
 #include <iostream>
 
-class Subject {
-public:
-    void attach(Observer * observer);
-    void detach(Observer * observer);
-    void notify();
+/**
+ * @class Subject
+ * @brief this class is created to represent the consumer who wants a cocktail
+*/
 
-private:
-    std::vector<Observer *> observers;
+class Subject {
+ public:
+  /**
+   * @brief the method attach adds an Observer to our Observer vector
+   * @param observer we give the method an instanf of Observer
+   **/
+  void attach(Observer * observer);
+
+  /**
+   * @brief Die Methode detach entfernt den aktuellen Beobachter von der Vektorliste
+   * @param observer we give the method an instance of Observer
+   **/
+
+  void detach(Observer * observer);
+
+  /**
+   * @brief the method notify updates all Observer in our Vectorlist
+   **/
+  void notify();
+
+ private:
+  /**
+   * @brief list with all our Observers
+   */
+  std::vector<Observer *> observers;
 
 };
 

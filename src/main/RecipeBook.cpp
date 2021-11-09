@@ -12,15 +12,15 @@
 
 RecipeBook::RecipeBook(void) {
     m_Recipe.clear();
-    
-       // Stream anlegen
+
+    // create Stream
     std::ifstream in;
 
     std::string FileName = "Rezepte.csv";
-    // Datei oeffnen
+    // open file
     in.open(FileName.c_str(), std::ios::in);
 
-    if (!in) {// File konnte nicht geoeffnet werden
+    if (!in) {  // File could't be opened
     Recipe* r1;
 
     r1 = new Recipe;
@@ -105,43 +105,43 @@ RecipeBook::RecipeBook(void) {
         
         
     } else {
-        /* Daten lesen und ausgeben */
+        // Read and output data
         std::string zeile;
 
-        // 1. Zeile ist Ueberschrift - Einlesen und wegwerfen!
+        // 1. line is title - Read and throw away!
         getline(in, zeile);
         // cout << zeile << endl;
 
         while (getline(in, zeile)) {
-            //      cout << zeile << endl;
-                std::istringstream inputString(zeile);
-    std::string Name;
-    std::string Zutat;
-    std::string tempstring;
-    float Menge;
+          // cout << zeile << endl;
+          std::istringstream inputString(zeile);
+          std::string Name;
+          std::string Zutat;
+          std::string tempstring;
+          float Menge;
 
-    Recipe* r1;
+          Recipe* r1;
 
-    r1 = new Recipe;
+          r1 = new Recipe;
 
-    // Aus istringstream Name einlesen mit Komma als Trennzeichen
-    getline(inputString, Name, ';');
-    // Weiter einlesen bis zum naechsten Trennzeichen (Zutat)
-    r1->setName(Name);
-    //cout << "Name: " << Name << endl;
+          // Read name from istringstream with semicolon as separator
+          getline(inputString, Name, ';');
+          r1->setName(Name);
+          //cout << "Name: " << Name << endl;
 
-    while (getline(inputString, Zutat, ';')&& !Zutat.empty()) {
-        // Weiter einlesen bis zum naechsten Trennzeichen (Menge)
-        if (getline(inputString, tempstring, ';')) {
-            std::istringstream(tempstring) >> Menge;
+          // Continue reading to the next separator (ingredient)
+          while (getline(inputString, Zutat, ';')&& !Zutat.empty()) {
+              // Continue reading to the next separator (quantity)
+              if (getline(inputString, tempstring, ';')) {
+                  std::istringstream(tempstring) >> Menge;
+              }
+              r1->appendStep(Zutat, Menge);
+              //cout << " Zutat: " << Zutat << " Menge: " << Menge << "\n" << endl;
+          }
+          this->m_Recipe.push_back(r1);
         }
-        r1->appendStep(Zutat, Menge);
-        //cout << " Zutat: " << Zutat << " Menge: " << Menge << "\n" << endl;
-    }
-    this->m_Recipe.push_back(r1);
-        }
 
-        /* Datei wieder schliessen */
+        // close file
         in.close();
     } 
 }
@@ -158,8 +158,8 @@ Recipe * RecipeBook::getRecipe(unsigned int i) {
     if (i > m_Recipe.size()) return NULL;
     else {
         std::list<Recipe*>::iterator p; // Iterator
-        advance(p = m_Recipe.begin(), i); // p zeigt jetzt auf das i-te Element
-        return *p; // Wert von p - also den Pointer zurueck
+        advance(p = m_Recipe.begin(), i); // now p points to the i-th Element
+        return *p; // return value of p the pointer
     }
 }
 

@@ -9,6 +9,8 @@ Dosierer::Dosierer(float g, int ze, std::string inhalt, Waage * wg) : InternalDe
     this->inhalt = inhalt;
     this->myWaage = wg;
     this->myWaage->attach(this);
+
+
 }
 
 void Dosierer::update() {
