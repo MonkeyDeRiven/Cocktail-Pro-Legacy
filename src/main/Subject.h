@@ -8,20 +8,20 @@
 #include <vector>
 #include <iostream>
 
+/**
+*@class Subject
+*/
 class Subject {
  public:
   /**
-   * @class Subject
-   *
    * @brief the method attach adds an Observer to our Observer vector
    * @param observer we give the method an instanf of Observer
-   *
    **/
   void attach(Observer * observer);
 
   /**
    * @brief Die Methode detach entfernt den aktuellen Beobachter von der Vektorliste
-   * @param we give the method an instance of Observer
+   * @param observer we give the method an instance of Observer
    **/
 
   void detach(Observer * observer);
