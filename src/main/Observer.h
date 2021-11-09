@@ -4,7 +4,7 @@
 #define OBSERVER_H_H
 
 /**
- *  @class observer
+ *  @class Observer
  *  @brief provides a virtual update function for all display devices.
  */
 class Observer {

@@ -6,7 +6,7 @@
 #include "Timer.h"
 
 /**
- *  @class InternalDevices
+ *  @class InternalDevice
  *
  *  @brief base class for internal devices, such as dispenser or processing units.
  *
