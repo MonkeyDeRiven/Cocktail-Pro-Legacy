@@ -9,7 +9,7 @@
 #include "RecipeBook.h"
 #include "DeviceVerwalter.h"
 
-/*Subsystem
+/**Subsystem
 *@class CocktailZubereiter
 *
 *@brief prepares the cocktail according to the recipe steps. 

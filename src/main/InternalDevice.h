@@ -14,7 +14,6 @@
  *  It contains a function for cleaning the devices and provides a timer.
  *  the virtual function DoIt, gets overridden by the task function of each internal device.
  */
-
 class InternalDevice {
 public:
     /** @brief implements a virtual base function for the task functions of the internal devices.
@@ -39,6 +38,9 @@ public:
      */
     InternalDevice();
 protected:
+    /**
+     * contains the time
+     */
     int zeiteinheit;
 
     /**

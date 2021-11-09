@@ -7,7 +7,6 @@
  *  @class observer
  *  @brief provides a virtual update function for all display devices.
  */
-
 class Observer {
 public:
     /**
