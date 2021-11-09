@@ -3,10 +3,6 @@
 
 #include "RecipeStep.h"
 
-/**
- * Konstruktor 
- *  
- */
 RecipeStep::RecipeStep(void) {
     m_Zutat = "";
     m_Menge = 0;

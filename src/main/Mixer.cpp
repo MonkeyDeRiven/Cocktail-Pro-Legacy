@@ -1,6 +1,5 @@
 //@(#) Mixer.cpp
 
-
 #include "Mixer.h"
 
 Mixer::Mixer() : InternalDevice() {

@@ -15,31 +15,67 @@ git p//@(#) DeviceVerwalter.h
 #include "Entleerer.h"
 #include "Waage.h"
 
-/*
- * Befuellt die Dosierer, verwaltet die Interne Hardware
- *  
+/**
+ * Subsystem
+ * @class DeviceVerwalter
+ *
+ * @brief DeviceVerwalter this class contains pointers to all
+ * components of the CocktailPros
+ *
+ * DeviceVerwalter creates the equipment for the preparation
  */
 class DeviceVerwalter {
 public:
+  /**
+   * @brief constructor creates objects from CocktailPro
+   *
+   * @param ze points on VorhandeneZutaten
+   */
     DeviceVerwalter(VorhandeneZutaten * ze);
-
+  /**
+   *@brief checks for "Limettenstücke"
+   *@param menge amount of ingredients
+   *@param zutat type of ingredient
+   */
     void rezeptSchrittZubereiten(std::string zutat, float menge);
-
+  /**
+   * object of Entelerrer
+   */
   Entleerer * myEntleerer;
+  /**
+  *map with string and InternalDevice
+  */
   std::map<std::string, InternalDevice *> * myDevices;
  private:
+    /**
+    *@brief this method defines myZutatenVerwalter
+    *@see myZutatenVerwalter
+    *@param ze defines myZutatenVerwalter 
+    */
     void setZutatenVerwalter(VorhandeneZutaten * ze);
-
-  Mixer * myMixer;
-
+    /**
+    * object of Mixer
+    */
+    Mixer * myMixer;
+    /**
+    * object of Stampfer
+    */
     Stampfer * myStampfer;
-
+    /**
+    * object of Schuettler
+    */
     Schuettler * mySchuettler;
-
+    /**
+    * object of VorhandeneZutaten
+    */
     VorhandeneZutaten * myZutatenVerwalter;
-
+    /**
+    * object of Waage
+    */
     Waage * theWaage;
-
+    /**
+    *@brief this method creates all needed devices and calibrates the Dosierer
+    */
     void createDevices();
 
 };
