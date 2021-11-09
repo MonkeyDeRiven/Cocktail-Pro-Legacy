@@ -10,8 +10,9 @@
 
 /**
  * @class Subject
- * @brief this class is created to representgit  the consumer who wants a cocktail
+ * @brief this class is created to represent the consumer who wants a cocktail
 */
+
 class Subject {
  public:
   /**

@@ -13,12 +13,13 @@
 
 /**
  * @class VorhandeneZutaten
- *
+ * @brief this class contains every available ingredient. It can read in ingredients from a file,
+ * add new ingredients, print all ingredients, find a ingredient via index and return the amount of
+ * available ingredients.
  */
 class VorhandeneZutaten {
  public:
   /**
-   *
    * Constructor without Parameter => Standard constructor
    */
   VorhandeneZutaten(void);
@@ -34,7 +35,7 @@ class VorhandeneZutaten {
   /**
    * @brief All Ingredients have a value, what we use to get our Ingredients
    * @return is the Ingredient
-   * @param int i is the indicator for our Ingredients
+   * @param i is the indicator for our Ingredients
    */
   std::string getZutat(int i);
 
