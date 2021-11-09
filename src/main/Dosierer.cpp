@@ -3,12 +3,14 @@
 
 #include "Dosierer.h"
 
-Dosierer::Dosierer(float g, int ze, std::string inhalt, Waage * wg) : InternalDevice() {
+Dosierer::Dosierer(float g, Waage * wg,  int ze, std::string inhalt) : InternalDevice() {
     this->grammProZeit = g;
+    this->myWaage = wg;
     this->zeiteinheit = ze;
     this->inhalt = inhalt;
-    this->myWaage = wg;
     this->myWaage->attach(this);
+
+
 }
 
 void Dosierer::update() {
