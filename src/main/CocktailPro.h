@@ -64,7 +64,7 @@ class CocktailPro {
   */
   CocktailPro(int argc, char * * turbo);
   /**
-  *@brief this method starts the prozess
+  *@brief this method starts the process
   *
   * This method asks the user for a recipe number
   * that he should select to continue the process

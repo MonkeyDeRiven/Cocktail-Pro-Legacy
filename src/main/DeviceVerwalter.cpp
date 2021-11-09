@@ -47,7 +47,7 @@ void DeviceVerwalter::rezeptSchrittZubereiten(std::string zutat, float menge) {
     tmpDevice = myDevices->find(zutat);
 
     if (zutat == "Limettenstuecke") {
-        // Der Kunde will Limetten nach Stueck und nicht nach Gewicht abmessen.
+        // The customer wants to measure limes by piece and not by weight.
         int stckProZeit = ((Dosierer *) myDevices->at(zutat))->getStueckProZeit();
         myDevices->at(zutat)->doIt(menge * stckProZeit);
     } else {
