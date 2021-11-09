@@ -6,13 +6,16 @@
 
 #include "Subject.h"
 
+/**
+ * @class Waage
+ */
+
 class Waage : public Subject {
  public:
   /**
-   * @class Waage
    *
    * @brief change our weight to a any given weight
-   * @param is the weight we want
+   * @param int v the weight we want
    */
   void changeWeight(int v);
   /**
