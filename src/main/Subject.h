@@ -9,7 +9,7 @@
 #include <iostream>
 
 /**
-*@class Subject
+* @class Subject
 */
 class Subject {
  public:
