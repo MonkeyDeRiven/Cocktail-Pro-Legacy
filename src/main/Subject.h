@@ -9,7 +9,8 @@
 #include <iostream>
 
 /**
-* @class Subject
+ * @class Subject
+ * @brief this the Subject who wants a cocktail
 */
 class Subject {
  public:
