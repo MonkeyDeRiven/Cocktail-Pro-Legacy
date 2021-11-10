@@ -22,7 +22,7 @@ public:
     *@param dv points to DeviceVerwalter
     *@return a pointer to the created object
     */
-    CocktailZubereiter(DeviceVerwalter * dv);
+    explicit CocktailZubereiter(DeviceVerwalter * dv);
     /**
     *@brief this method starts the process of creating the cocktail based on a recipe.
     *@param rzpt is the recipe for the Cocktail
