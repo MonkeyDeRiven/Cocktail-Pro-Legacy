@@ -55,4 +55,3 @@ void DeviceVerwalter::rezeptSchrittZubereiten(std::string zutat, float menge) {
         myDevices->at(zutat)->doIt(menge);
     }
 }
-
