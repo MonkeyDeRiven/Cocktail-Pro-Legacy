@@ -26,7 +26,7 @@ public:
     *@param inhalt is the name of the ingredient
     *@param wg is a pointer to the specific Waage
     */
-    Dosierer(float g, int ze, std::string inhalt, Waage * wg);
+    Dosierer(float g, int ze, std::string &inhalt, Waage * wg);
     /**
     *@brief this method regulates the amount put on myWaage
     */
