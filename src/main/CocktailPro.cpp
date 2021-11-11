@@ -19,7 +19,6 @@ void CocktailPro::start(){
 }
 
 CocktailPro::CocktailPro(int argc, char * * param) {
-    theZutatenVerwalter = new VorhandeneZutaten;
 
     theMischbaresRezeptbuch = new MischbaresRezeptbuch(theZutatenVerwalter);
     theDeviceVerwalter = new DeviceVerwalter(theZutatenVerwalter);
