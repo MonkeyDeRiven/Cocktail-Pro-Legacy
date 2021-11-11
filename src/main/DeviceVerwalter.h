@@ -31,7 +31,7 @@ public:
    *
    * @param ze points on VorhandeneZutaten
    */
-    DeviceVerwalter(VorhandeneZutaten * ze);
+    explicit DeviceVerwalter(VorhandeneZutaten * ze);
   /**
    *@brief checks for "Limettenstücke"
    *@param menge amount of ingredients

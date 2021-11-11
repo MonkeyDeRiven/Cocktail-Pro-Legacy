@@ -3,9 +3,9 @@
 
 #include "InternalDevice.h"
 
-void InternalDevice::setTimer() {
+/*void InternalDevice::setTimer() {
 
-}
+}*/
 
 InternalDevice::InternalDevice() {
     myTimer = Timer::getInstance();
