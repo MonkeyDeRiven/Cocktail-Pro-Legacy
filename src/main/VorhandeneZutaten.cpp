@@ -3,17 +3,15 @@
 #include "VorhandeneZutaten.h"
 //
 
-VorhandeneZutaten::VorhandeneZutaten(void) {
+VorhandeneZutaten::VorhandeneZutaten() {
   zutaten = new std::vector<std::string>;
 
   // int einlesen(list<string>* zutaten, std::string FileName)
 // Stream anlegen
 
-  if (DEBUG) {
-    DummyZutatenEinfuegen();
-  } else {
-    ZutatenDateiEinlesen("zutaten.txt");
-  }
+
+  ZutatenDateiEinlesen("zutaten.txt");
+
 
   browse();
 
@@ -22,6 +20,11 @@ VorhandeneZutaten::VorhandeneZutaten(void) {
 
   anzahlDosierer = zutaten->size();
 
+}
+
+VorhandeneZutaten::VorhandeneZutaten(std::vector<std::string> *zutaten) {
+  this->zutaten = zutaten;
+  this->anzahlDosierer = zutaten->size();
 }
 
 VorhandeneZutaten::~VorhandeneZutaten(void) {

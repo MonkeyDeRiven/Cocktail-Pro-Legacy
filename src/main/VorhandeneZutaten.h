@@ -22,7 +22,12 @@ class VorhandeneZutaten {
   /**
    * Constructor without Parameter => Standard constructor
    */
-  VorhandeneZutaten(void);
+  VorhandeneZutaten();
+
+  /**
+   * copy constructor
+   */
+   VorhandeneZutaten(std::vector<std::string> *zutaten);
   /**
    * destructor for our Instances
    */
@@ -51,7 +56,7 @@ class VorhandeneZutaten {
    */
   std::vector<std::string> * zutaten;
 
-  static const bool DEBUG = false;
+  bool DEBUG = false;
 /**
  * @brief if we are in DEBUG mode, we read the ingredients from zutaten.txt
  */
