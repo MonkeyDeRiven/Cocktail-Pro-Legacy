@@ -27,7 +27,7 @@ class VorhandeneZutaten {
   /**
    * copy constructor
    */
-   VorhandeneZutaten(VorhandeneZutaten *original);
+   VorhandeneZutaten(VorhandeneZutaten &original);
   /**
    * destructor for our Instances
    */

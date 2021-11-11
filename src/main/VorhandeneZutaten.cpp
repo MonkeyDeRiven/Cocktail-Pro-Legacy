@@ -22,9 +22,9 @@ VorhandeneZutaten::VorhandeneZutaten() {
 
 }
 
-VorhandeneZutaten::VorhandeneZutaten(VorhandeneZutaten *original) {
-  this->zutaten = original->zutaten;
-  this->anzahlDosierer = original->zutaten->size();
+VorhandeneZutaten::VorhandeneZutaten(VorhandeneZutaten &original) {
+  this->zutaten = original.zutaten;
+  this->anzahlDosierer = original.zutaten->size();
 }
 
 VorhandeneZutaten::~VorhandeneZutaten(void) {
