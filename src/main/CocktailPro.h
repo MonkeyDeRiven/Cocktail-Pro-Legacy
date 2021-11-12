@@ -67,7 +67,7 @@ class CocktailPro {
    * @brief
    * @param toCopyObject
    */
-  CocktailPro(CocktailPro * toCopyObject);
+  CocktailPro(CocktailPro & toCopyObject);
   /**
   *@brief this method starts the process
   *
