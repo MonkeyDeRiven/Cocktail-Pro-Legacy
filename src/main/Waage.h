@@ -12,6 +12,10 @@
 class Waage : public Subject {
  public:
   /**
+   * @brief standard constructor of class Waage, which initializes the private variables with 0.
+   */
+  Waage();
+  /**
    * @brief change our weight to a any given weight
    * @param v the weight we want
    */

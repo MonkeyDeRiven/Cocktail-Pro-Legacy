@@ -48,6 +48,7 @@ CocktailPro::CocktailPro(CocktailPro * toCopyObject){
 void CocktailPro::demo() {
     int CocktailNo = 1;
     int max = theMischbaresRezeptbuch->getNumberOfRecipes();
+
     Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(CocktailNo - 1);
     std::cout << rezeptptr->getName() << std::endl;
     theCocktailZubereiter->cocktailZubereiten(rezeptptr);

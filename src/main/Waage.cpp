@@ -3,6 +3,11 @@
 
 #include "Waage.h"
 
+Waage::Waage() {
+  this->weight = 0;
+  this->deltaweight = 0;
+}
+
 void Waage::changeWeight(int v) {
     weight += v;
     if (weight < 0)
