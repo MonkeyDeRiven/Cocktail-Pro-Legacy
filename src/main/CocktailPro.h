@@ -64,6 +64,11 @@ class CocktailPro {
   */
   CocktailPro(int argc, char * * turbo);
   /**
+   * @brief
+   * @param toCopyObject
+   */
+  CocktailPro(CocktailPro * toCopyObject);
+  /**
   *@brief this method starts the process
   *
   * This method asks the user for a recipe number

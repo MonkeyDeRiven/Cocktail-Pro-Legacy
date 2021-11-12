@@ -48,8 +48,7 @@ void DeviceVerwalter::rezeptSchrittZubereiten(std::string zutat, float menge) {
 
     if (zutat == "Limettenstuecke") {
         // The customer wants to measure limes by piece and not by weight.
-        //int stckProZeit = ((Dosierer *) myDevices->at(zutat))->getStueckProZeit();
-        int stckProZeit = ((Dosierer *) myDevices->at(zutat))->getStueckProZeit();
+        int stckProZeit = dynamic_cast<Dosierer *>((myDevices)->at(zutat))->getStueckProZeit();
         myDevices->at(zutat)->doIt(menge * stckProZeit);
     } else {
         myDevices->at(zutat)->doIt(menge);
