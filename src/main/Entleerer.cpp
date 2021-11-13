@@ -22,10 +22,10 @@ void Entleerer::update() {
         doinIt = 0;
 }
 
-void Entleerer::doIt(float value) {
+void Entleerer::doIt(float input) {
     std::cout << "Ihr Cocktail hat ein Gesamtgewicht von " << myWaage->getWeight() << "g" << std::endl;
     std::cout << "Entleervorgang wird begonnen..." << std::endl;
-    this->value = value;
+    this->value = input;
     doinIt = 1;
     while (doinIt) {
       myTimer->sleep_in_intervals(zeiteinheit);
