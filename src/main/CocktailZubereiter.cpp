@@ -29,4 +29,11 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt) {
   }
   return (true);
 }
+/*DeviceVerwalter *CocktailZubereiter::getMyDeviceVerwalter() const {
+  return myDeviceVerwalter;
+}
+CocktailZubereiter& CocktailZubereiter::operator=(CocktailZubereiter overload) {
+  this->myDeviceVerwalter = overload.getMyDeviceVerwalter();
+  return *this;
+}*/
 

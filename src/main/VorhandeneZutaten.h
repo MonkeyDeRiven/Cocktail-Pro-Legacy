@@ -18,18 +18,18 @@
  * available ingredients.
  */
 class VorhandeneZutaten {
-
-  VorhandeneZutaten& operator= (VorhandeneZutaten copy);
  public:
   /**
    * Constructor without Parameter => Standard constructor
    */
   VorhandeneZutaten();
-
   /**
    * copy constructor
    */
    VorhandeneZutaten(VorhandeneZutaten &original);
+
+  VorhandeneZutaten& operator= (VorhandeneZutaten copy);
+
   /**
    * destructor for our Instances
    */

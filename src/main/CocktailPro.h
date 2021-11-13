@@ -18,10 +18,10 @@
  */
 class CocktailPro {
  private:
-  CocktailZubereiter operator= (CocktailZubereiter &overload);
-  DeviceVerwalter operator= (DeviceVerwalter &overload);
-  MischbaresRezeptbuch operator= (MischbaresRezeptbuch &overload);
-  VorhandeneZutaten operator= (VorhandeneZutaten &overload);
+  CocktailZubereiter& operator= (CocktailZubereiter overload);
+  DeviceVerwalter& operator= (DeviceVerwalter overload);
+  MischbaresRezeptbuch& operator= (MischbaresRezeptbuch overload);
+  VorhandeneZutaten& operator= (VorhandeneZutaten overload);
  protected:
   /**
   * object of CocktailZubereiter
@@ -58,6 +58,7 @@ class CocktailPro {
   void demo();
 
  public:
+  CocktailPro& operator=(CocktailPro overload);
   /**
   *@brief constructor creates objects from CocktailPro
   *@return a pointer to the created object

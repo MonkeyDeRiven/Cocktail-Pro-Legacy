@@ -30,13 +30,15 @@ public:
     *@return true
     */
     bool cocktailZubereiten(Recipe * rzpt);
+    //CocktailZubereiter& operator=(CocktailZubereiter overload);
 
 private:
     /**
     * object of DeviceVerwalter 
     */
     DeviceVerwalter * myDeviceVerwalter;
-
+ public:
+  DeviceVerwalter *getMyDeviceVerwalter() const;
 
 };
 
