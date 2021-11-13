@@ -6,7 +6,6 @@
 Dosierer::Dosierer(float g, int ze, std::string &input_inhalt, Waage * wg) : InternalDevice(), inhalt(input_inhalt) {
     this->grammProZeit = g;
     this->zeiteinheit = ze;
-    //this->inhalt = input_inhalt;
     this->myWaage = wg;
     this->myWaage->attach(this);
 
