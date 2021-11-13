@@ -40,10 +40,7 @@ CocktailPro::CocktailPro(int argc, char * * param) {
 }
 
 CocktailPro::CocktailPro(CocktailPro &toCopyObject){
-  theMischbaresRezeptbuch = toCopyObject.theMischbaresRezeptbuch;
-  theDeviceVerwalter = toCopyObject.theDeviceVerwalter;
-  theCocktailZubereiter = toCopyObject.theCocktailZubereiter;
-  theZutatenVerwalter = toCopyObject.theZutatenVerwalter;
+  *this = toCopyObject;
 }
 
 void CocktailPro::demo() {
@@ -81,3 +78,12 @@ int CocktailPro::waehle() {
         }
     }
 }
+
+CocktailPro& CocktailPro::operator=(CocktailPro overload) {
+  theMischbaresRezeptbuch = overload.theMischbaresRezeptbuch;
+  theDeviceVerwalter = overload.theDeviceVerwalter;
+  theCocktailZubereiter = overload.theCocktailZubereiter;
+  theZutatenVerwalter = overload.theZutatenVerwalter;
+  return *this;
+}
+
