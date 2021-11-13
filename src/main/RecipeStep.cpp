@@ -19,10 +19,10 @@ float RecipeStep::getMenge(void) const {
     return m_Menge;
 }
 
-void RecipeStep::setZutat(std::string m_Zutat) {
-    this->m_Zutat = m_Zutat;
+void RecipeStep::setZutat(std::string input_m_Zutat) {
+    this->m_Zutat = input_m_Zutat;
 }
 
-void RecipeStep::setMenge(float m_Menge) {
-    this->m_Menge = m_Menge;
+void RecipeStep::setMenge(float input_m_Menge) {
+    this->m_Menge = input_m_Menge;
 }

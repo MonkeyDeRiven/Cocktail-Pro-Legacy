@@ -49,15 +49,15 @@ class RecipeStep {
 
     /**
      * @brief Set the value of the ingredient
-     * @param m_Zutat a string for the given ingredient
+     * @param input_m_Zutat a string for the given ingredient
      */
-    void setZutat(std::string m_Zutat);
+    void setZutat(std::string input_m_Zutat);
 
     /**
      * @brief Set the value of the quantity of the ingredient
-     * @param m_Menge a float for the given quantity of the ingredient
+     * @param input_m_Menge a float for the given quantity of the ingredient
      */
-    void setMenge(float m_Menge);
+    void setMenge(float input_m_Menge);
 
 };
 #endif
