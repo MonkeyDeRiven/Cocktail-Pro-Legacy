@@ -62,7 +62,7 @@ class CocktailPro {
   * those in protected variables are initialized with dynamic objects
   *
   */
-  CocktailPro(int argc, char * * turbo);
+  explicit CocktailPro(int argc, char * * turbo);
   /**
    * @brief
    * @param toCopyObject
