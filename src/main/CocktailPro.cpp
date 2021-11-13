@@ -20,10 +20,11 @@ void CocktailPro::start(){
 
 CocktailPro::CocktailPro(int argc, char * * param) {
 
+    theZutatenVerwalter = new VorhandeneZutaten;
     theMischbaresRezeptbuch = new MischbaresRezeptbuch(theZutatenVerwalter);
     theDeviceVerwalter = new DeviceVerwalter(theZutatenVerwalter);
     theCocktailZubereiter = new CocktailZubereiter(theDeviceVerwalter);
-    theZutatenVerwalter = new VorhandeneZutaten;
+
 
     Timer * theTimer = Timer::getInstance();
     if (argc == 2) {// this has to be changed later
