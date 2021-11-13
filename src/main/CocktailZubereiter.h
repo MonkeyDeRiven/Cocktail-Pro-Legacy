@@ -37,9 +37,6 @@ private:
     * object of DeviceVerwalter 
     */
     DeviceVerwalter * myDeviceVerwalter;
- public:
-  DeviceVerwalter *getMyDeviceVerwalter() const;
-
 };
 
 #endif

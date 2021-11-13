@@ -17,11 +17,6 @@
  * and it selects the recipe number
  */
 class CocktailPro {
- private:
-  CocktailZubereiter& operator= (CocktailZubereiter overload);
-  DeviceVerwalter& operator= (DeviceVerwalter overload);
-  MischbaresRezeptbuch& operator= (MischbaresRezeptbuch overload);
-  VorhandeneZutaten& operator= (VorhandeneZutaten overload);
  protected:
   /**
   * object of CocktailZubereiter
@@ -58,6 +53,11 @@ class CocktailPro {
   void demo();
 
  public:
+  /**
+   * @brief overloads operators
+   * @param overload is the overload
+   * @return a reference to the storage address
+   */
   CocktailPro& operator=(CocktailPro overload);
   /**
   *@brief constructor creates objects from CocktailPro
