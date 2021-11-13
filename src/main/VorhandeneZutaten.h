@@ -20,6 +20,12 @@
 class VorhandeneZutaten {
  public:
   /**
+   * @brief operator overload equal, for assigning VorhandeneZutaten.
+   * @param copy is the VorhandeneZutaten object, which we want to make a copy of.
+   * @return a reference of the address from the new VorhandeneZutaten object.
+   */
+  VorhandeneZutaten& operator= (VorhandeneZutaten copy);
+  /**
    * Constructor without Parameter => Standard constructor
    */
   VorhandeneZutaten();
@@ -27,9 +33,6 @@ class VorhandeneZutaten {
    * copy constructor
    */
    VorhandeneZutaten(VorhandeneZutaten &original);
-
-  VorhandeneZutaten& operator= (VorhandeneZutaten copy);
-
   /**
    * destructor for our Instances
    */
