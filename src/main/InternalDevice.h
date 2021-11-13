@@ -28,7 +28,7 @@ public:
 private:
     /** @brief sets a timer.
      */
-    void setTimer();
+    //void setTimer();
 
 
 public:

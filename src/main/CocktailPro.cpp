@@ -19,7 +19,6 @@ void CocktailPro::start(){
 }
 
 CocktailPro::CocktailPro(int argc, char * * param) {
-    theZutatenVerwalter = new VorhandeneZutaten;
 
     theMischbaresRezeptbuch = new MischbaresRezeptbuch(theZutatenVerwalter);
     theDeviceVerwalter = new DeviceVerwalter(theZutatenVerwalter);
@@ -36,7 +35,14 @@ CocktailPro::CocktailPro(int argc, char * * param) {
             theTimer->set_Turbo(10);
         }
     }
-    // Mischen
+    // mix
+}
+
+CocktailPro::CocktailPro(CocktailPro * toCopyObject){
+  theMischbaresRezeptbuch = toCopyObject->theMischbaresRezeptbuch;
+  theDeviceVerwalter = toCopyObject->theDeviceVerwalter;
+  theCocktailZubereiter = toCopyObject->theCocktailZubereiter;
+  theZutatenVerwalter = toCopyObject->theZutatenVerwalter;
 }
 
 void CocktailPro::demo() {

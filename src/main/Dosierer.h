@@ -23,10 +23,10 @@ public:
     *@return a pointer to the created object
     *@param g is the amount in gram
     *@param ze is the number of time units
-    *@param inhalt is the name of the ingredient
+    *@param input_inhalt is the name of the ingredient
     *@param wg is a pointer to the specific Waage
     */
-    Dosierer(float g, int ze, std::string inhalt, Waage * wg);
+    Dosierer(float g, int ze, std::string &input_inhalt, Waage * wg);
     /**
     *@brief this method regulates the amount put on myWaage
     */
