@@ -17,6 +17,11 @@
  * and it selects the recipe number
  */
 class CocktailPro {
+ private:
+  CocktailZubereiter operator= (CocktailZubereiter &overload);
+  DeviceVerwalter operator= (DeviceVerwalter &overload);
+  MischbaresRezeptbuch operator= (MischbaresRezeptbuch &overload);
+  VorhandeneZutaten operator= (VorhandeneZutaten &overload);
  protected:
   /**
   * object of CocktailZubereiter
