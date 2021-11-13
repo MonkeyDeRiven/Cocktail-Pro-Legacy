@@ -3,6 +3,12 @@
 #include "VorhandeneZutaten.h"
 //
 
+VorhandeneZutaten& VorhandeneZutaten::operator= (VorhandeneZutaten original){
+  this->zutaten = original.zutaten;
+  this->anzahlDosierer = original.anzahlDosierer;
+  return *this;
+}
+
 VorhandeneZutaten::VorhandeneZutaten() {
   zutaten = new std::vector<std::string>;
 
@@ -22,9 +28,8 @@ VorhandeneZutaten::VorhandeneZutaten() {
 
 }
 
-VorhandeneZutaten::VorhandeneZutaten(VorhandeneZutaten &original) {
-  this->zutaten = original.zutaten;
-  this->anzahlDosierer = original.zutaten->size();
+VorhandeneZutaten::VorhandeneZutaten(VorhandeneZutaten &copy) {
+  *this = copy;
 }
 
 VorhandeneZutaten::~VorhandeneZutaten(void) {

@@ -18,6 +18,8 @@
  * available ingredients.
  */
 class VorhandeneZutaten {
+
+  VorhandeneZutaten& operator= (VorhandeneZutaten copy);
  public:
   /**
    * Constructor without Parameter => Standard constructor
