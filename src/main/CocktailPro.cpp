@@ -38,17 +38,15 @@ CocktailPro::CocktailPro(int argc, char * * param) {
     // mix
 }
 
-CocktailPro::CocktailPro(CocktailPro * toCopyObject){
-  theMischbaresRezeptbuch = toCopyObject->theMischbaresRezeptbuch;
-  theDeviceVerwalter = toCopyObject->theDeviceVerwalter;
-  theCocktailZubereiter = toCopyObject->theCocktailZubereiter;
-  theZutatenVerwalter = toCopyObject->theZutatenVerwalter;
+CocktailPro::CocktailPro(CocktailPro & toCopyObject){
+  theMischbaresRezeptbuch = toCopyObject.theMischbaresRezeptbuch;
+  theDeviceVerwalter = toCopyObject.theDeviceVerwalter;
+  theCocktailZubereiter = toCopyObject.theCocktailZubereiter;
+  theZutatenVerwalter = toCopyObject.theZutatenVerwalter;
 }
 
 void CocktailPro::demo() {
     int CocktailNo = 1;
-    int max = theMischbaresRezeptbuch->getNumberOfRecipes();
-
     Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(CocktailNo - 1);
     std::cout << rezeptptr->getName() << std::endl;
     theCocktailZubereiter->cocktailZubereiten(rezeptptr);
