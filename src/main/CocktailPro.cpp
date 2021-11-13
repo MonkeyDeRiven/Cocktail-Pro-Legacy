@@ -38,7 +38,7 @@ CocktailPro::CocktailPro(int argc, char * * param) {
     // mix
 }
 
-CocktailPro::CocktailPro(CocktailPro & toCopyObject){
+CocktailPro::CocktailPro(CocktailPro &toCopyObject){
   theMischbaresRezeptbuch = toCopyObject.theMischbaresRezeptbuch;
   theDeviceVerwalter = toCopyObject.theDeviceVerwalter;
   theCocktailZubereiter = toCopyObject.theCocktailZubereiter;
