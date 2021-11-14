@@ -17,19 +17,19 @@ class RecipeStep {
     /**
      * object of string
      */
-    std::string m_Zutat;
+    std::string m_Zutat = "";
 
     /**
      * object of float
      */
-    float m_Menge;
+    float m_Menge = 0;
 
  public:
 
     /**
      * @brief Constructor that initializes the variables
      */
-    RecipeStep(void);
+    RecipeStep();
 
     /** @brief Destructor
      */
@@ -39,19 +39,19 @@ class RecipeStep {
      * @brief Returns the value of the ingredient
      * @return the value of the ingredient
      */
-    std::string getZutat(void) const;
+    std::string getZutat() const;
 
     /**
      * @brief Returns the value of the quantity of the ingredients
      * @return the value of the quantity of the ingredients
      */
-    float getMenge(void) const;
+    float getMenge() const;
 
     /**
      * @brief Set the value of the ingredient
      * @param input_m_Zutat a string for the given ingredient
      */
-    void setZutat(std::string input_m_Zutat);
+    void setZutat(std::string &input_m_Zutat);
 
     /**
      * @brief Set the value of the quantity of the ingredient

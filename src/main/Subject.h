@@ -22,7 +22,7 @@ class Subject {
   void attach(Observer * observer);
 
   /**
-   * @brief Die Methode detach entfernt den aktuellen Beobachter von der Vektorliste
+   * @brief method detach given observer from the vec. list
    * @param observer we give the method an instance of Observer
    **/
 
