@@ -3,17 +3,21 @@
 #include "VorhandeneZutaten.h"
 //
 
-VorhandeneZutaten::VorhandeneZutaten(void) {
+VorhandeneZutaten& VorhandeneZutaten::operator= (VorhandeneZutaten original){
+  this->zutaten = original.zutaten;
+  this->anzahlDosierer = original.anzahlDosierer;
+  return *this;
+}
+
+VorhandeneZutaten::VorhandeneZutaten() {
   zutaten = new std::vector<std::string>;
 
   // int einlesen(list<string>* zutaten, std::string FileName)
 // Stream anlegen
 
-  if (DEBUG) {
-    DummyZutatenEinfuegen();
-  } else {
-    ZutatenDateiEinlesen("zutaten.txt");
-  }
+
+  ZutatenDateiEinlesen("zutaten.txt");
+
 
   browse();
 
@@ -22,6 +26,10 @@ VorhandeneZutaten::VorhandeneZutaten(void) {
 
   anzahlDosierer = zutaten->size();
 
+}
+
+VorhandeneZutaten::VorhandeneZutaten(VorhandeneZutaten &copy) {
+  *this = copy;
 }
 
 VorhandeneZutaten::~VorhandeneZutaten(void) {
@@ -55,21 +63,6 @@ void VorhandeneZutaten::ZutatenDateiEinlesen(std::string myfile) {
         this->zutaten->push_back(zeile);
     }
     in.close();
-}
-
-void VorhandeneZutaten::DummyZutatenEinfuegen() {
-    zutaten->push_back("Limettenstuecke");
-    zutaten->push_back("Zucker");
-    zutaten->push_back("Cointreau");
-    zutaten->push_back("Eis");
-    zutaten->push_back("Wodka");
-    zutaten->push_back("Rum weiss");
-    zutaten->push_back("Zitronensaft");
-    zutaten->push_back("Grenadine");
-    //    zutaten->push_back("Limettensaft");
-    //    zutaten->push_back("Tequilla");
-    //    zutaten->push_back("Gin");
-    //    zutaten->push_back("Noilly Prat");
 }
 
 void VorhandeneZutaten::browse(void) {

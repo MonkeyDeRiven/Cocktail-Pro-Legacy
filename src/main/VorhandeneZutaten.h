@@ -20,9 +20,19 @@
 class VorhandeneZutaten {
  public:
   /**
+   * @brief operator overload equal, for assigning VorhandeneZutaten.
+   * @param copy is the VorhandeneZutaten object, which we want to make a copy of.
+   * @return a reference of the address from the new VorhandeneZutaten object.
+   */
+  VorhandeneZutaten& operator= (VorhandeneZutaten copy);
+  /**
    * Constructor without Parameter => Standard constructor
    */
-  VorhandeneZutaten(void);
+  VorhandeneZutaten();
+  /**
+   * copy constructor
+   */
+   VorhandeneZutaten(VorhandeneZutaten &original);
   /**
    * destructor for our Instances
    */
@@ -51,11 +61,6 @@ class VorhandeneZutaten {
    */
   std::vector<std::string> * zutaten;
 
-  static const bool DEBUG = false;
-/**
- * @brief if we are in DEBUG mode, we read the ingredients from zutaten.txt
- */
-  void DummyZutatenEinfuegen();
 /**
  * @brief we can read our Ingredients from a given filaName
  * @param string is our fileName from where we want to read and initialize our Ingredients

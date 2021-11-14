@@ -42,16 +42,15 @@ void DeviceVerwalter::setZutatenVerwalter(VorhandeneZutaten * zv) {
 
 void DeviceVerwalter::rezeptSchrittZubereiten(std::string zutat, float menge) {
 
-    std::map<std::string, InternalDevice *>::iterator tmpDevice;
+    //std::map<std::string, InternalDevice *>::iterator tmpDevice;
 
-    tmpDevice = myDevices->find(zutat);
+    //tmpDevice = myDevices->find(zutat);
 
     if (zutat == "Limettenstuecke") {
-        // Der Kunde will Limetten nach Stueck und nicht nach Gewicht abmessen.
-        int stckProZeit = ((Dosierer *) myDevices->at(zutat))->getStueckProZeit();
+        // The customer wants to measure limes by piece and not by weight.
+        int stckProZeit = dynamic_cast<Dosierer *>((myDevices)->at(zutat))->getStueckProZeit();
         myDevices->at(zutat)->doIt(menge * stckProZeit);
     } else {
         myDevices->at(zutat)->doIt(menge);
     }
 }
-

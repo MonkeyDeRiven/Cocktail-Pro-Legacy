@@ -54,6 +54,12 @@ class CocktailPro {
 
  public:
   /**
+   * @brief overloads operators
+   * @param overload is the overload
+   * @return a reference to the storage address
+   */
+  CocktailPro& operator=(CocktailPro overload);
+  /**
   *@brief constructor creates objects from CocktailPro
   *@return a pointer to the created object
   *@param argc is the number of command line options
@@ -62,9 +68,14 @@ class CocktailPro {
   * those in protected variables are initialized with dynamic objects
   *
   */
-  CocktailPro(int argc, char * * turbo);
+  explicit CocktailPro(int argc, char * * turbo);
   /**
-  *@brief this method starts the prozess
+   * @brief
+   * @param toCopyObject
+   */
+  CocktailPro(CocktailPro & toCopyObject);
+  /**
+  *@brief this method starts the process
   *
   * This method asks the user for a recipe number
   * that he should select to continue the process

@@ -36,7 +36,7 @@ public:
     /**
     *@brief this method executes the output of cocktail that gets poured in the glass
     */
-    void doIt(float value);
+    void doIt(float input);
 
 private:
     /**

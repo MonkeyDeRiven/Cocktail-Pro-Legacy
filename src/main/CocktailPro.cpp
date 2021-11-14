@@ -19,12 +19,12 @@ void CocktailPro::start(){
 }
 
 CocktailPro::CocktailPro(int argc, char * * param) {
-    theZutatenVerwalter = new VorhandeneZutaten;
 
+    theZutatenVerwalter = new VorhandeneZutaten;
     theMischbaresRezeptbuch = new MischbaresRezeptbuch(theZutatenVerwalter);
     theDeviceVerwalter = new DeviceVerwalter(theZutatenVerwalter);
     theCocktailZubereiter = new CocktailZubereiter(theDeviceVerwalter);
-    theZutatenVerwalter = new VorhandeneZutaten;
+
 
     Timer * theTimer = Timer::getInstance();
     if (argc == 2) {// this has to be changed later
@@ -36,12 +36,15 @@ CocktailPro::CocktailPro(int argc, char * * param) {
             theTimer->set_Turbo(10);
         }
     }
-    // Mischen
+    // mix
+}
+
+CocktailPro::CocktailPro(CocktailPro &toCopyObject){
+  *this = toCopyObject;
 }
 
 void CocktailPro::demo() {
     int CocktailNo = 1;
-    int max = theMischbaresRezeptbuch->getNumberOfRecipes();
     Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(CocktailNo - 1);
     std::cout << rezeptptr->getName() << std::endl;
     theCocktailZubereiter->cocktailZubereiten(rezeptptr);
@@ -75,3 +78,12 @@ int CocktailPro::waehle() {
         }
     }
 }
+
+CocktailPro& CocktailPro::operator=(CocktailPro overload) {
+  theMischbaresRezeptbuch = overload.theMischbaresRezeptbuch;
+  theDeviceVerwalter = overload.theDeviceVerwalter;
+  theCocktailZubereiter = overload.theCocktailZubereiter;
+  theZutatenVerwalter = overload.theZutatenVerwalter;
+  return *this;
+}
+

@@ -1,0 +1,50 @@
+Dokumentation:
+
+1) knownConditionTrueFalse: Condition 'CocktailNo>0' is always true
+
+	Die if-Bedingung wurde komplett entfernt, da die Cocktailnummer mit der 1 hardcodiert ist, und somit eine überprüfung überfällig ist.
+
+2) noCopyConstructor: class 'VorhandeneZutaten' does not have a copy constructor which is recommended since the class contains a pointer to allocated memory.
+
+	Es wurde ein Kopierkonstruktor hinzugefügt.
+    
+3) unusedPrivateFunction: Unused private function: 'VorhandeneZutaten::DummyZutatenEinfuegen'
+
+	Die Debug variable war mit static const = false deklariert, was darauf schließen lässt, dass das debug feature keinen wirklichen nutzen für das Endprodukt hatte. Aus diesem Grund wurde das debug feature entfernt.
+
+4) noConstructor: The class 'Waage' does not have a constructor.. The class 'Waage' does not have a constructor although it has private member variables. Member variables of builtin types are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior.
+
+	Standard Konstruktor implementiert.
+    
+5) unreadVariable: Variable 'max' is assigned a value that is never used.
+
+	Variable wurde entfernt, da sie unnötig ist.
+
+6) noExplicitConstructor: Class 'CocktailPro' has a constructor with 1 argument that is not explicit. Such constructors should in general be explicit for type safety reasons. Using the explicit keyword in the constructor means some mistakes when using the class can be avoided.
+
+	Konstruktor als explicit Konstruktor umgeschrieben.
+
+7) copyCtorPointerCopying: Value of pointer 'theMischbaresRezeptbuch', which points to allocated memory, is copied in copy constructor instead of allocating new memory.
+
+    	Punkt 8) lösen um diese Fehlermeldung zu beheben.
+
+8) copyCtorAndEqOperator: The class 'CocktailPro' has 'copy constructor' but lack of 'operator='.
+
+	Wir überladen den = operator.
+
+9) passedByValue: Function parameter 'inhalt' should be passed by reference.. Parameter 'inhalt' is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++.
+
+	Die Variable wird als Referenz übergeben.
+
+10) useInitializationList: Variable 'inhalt' is assigned in constructor body. Consider performing initialization in initialization list.. When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don't explicitly write them to the initialization list. You could avoid assigning 'inhalt' a value by passing the value to the constructor in the initialization list.
+    
+    	Die Variable wird in die Initialisierungsliste geschrieben und aus dem Konstruktorkörper entfernt.
+
+11) uninitMemberVar: Member variable 'InternalDevice::zeiteinheit' is not initialized in the constructor.
+    
+    	Die Variable wird im Konstruktor initialisiert.
+
+12) unusedFunction: The function 'setTimer' is never used.
+
+    	Die Funktion wird entfernt.
+
