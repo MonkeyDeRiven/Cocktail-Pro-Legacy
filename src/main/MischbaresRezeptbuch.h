@@ -29,10 +29,12 @@ public:
      *  are all available. If an ingredient is not available anymore, the recipe gets deleted from
      *  the mixable recipes list.
      */
-    MischbaresRezeptbuch(VorhandeneZutaten * ze);
+    explicit MischbaresRezeptbuch(VorhandeneZutaten * ze);
     /** @brief prints all recipes of the recipe list.
      */
     void browse();
+
+
 
 private:
     /**

@@ -10,7 +10,7 @@
 
 /**
  * @class Subject
- * @brief this class is created to represent the consumer who wants a cocktail
+ * @brief this class is created to represent the consumer who wants a cocktail.
 */
 
 class Subject {
@@ -22,7 +22,7 @@ class Subject {
   void attach(Observer * observer);
 
   /**
-   * @brief Die Methode detach entfernt den aktuellen Beobachter von der Vektorliste
+   * @brief method detach given observer from the vec. list
    * @param observer we give the method an instance of Observer
    **/
 

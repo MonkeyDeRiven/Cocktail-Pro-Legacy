@@ -48,3 +48,18 @@ Dokumentation:
 
     	Die Funktion wird entfernt.
 
+13) noExplicizConstructor: redundant
+
+      Eine Implizite Konvertierung der Übergabeparameter ist nicht gestattet, bei Übergabe also Explizit deklarieren
+
+14) passedByValue : redundant
+
+       Variable wurde als Value übergeben, fixed indem man es als Referenz übergibt
+
+15) useInitializationList: redundant
+
+      gelöst, indem man Attribut direkt initiliaisert.
+
+16) unusedFunction: Function is never called and so it allocates memory, which is unnecessary.
+
+      Funktion wurde entfernt
