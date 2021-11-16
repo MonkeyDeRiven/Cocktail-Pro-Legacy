@@ -69,7 +69,25 @@ class RecipeBook {
     * And returns true if the deletion was successful (valid i).
     * For values of i that are invalid (i <0 or i>=n) the function return false.
     */
-    bool deleteRecipe(unsigned int i);   
+    bool deleteRecipe(unsigned int i);
+    /**
+     * @brief reads a recipe from a stream.
+     * @param inputString is the stream containing the recipe data.
+     * @param r1 is the Recipe where the data gets stored.
+     *
+     * The method takes a stream as input and fills the given recipe with the ingredients and
+     * amounts.
+     */
+    void importRecipe(std::istringstream &inputString, Recipe *r1) const;
+    /**
+     * @brief reads from a input filestream and fills the recipe list.
+     * @param in is a input filestream, which contains all recipes together with its infos.
+     * @param line is a input filestream which contains info of one single recipe.
+     *
+     * The method creates recipe instances and fills them with getlines. At the end it appends every
+     * recipe to the recipe list.
+     */
+    void addRecipes(std::ifstream &in, std::string &line);
 };
 
 #endif

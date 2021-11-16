@@ -112,38 +112,43 @@ RecipeBook::RecipeBook(void) {
         getline(in, zeile);
         // cout << zeile << endl;
 
-        while (getline(in, zeile)) {
-          // cout << zeile << endl;
-          std::istringstream inputString(zeile);
-          std::string Name;
-          std::string Zutat;
-          std::string tempstring;
-          float Menge;
-
-          Recipe* r1;
-
-          r1 = new Recipe;
-
-          // Read name from istringstream with semicolon as separator
-          getline(inputString, Name, ';');
-          r1->setName(Name);
-          //cout << "Name: " << Name << endl;
-
-          // Continue reading to the next separator (ingredient)
-          while (getline(inputString, Zutat, ';')&& !Zutat.empty()) {
-              // Continue reading to the next separator (quantity)
-              if (getline(inputString, tempstring, ';')) {
-                  std::istringstream(tempstring) >> Menge;
-              }
-              r1->appendStep(Zutat, Menge);
-              //cout << " Zutat: " << Zutat << " Menge: " << Menge << "\n" << endl;
-          }
-          this->m_Recipe.push_back(r1);
-        }
+        addRecipes(in, zeile);
 
         // close file
         in.close();
     } 
+}
+void RecipeBook::addRecipes(std::ifstream &in, std::string &line) {
+  while (std::getline(in, line)) {
+    // cout << line << endl;
+    std::istringstream inputString(line);
+    std::string name;
+
+    Recipe* r1;
+    r1 = new Recipe;
+
+    // Read name from istringstream with semicolon as separator
+    getline(inputString, name, ';');
+    r1->setName(name);
+    //cout << "name: " << name << endl;
+
+    // Continue reading to the next separator (ingredient)
+    importRecipe(inputString, r1);
+    m_Recipe.push_back(r1);
+  }
+}
+void RecipeBook::importRecipe(std::istringstream &inputString, Recipe *r1) const {
+  std::string ingredient;
+  std::string tempString;
+  float amount;
+  while (std::getline(inputString, ingredient, ';')&& !ingredient.empty()) {
+      // Continue reading to the next separator (quantity)
+      if (std::getline(inputString, tempString, ';')) {
+          std::istringstream(tempString) >> amount;
+      }
+      r1->appendStep(ingredient, amount);
+      //cout << " ingredient: " << ingredient << " amount: " << amount << "\n" << endl;
+  }
 }
 
 RecipeBook::~RecipeBook() {
