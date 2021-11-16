@@ -91,7 +91,6 @@ RecipeBook::RecipeBook(void) {
     r1->appendStep("Mischen", 30);
     this->m_Recipe.push_back(r1);
 
-
     r1 = new Recipe;
     r1->setName("Martini James B");
     r1->appendStep("Gin", 6);
@@ -100,10 +99,7 @@ RecipeBook::RecipeBook(void) {
     r1->appendStep("Schuetteln", 10);
     this->m_Recipe.push_back(r1);
     // cout << m_Liste->size() << endl;
-        
-        
-        
-        
+
     } else {
         // Read and output data
         std::string zeile;
