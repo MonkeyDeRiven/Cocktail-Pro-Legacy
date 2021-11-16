@@ -35,9 +35,8 @@ MischbaresRezeptbuch::MischbaresRezeptbuch(VorhandeneZutaten * zv) {
       std::string gesuchteZutat;
 
       gesuchteZutat = r->getRecipeStep(j)->getZutat();
-      bool foundIngredient = false;
 
-      foundIngredient = isIngredientInStock(gesuchteZutat);
+      bool foundIngredient = isIngredientInStock(gesuchteZutat);
       if (!foundIngredient) {
         verifiedRecipe = false;
       }
