@@ -44,6 +44,7 @@ MischbaresRezeptbuch::MischbaresRezeptbuch(VorhandeneZutaten * zv) {
     }
     if (!verifiedRecipe) {
       deleteRecipe(i);
+      i--;
     }
   }
 }
