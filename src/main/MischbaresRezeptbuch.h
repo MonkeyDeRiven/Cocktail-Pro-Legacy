@@ -51,6 +51,7 @@ private:
      */
     void setZutatenVerwalter(VorhandeneZutaten * ze);
 
+  bool isIngredientInStock(const std::string &gesuchteZutat);
 };
 
 #endif
