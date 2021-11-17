@@ -67,7 +67,7 @@ int CocktailPro::waehle() {
         if (inputNumber == -1) {
           exit(0);
         }
-        
+
         return checkInput(input, inputNumber, max);
     }
 }
