@@ -94,7 +94,6 @@ class CocktailPro {
    * @return the number selected by the user
    */
   int checkInput(const std::string &input, int inputNumber, int max) const;
-  int errorMassageForInput(const std::string &input, int max) const;
 };
 
 #endif
