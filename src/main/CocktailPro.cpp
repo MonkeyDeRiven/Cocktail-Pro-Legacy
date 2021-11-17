@@ -57,26 +57,30 @@ int CocktailPro::waehle() {
         theMischbaresRezeptbuch->browse();
         std::cout << "Was haetten Sie denn gern? (-1 zum Verlassen)" << std::endl;
 
-        std::string eingabe = "";
+        std::string input = "";
 
         //cin.ignore();       
-        std::cin >> eingabe;
+        std::cin >> input;
 
-        int zahl = atoi(eingabe.c_str());
+        int inputNumber = atoi(input.c_str());
         int max = theMischbaresRezeptbuch->getNumberOfRecipes();
 
-        if (zahl == -1) {
-            exit(0);
-        }
-
-        if (zahl > 0 && zahl <= max) {
-            return zahl;
-        } else {
-            //std::system("clear");
-            std::cout << "MEEEP! Too many fingers on keyboard error!" << std::endl;
-            std::cout << "Ihre Eingabe: " << eingabe << " war nicht zwischen 1 und " << max << "!" << std::endl;
-        }
+        return checkInput(input, inputNumber, max);
     }
+}
+int CocktailPro::checkInput(const std::string &input, int inputNumber, int max) const {
+  if (inputNumber == -1) {
+    exit(0);
+  }
+
+  if (inputNumber > 0 && inputNumber <= max) {
+      return inputNumber;
+  } else {
+      //std::system("clear");
+      std::cout << "MEEEP! Too many fingers on keyboard error!" << std::endl;
+      std::cout << "Ihre Eingabe: " << input << " war nicht zwischen 1 und " << max << "!" << std::endl;
+      return 0;
+  }
 }
 
 CocktailPro& CocktailPro::operator=(CocktailPro overload) {
