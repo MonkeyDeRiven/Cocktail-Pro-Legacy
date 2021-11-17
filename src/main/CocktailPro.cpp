@@ -76,11 +76,15 @@ int CocktailPro::checkInput(const std::string &input, int inputNumber, int max) 
   if (inputNumber > 0 && inputNumber <= max) {
       return inputNumber;
   } else {
-      //std::system("clear");
-      std::cout << "MEEEP! Too many fingers on keyboard error!" << std::endl;
-      std::cout << "Ihre Eingabe: " << input << " war nicht zwischen 1 und " << max << "!" << std::endl;
-      return 0;
+    return errorMassageForInput(input, max);
   }
+}
+
+int CocktailPro::errorMassageForInput(const std::string &input, int max) const {
+  //std::system("clear");
+  std::cout << "MEEEP! Too many fingers on keyboard error!" << std::endl;
+  std::cout << "Ihre Eingabe: " << input << " war nicht zwischen 1 und " << max << "!" << std::endl;
+  return 0;
 }
 
 CocktailPro& CocktailPro::operator=(CocktailPro overload) {
