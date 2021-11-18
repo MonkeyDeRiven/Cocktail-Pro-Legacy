@@ -76,6 +76,7 @@ int CocktailPro::checkInput(const std::string &input, int inputNumber, int max) 
     if (inputNumber <= max)
       return inputNumber;
   }
+  
     //std::system("clear");
     std::cout << "MEEEP! Too many fingers on keyboard error!" << std::endl;
     std::cout << "Ihre Eingabe: " << input << " war nicht zwischen 1 und " << max << "!" << std::endl;
