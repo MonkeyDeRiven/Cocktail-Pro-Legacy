@@ -72,7 +72,7 @@ int CocktailPro::waehle() {
 }
 int CocktailPro::checkInput(const std::string &input, int inputNumber, int max) const {
 
-  if (inputNumber > 0 ) {
+  if (inputNumber > 0 && inputNumber <= max) {
       return inputNumber;
   } else {
     //std::system("clear");
