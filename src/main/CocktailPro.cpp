@@ -73,22 +73,13 @@ int CocktailPro::waehle() {
 int CocktailPro::checkInput(const std::string &input, int inputNumber, int max) const {
 
   if (inputNumber > 0) {
-    return checkInputMax(input, inputNumber, max);
+    if (inputNumber <= max)
+      return inputNumber;
   }
     //std::system("clear");
     std::cout << "MEEEP! Too many fingers on keyboard error!" << std::endl;
     std::cout << "Ihre Eingabe: " << input << " war nicht zwischen 1 und " << max << "!" << std::endl;
     return 0;
-}
-int CocktailPro::checkInputMax(const std::string &input, int inputNumber, int max) const {
-  if (inputNumber <= max)
-    return inputNumber;
-  else {
-    std::cout << "MEEEP! Too many fingers on keyboard error!" << std::endl;
-    std::cout << "Ihre Eingabe: " << input << " war nicht zwischen 1 und " << max << "!"
-              << std::endl;
-    return 0;
-  }
 }
 
 CocktailPro& CocktailPro::operator=(CocktailPro overload) {
