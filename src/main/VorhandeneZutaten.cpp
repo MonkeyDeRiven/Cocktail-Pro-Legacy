@@ -23,7 +23,7 @@ VorhandeneZutaten::VorhandeneZutaten() {
 
   zutaten->push_back("Mischen");
   zutaten->push_back("Stampfen");
-  //zutaten->push_back("Schuetteln");
+  zutaten->push_back("Schuetteln");
 
   anzahlDosierer = zutaten->size();
 
