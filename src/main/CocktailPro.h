@@ -94,6 +94,17 @@ class CocktailPro {
    * @return the number selected by the user
    */
   int checkInput(const std::string &input, int inputNumber, int max) const;
+
+  /**
+ * @brief this method checks which number was entered and returns the corresponding number.
+ * It returns 0 if the number is not assigned to any cocktail
+ *
+ * @param input the input of the user
+ * @param inputNumber the input of the user
+ * @param max the number of cocktails
+ * @return the number selected by the user
+ */
+  int checkInputMax(const std::string &input, int inputNumber, int max) const;
 };
 
 #endif
