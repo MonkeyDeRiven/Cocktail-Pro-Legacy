@@ -31,22 +31,26 @@ MischbaresRezeptbuch::MischbaresRezeptbuch(VorhandeneZutaten * zv) {
   for (int i = 0; i < getNumberOfRecipes(); i++) {//iterates through recipes
     bool verifiedRecipe = true;
     Recipe *r = getRecipe(i);
-    for (int j = 0; j < r->getNoOfRecipeSteps(); j++) {//iterates through recipe steps
-      std::string gesuchteZutat;
-
-      gesuchteZutat = r->getRecipeStep(j)->getZutat();
-      bool foundIngredient = false;
-
-      foundIngredient = isIngredientInStock(gesuchteZutat);
-      if (!foundIngredient) {
-        verifiedRecipe = false;
-      }
-    }
+    verifiedRecipe = isRecipeStepValid(r);
     if (!verifiedRecipe) {
       deleteRecipe(i);
       i--;
     }
   }
+}
+bool MischbaresRezeptbuch::isRecipeStepValid(Recipe *r) {
+  bool verifiedRecipe;
+  for (int j = 0; j < r->getNoOfRecipeSteps(); j++) {//iterates through recipe steps
+    std::string gesuchteZutat;
+
+    gesuchteZutat = r->getRecipeStep(j)->getZutat();
+
+    bool foundIngredient = isIngredientInStock(gesuchteZutat);
+    if (!foundIngredient) {
+      verifiedRecipe = false;
+    }
+  }
+  return verifiedRecipe;
 }
 bool MischbaresRezeptbuch::isIngredientInStock(const std::string &gesuchteZutat) {
   for (int k = 0; k < myZutatenVerwalter->getAnzahlVorhandeneZutaten(); k++) {//checks for needed ingredient
