@@ -31,7 +31,9 @@ MischbaresRezeptbuch::MischbaresRezeptbuch(VorhandeneZutaten * zv) {
   for (int i = 0; i < getNumberOfRecipes(); i++) {//iterates through recipes
     bool verifiedRecipe = true;
     Recipe *r = getRecipe(i);
+
     verifiedRecipe = isRecipeStepValid(r);
+
     if (!verifiedRecipe) {
       deleteRecipe(i);
       i--;
