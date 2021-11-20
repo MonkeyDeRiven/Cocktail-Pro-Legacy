@@ -41,7 +41,7 @@ MischbaresRezeptbuch::MischbaresRezeptbuch(VorhandeneZutaten * zv) {
   }
 }
 bool MischbaresRezeptbuch::isRecipeStepValid(Recipe *r) {
-  bool verifiedRecipe;
+  bool verifiedRecipe = true;
   for (int j = 0; j < r->getNoOfRecipeSteps(); j++) {//iterates through recipe steps
     std::string gesuchteZutat;
 
@@ -56,9 +56,8 @@ bool MischbaresRezeptbuch::isRecipeStepValid(Recipe *r) {
 }
 bool MischbaresRezeptbuch::isIngredientInStock(const std::string &gesuchteZutat) {
   for (int k = 0; k < myZutatenVerwalter->getAnzahlVorhandeneZutaten(); k++) {//checks for needed ingredient
-    if (myZutatenVerwalter->getZutat(k) == gesuchteZutat) {
+    if (myZutatenVerwalter->getZutat(k) == gesuchteZutat)
       return true;
-    }
   }
   return false;
 }
