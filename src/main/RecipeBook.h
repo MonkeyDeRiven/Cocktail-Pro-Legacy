@@ -88,6 +88,64 @@ class RecipeBook {
      * recipe to the recipe list.
      */
     void addRecipes(std::ifstream &in, std::string &line);
+
+    /**
+     * @brief building our Recipe Caipirinha
+     * @param r1 pointer to recipe
+     */
+    void recipeCaipirinha(Recipe* r1);
+
+    /**
+     * @brief building our Recipe Margarita
+     * @param r1 pointer to recipe
+     */
+    void recipeMargarita(Recipe* r1);
+  /**
+   * @brief building our Recipe Daiquira
+   * @param r1 pointer to recipe
+   */
+
+    void recipeDaiquiri(Recipe* r1);
+
+  /**
+   * @brief building our Recipe PlantersPunch
+   * @param r1 pointer to recipe
+   */
+
+    void recipePlantersPunch(Recipe* r1);
+  /**
+   * @brief building our Recipe Caipiroska
+   * @param r1 pointer to recipe
+   */
+
+    void recipeCaipiroska(Recipe* r1);
+  /**
+   * @brief building our Recipe Caipirisma
+   * @param r1 pointer to recipe
+   */
+
+    void recipeCaipirisma(Recipe* r1);
+  /**
+   * @brief building our Recipe MartinJamesB
+   * @param r1 pointer to recipe
+   */
+
+    void recipeMartiniJamesB(Recipe* r1);
+
+    /**
+     * @brief building our Recipe MartinJamesB
+     * @param r1 pointer to recipe
+     */
+    void recipeCubanIsland(Recipe* r1);
+
+
+
+
+
+
+
+
+
 };
 
 #endif
