@@ -55,6 +55,13 @@ class VorhandeneZutaten {
    */
   int getAnzahlVorhandeneZutaten();
 
+  /**
+   * @brief we store our data in our ingredients list
+   * @param in is our file
+   * @param ingredient is our current available ingredient
+   */
+  void getOurData(std::ifstream& in, VorhandeneZutaten* ingredient);
+
  private:
   /**
    * @brief list of Ingredients

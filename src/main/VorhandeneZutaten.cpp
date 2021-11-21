@@ -37,6 +37,18 @@ VorhandeneZutaten::~VorhandeneZutaten(void) {
 
 }
 
+void VorhandeneZutaten::getOurData(std::ifstream& in, VorhandeneZutaten* ingredient){
+  std::string zeile;
+  while (getline(in, zeile)) {
+
+    // Cut trailing \r - to make Linux or Windows Files equal
+    if (zeile.size() && zeile[zeile.size() - 1] == '\r') {
+      zeile = zeile.substr(0, zeile.size() - 1);
+    }
+
+    ingredient->zutaten->push_back(zeile);
+  }
+}
 void VorhandeneZutaten::ZutatenDateiEinlesen(std::string myfile) {
     std::ifstream in;
 
@@ -53,16 +65,9 @@ void VorhandeneZutaten::ZutatenDateiEinlesen(std::string myfile) {
 
     std::cout << "Oeffne Zutatendatei " << FileName << std::endl;
 
-    std::string zeile;
-    while (getline(in, zeile)) {
+  getOurData(in, this);
 
-        // Cut trailing \r - to make Linux or Windows Files equal
-        if (zeile.size() && zeile[zeile.size() - 1] == '\r') {
-            zeile = zeile.substr(0, zeile.size() - 1);
-        }
 
-        this->zutaten->push_back(zeile);
-    }
     in.close();
 }
 
