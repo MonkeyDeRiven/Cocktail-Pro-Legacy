@@ -138,6 +138,12 @@ class RecipeBook {
      */
     void recipeCubanIsland(Recipe* r1);
 
+    /**
+     * @brief else in our recipe building
+     * @param in is our file
+     */
+    void recipeElse();
+
 
 
 

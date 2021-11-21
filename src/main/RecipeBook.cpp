@@ -11,56 +11,62 @@
 #include "RecipeBook.h"
 
 RecipeBook::RecipeBook(void) {
-    m_Recipe.clear();
+  m_Recipe.clear();
 
-    // create Stream
-    std::ifstream in;
+  // create Stream
+  std::ifstream in;
 
-    std::string FileName = "Rezepte.csv";
-    // open file
-    in.open(FileName.c_str(), std::ios::in);
+  std::string FileName = "Rezepte.csv";
+  // open file
+  in.open(FileName.c_str(), std::ios::in);
 
-    if (!in) {  // File could't be opened
-    Recipe* r1;
+  if (!in) {  // File could't be opened
+    Recipe *r1;
 
     r1 = new Recipe; //building our Recipe Caipirinha
-      recipeCaipirinha(r1);
+    recipeCaipirinha(r1);
 
     r1 = new Recipe; //building our Recipe Margarita
-      recipeMargarita(r1);
+    recipeMargarita(r1);
 
     r1 = new Recipe;//building our Recipe Daiquiri
-      recipeDaiquiri(r1);
+    recipeDaiquiri(r1);
 
     r1 = new Recipe;//building our Recipe Planters Punch
-      recipePlantersPunch(r1);
+    recipePlantersPunch(r1);
 
     r1 = new Recipe;//building our Recipe Caipiroska
-      recipeCaipiroska(r1);
+    recipeCaipiroska(r1);
 
     r1 = new Recipe;//building our Recipe Caipirisima
-      recipeCaipirisma(r1);
+    recipeCaipirisma(r1);
 
     r1 = new Recipe;//building our Cuban Island
-      recipeCubanIsland(r1);
+    recipeCubanIsland(r1);
 
     r1 = new Recipe;//building our Recipe Martini James B
-      recipeMartiniJamesB(r1);
+    recipeMartiniJamesB(r1);
     // cout << m_Liste->size() << endl;
 
-    } else {
-        // Read and output data
-        std::string zeile;
+  } else {
+    recipeElse();
+  }
+}
 
-        // 1. line is title - Read and throw away!
-        getline(in, zeile);
-        // cout << zeile << endl;
 
-        addRecipes(in, zeile);
+void RecipeBook::recipeElse() {
+  std::ifstream in;
+  // Read and output data
+  std::string zeile;
 
-        // close file
-        in.close();
-    } 
+  // 1. line is title - Read and throw away!
+  getline(in, zeile);
+  // cout << zeile << endl;
+
+  addRecipes(in, zeile);
+
+  // close file
+  in.close();
 }
 void RecipeBook::addRecipes(std::ifstream &in, std::string &line) {
   while (std::getline(in, line)) {
