@@ -22,8 +22,8 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt) {
     }
   myDeviceVerwalter->myEntleerer->doIt(i);
 
-  for(u_int16_t i = 0; i<rzpt->getNoOfRecipeSteps(); ++i){
-    RecipeStep* schritt = rzpt->getRecipeStep(i);//we use the same pointer as above, as it is already pointing to the right date
+  for(u_int16_t k = 0; k<rzpt->getNoOfRecipeSteps(); ++k){
+    RecipeStep* schritt = rzpt->getRecipeStep(k);//we use the same pointer as above, as it is already pointing to the right date
     std::string putzen = schritt->getZutat();
     std::cout << "Device mit der Aktion:" << putzen << " wird jetzt geputzt" << std::endl;
   }
