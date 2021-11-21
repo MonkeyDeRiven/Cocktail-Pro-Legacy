@@ -26,12 +26,12 @@ void DeviceVerwalter::createDevices() {
 
     std::string myZutat;
     for (int i = myZutatenVerwalter->getAnzahlVorhandeneZutaten() - 1; i >= 0; i--) {
-        myZutat=myZutatenVerwalter->getZutat(i);
-        if (myZutat == "Eis")
-            myDevices->insert(std::make_pair(myZutat, new Dosierer(20, 1000, myZutat, theWaage)));
+        myZutat=myZutatenVerwalter->getZutat(i); //myZutat is now the given ingredient from the user input
+        if (myZutat == "Eis")  //selection depends on which ingredient we give to the input
+            myDevices->insert(std::make_pair(myZutat, new Dosierer(20, 1000, myZutat, theWaage)));//we use make_pair to combine our ingredient with our dispenser
         else if (myZutat == "Limettenstuecke")
-            myDevices->insert(std::make_pair(myZutat, new Dosierer(10, 1000, myZutat, theWaage)));
-        else
+            myDevices->insert(std::make_pair(myZutat, new Dosierer(10, 1000, myZutat, theWaage)));//
+        else//for any other ingredient
             myDevices->insert(std::make_pair(myZutat, new Dosierer(1, 250, myZutat, theWaage)));
     }
 }
