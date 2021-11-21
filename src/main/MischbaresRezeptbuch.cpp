@@ -53,6 +53,7 @@ bool MischbaresRezeptbuch::isRecipeStepValid(Recipe *r) {
   }
   return verifiedRecipe;
 }
+
 bool MischbaresRezeptbuch::isIngredientInStock(const std::string &gesuchteZutat) {
   for (int k = 0; k < myZutatenVerwalter->getAnzahlVorhandeneZutaten(); k++) {//checks for needed ingredient
     if (myZutatenVerwalter->getZutat(k) == gesuchteZutat)
