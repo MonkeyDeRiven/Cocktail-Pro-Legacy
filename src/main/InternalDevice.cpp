@@ -13,8 +13,8 @@ InternalDevice::InternalDevice() {
     this->zeiteinheit = 0;
 }
 
-void InternalDevice::putzen() {
+//void InternalDevice::putzen() {
     //std::cout << "Ich putze mich..." << std::endl;
     //myTimer->sleep(500);
     //std::cout << "Ich bin fertig mit putzen!" << std::endl;
-}
+//}
