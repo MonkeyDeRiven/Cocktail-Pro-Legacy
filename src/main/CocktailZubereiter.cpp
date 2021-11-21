@@ -22,12 +22,19 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt) {
     }
   myDeviceVerwalter->myEntleerer->doIt(i);
 
-  for (std::map<std::string, InternalDevice *>::iterator i1 = myDeviceVerwalter->myDevices->begin();
-       i1 != myDeviceVerwalter->myDevices->end(); ++i1) {
-    std::cout << "Device mit der Aktion: " << i1->first << " wird jetzt geputzt: " << std::endl;
-    i1->second->putzen();
+  for(u_int16_t i = 0; i<rzpt->getNoOfRecipeSteps(); ++i){
+    RecipeStep* schritt = rzpt->getRecipeStep(i);//we use the same pointer as above, as it is already pointing to the right date
+    std::string putzen = schritt->getZutat();
+    std::cout << "Device mit der Aktion:" << putzen << " wird jetzt geputzt" << std::endl;
   }
   return (true);
+
+
+  //for (std::map<std::string, InternalDevice *>::iterator cleanIt = myDeviceVerwalter->myDevices->begin();
+  //     cleanIt != myDeviceVerwalter->myDevices->end(); ++cleanIt) {
+   // std::cout << "Device mit der Aktion: " << cleanIt->first << " wird jetzt geputzt: " << std::endl;
+  //  cleanIt->second->putzen();
+ // }
 }
 /*DeviceVerwalter *CocktailZubereiter::getMyDeviceVerwalter() const {
   return myDeviceVerwalter;
