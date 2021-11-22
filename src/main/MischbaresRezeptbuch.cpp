@@ -55,11 +55,13 @@ bool MischbaresRezeptbuch::isRecipeStepValid(Recipe *r) {
 }
 
 bool MischbaresRezeptbuch::isIngredientInStock(const std::string &gesuchteZutat) {
+
+  bool isWantedIngredient = false;
   for (int k = 0; k < myZutatenVerwalter->getAnzahlVorhandeneZutaten(); k++) {//checks for needed ingredient
     if (myZutatenVerwalter->getZutat(k) == gesuchteZutat)
-      return true;
+      isWantedIngredient = true;
   }
-  return false;
+  return isWantedIngredient;
 }
 
 void MischbaresRezeptbuch::setZutatenVerwalter(VorhandeneZutaten * zv) {
