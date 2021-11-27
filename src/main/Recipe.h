@@ -3,6 +3,7 @@
 
 #include "RecipeStep.h"
 
+#include <vector>
 #include <list>
 #include <string>
 
@@ -81,7 +82,7 @@ public:
     /**
      * @brief prints all recipe steps
      */
-    void browse();
+    std::vector<std::string>* browse();
 
 };
 
