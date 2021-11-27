@@ -17,7 +17,11 @@
 */
 class Entleerer : public InternalDevice, public Observer {
 public:
-    /**
+  /**
+   * @brief default constructor
+   */
+  Entleerer();
+/**
     *@brief constructor creates a pointer to the created object
     *@return a pointer to the created object
     *@param g is the amount in gram
@@ -37,8 +41,9 @@ public:
     *@brief this method executes the output of cocktail that gets poured in the glass
     */
     void doIt(float input);
+  float getValue() const;
 
-private:
+ private:
     /**
     *object of float
     */

@@ -13,7 +13,10 @@
 
   virtual void SetUp(){
     v = new DeviceVerwalter();
+  }
 
+  virtual void TearDown(){
+    delete v;
   }
 };
 

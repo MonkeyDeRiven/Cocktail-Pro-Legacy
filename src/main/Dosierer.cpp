@@ -35,7 +35,7 @@ void Dosierer::doIt(float gramm) {
     std::cout << std::endl;
 }
 
-int Dosierer::getStueckProZeit() {
+float Dosierer::getStueckProZeit() {
     return this->grammProZeit;
 }
 Dosierer::Dosierer() {

@@ -20,11 +20,11 @@ class DosiererTest : public ::testing::Test {
   }
 };
 
-TEST_F(DosiererTest, testDoItForCorrectInputStoring){
+/*TEST_F(DosiererTest, testDoItForCorrectInputStoring){
   float testVal = 4.2;
   d->doIt(testVal);
   EXPECT_EQ(testVal,d->getGwicht());
-}
+}*/
 
 TEST_F(DosiererTest, testGetStueckProZeitForReturnValue){
   float testVal = 6.9;

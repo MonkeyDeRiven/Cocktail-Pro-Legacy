@@ -35,3 +35,9 @@ void Entleerer::doIt(float input) {
     std::cout << "Entleervorgang wurde beendet, bitte entnehmen Sie ihren Cocktail!" << std::endl;
     std::cout << std::endl;
 }
+float Entleerer::getValue() const {
+  return value;
+}
+Entleerer::Entleerer() {
+
+}

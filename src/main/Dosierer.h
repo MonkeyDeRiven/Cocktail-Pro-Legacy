@@ -46,7 +46,7 @@ public:
     /**
     * object of int
     */
-    int getStueckProZeit();
+    float getStueckProZeit();
 
 private:
     /**
