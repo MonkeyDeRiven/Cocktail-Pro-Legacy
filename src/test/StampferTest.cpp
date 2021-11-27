@@ -9,9 +9,11 @@
 class StampferTest : public ::testing::Test {
  protected:
   Stampfer* r;
+  float turbo=15;
 
   virtual void SetUp() {
     r = new Stampfer();
+    r->myTimer->set_Turbo(turbo);
   }
 
   virtual void TearDown() {
@@ -20,5 +22,5 @@ class StampferTest : public ::testing::Test {
 };
 
 TEST_F(StampferTest,doIt) {
-  //EXPECT_EQ(,);
+
 }
