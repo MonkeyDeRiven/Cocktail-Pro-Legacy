@@ -38,3 +38,9 @@ void Dosierer::doIt(float gramm) {
 int Dosierer::getStueckProZeit() {
     return this->grammProZeit;
 }
+Dosierer::Dosierer() {
+
+}
+float Dosierer::getGwicht() const {
+  return gwicht;
+}

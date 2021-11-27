@@ -19,6 +19,10 @@
 class Dosierer : public InternalDevice, public Observer {
 public:
     /**
+     * @brief default constructor
+     */
+    Dosierer();
+    /**
     *@brief constructor creates objects from Dosierer
     *@return a pointer to the created object
     *@param g is the amount in gram
@@ -57,9 +61,10 @@ private:
     * object of float
     */
     float gwicht;
-    /**
-    * object of std::string
-    */
+  float getGwicht() const;
+  /**
+  * object of std::string
+  */
     std::string inhalt;
 };
 
