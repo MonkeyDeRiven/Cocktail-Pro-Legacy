@@ -21,6 +21,7 @@ RecipeStep * Recipe::getRecipeStep(unsigned int i) {
     else {
         std::list<RecipeStep*>::iterator p; // Iterator
         advance(p = m_RecipeStep.begin(), i); // p zeigt jetzt auf das i-te Element
+
         return (*p); // Adresse vom Wert von p - also den Pointer auf den der Iterator zeigt
     }
 }
@@ -33,18 +34,22 @@ void Recipe::setName(const std::string& Name) {
     this->m_Name = Name;
 }
 
-void Recipe::browse() {
+std::vector<std::string>* Recipe::browse() {
     std::cout << m_Name << ": ";
+    std::vector<std::string> *recipeStepsOfRecipe = new std::vector<std::string>;
     for (int i = 0; i< this->getNoOfRecipeSteps(); i++) {
         if (i > 0) std::cout << ", ";
         std::cout << getRecipeStep(i)->getZutat();
+        recipeStepsOfRecipe->push_back(getRecipeStep(i)->getZutat());
     }
+  return recipeStepsOfRecipe;
 }
 
-void Recipe::appendStep(std::string z, float m) {
+RecipeStep* Recipe::appendStep(std::string z, float m) {
     RecipeStep* t;
     t = new RecipeStep;
     t->setZutat(z);
     t->setMenge(m);
     m_RecipeStep.push_back(t);
+  return t;
 }

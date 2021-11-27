@@ -3,6 +3,7 @@
 
 #include "RecipeStep.h"
 
+#include <vector>
 #include <list>
 #include <string>
 
@@ -76,12 +77,12 @@ public:
      * creates a new recipe step and assignes the ingedient needed, as well as the amount and
      * appends it to the recipe steps list.
      */
-    void appendStep(std::string z, float m);
+    RecipeStep* appendStep(std::string z, float m);
 
     /**
      * @brief prints all recipe steps
      */
-    void browse();
+    std::vector<std::string>* browse();
 
 };
 
