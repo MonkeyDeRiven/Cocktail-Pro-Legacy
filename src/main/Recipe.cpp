@@ -41,10 +41,11 @@ void Recipe::browse() {
     }
 }
 
-void Recipe::appendStep(std::string z, float m) {
+RecipeStep* Recipe::appendStep(std::string z, float m) {
     RecipeStep* t;
     t = new RecipeStep;
     t->setZutat(z);
     t->setMenge(m);
     m_RecipeStep.push_back(t);
+  return t;
 }
