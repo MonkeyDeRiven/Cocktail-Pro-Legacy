@@ -9,7 +9,7 @@
 class StampferTest : public ::testing::Test {
  protected:
   Stampfer* r;
-  float turbo=15;
+  float turbo=20;
 
   virtual void SetUp() {
     r = new Stampfer();
@@ -21,6 +21,9 @@ class StampferTest : public ::testing::Test {
   }
 };
 
-TEST_F(StampferTest,doIt) {
-
-}
+/*TEST_F(StampferTest,doIt) {
+  float t = 20;
+  float neededTime = r->doIt(t)*turbo;
+  float expTime=t*1000;
+  EXPECT_FLOAT_EQ(neededTime, expTime);
+}*/

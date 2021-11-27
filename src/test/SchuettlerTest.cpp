@@ -9,9 +9,11 @@
 class SchuettlerTest : public ::testing::Test {
  protected:
   Schuettler* r;
+  float turbo=20;
 
   virtual void SetUp() {
     r = new Schuettler();
+    r->myTimer->set_Turbo(turbo);
   }
 
   virtual void TearDown() {
@@ -19,6 +21,9 @@ class SchuettlerTest : public ::testing::Test {
   }
 };
 
-TEST_F(SchuettlerTest,doIt) {
-  //EXPECT_EQ(,);
-}
+/*TEST_F(SchuettlerTest,doIt) {
+  float t = 20;
+  float neededTime = r->doIt(t)*turbo;
+  float expTime=t*1000;
+  EXPECT_FLOAT_EQ(neededTime, expTime);
+}*/
