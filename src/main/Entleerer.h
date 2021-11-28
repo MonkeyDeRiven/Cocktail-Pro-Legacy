@@ -56,6 +56,15 @@ public:
     *object of float
     */
     float value;
+    /**
+     * object of boolean
+     */
+    bool testCeckpoint = false;
+    /**
+     * object of boolean
+     */
+    bool testCeckpoint2 = false;
+
 
 };
 

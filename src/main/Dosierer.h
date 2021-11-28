@@ -61,11 +61,23 @@ private:
     * object of float
     */
     float gwicht;
-  float getGwicht() const;
-  /**
-  * object of std::string
-  */
+    /**
+    * object of std::string
+    */
     std::string inhalt;
+    /**
+     * @brief
+     * @return the weight
+     */
+    float getGwicht() const;
+    /**
+     * object of boolean
+     */
+    bool testCheckpoint = false;
+    /**
+     * object of boolean
+     */
+    bool testCheckpoint2 = false;
 };
 
 #endif

@@ -14,6 +14,10 @@
 
   virtual void SetUp(){
     e = new Entleerer();
+    e->myWaage = new Waage();
+    e->myTimer = new Timer();
+    e->doinIt = true;
+    e->update();
   }
 
   virtual void TearDown(){
@@ -21,8 +25,10 @@
   }
 };
 
-/*TEST_F(EntleererTest, testDoItForCorrectInputStoring){
-  float testVal = 4.2;
-  e->doIt(testVal);
-  EXPECT_EQ(testVal,e->getValue());
-}*/
+TEST_F(EntleererTest, testUpdateForCheckpointReached){
+  EXPECT_EQ(true, e->testCeckpoint);
+}
+
+TEST_F(EntleererTest, testUpdateForCheckpoint2Reached){
+  EXPECT_EQ(false, e->testCeckpoint2);
+}

@@ -13,6 +13,10 @@ class DosiererTest : public ::testing::Test {
 
   virtual void SetUp(){
     d = new Dosierer();
+    d->myWaage = new Waage();
+    d->myTimer = new Timer();
+    d->doinIt = true;
+    d->update();
   }
 
   virtual void TearDown(){
@@ -20,11 +24,13 @@ class DosiererTest : public ::testing::Test {
   }
 };
 
-/*TEST_F(DosiererTest, testDoItForCorrectInputStoring){
-  float testVal = 4.2;
-  d->doIt(testVal);
-  EXPECT_EQ(testVal,d->getGwicht());
-}*/
+TEST_F(DosiererTest, testUpdateForCheckpointReached){
+  EXPECT_EQ(true, d->testCheckpoint);
+}
+
+TEST_F(DosiererTest, testUpdateForCheckpoint2Reached){
+  EXPECT_EQ(false, d->testCheckpoint2);
+}
 
 TEST_F(DosiererTest, testGetStueckProZeitForReturnValue){
   float testVal = 6.9;
