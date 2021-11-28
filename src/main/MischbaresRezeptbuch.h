@@ -35,7 +35,6 @@ public:
     void browse();
 
 
-
 private:
     /**
      *  contains the ingredient manager which contains all ingredients and their amount.

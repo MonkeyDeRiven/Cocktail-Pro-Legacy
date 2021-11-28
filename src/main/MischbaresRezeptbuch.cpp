@@ -39,6 +39,7 @@ MischbaresRezeptbuch::MischbaresRezeptbuch(VorhandeneZutaten * zv) {
     }
   }
 }
+
 bool MischbaresRezeptbuch::isRecipeStepValid(Recipe *r) {
   bool verifiedRecipe = true;
   for (int j = 0; j < r->getNoOfRecipeSteps(); j++) {//iterates through recipe steps
