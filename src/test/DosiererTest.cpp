@@ -43,4 +43,3 @@ TEST_F(DosiererTest, testGetGwichtForReturnValue){
   d->gwicht = testVal;
   EXPECT_EQ(testVal,d->getGwicht());
 }
-
