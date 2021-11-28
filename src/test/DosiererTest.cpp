@@ -26,10 +26,6 @@ class DosiererTest : public ::testing::Test {
 
 TEST_F(DosiererTest, testUpdateForCheckpointReached){
   EXPECT_EQ(true, d->testCheckpoint);
-
-  d->doinIt = false;
-  EXPECT_EQ()
-
 }
 
 TEST_F(DosiererTest, testUpdateForCheckpoint2Reached){

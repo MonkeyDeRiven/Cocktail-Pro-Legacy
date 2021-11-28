@@ -35,9 +35,7 @@ TEST_F(Subjecttest,attach)
 r->attach(r2);
 EXPECT_EQ(r->observers.size(),1);
 }
-
 TEST_F(Subjecttest,notify)
 {
-EXPECT_EQ(r->notify(),true);
+EXPECT_EQ(r->observers.size(),0);
 }
-
