@@ -56,6 +56,7 @@ TEST_F(MischbaresRezeptbuchTest,isRecipeValidTest){
   EXPECT_EQ(valid, true);
   valid = mixableRecipeBook->isRecipeStepValid(mixableRecipeBook->rezepte[1]);
   EXPECT_EQ(valid, false);
+
 }
 
 TEST_F(MischbaresRezeptbuchTest, isIngredientInStock){
