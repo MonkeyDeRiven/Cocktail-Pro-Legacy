@@ -3,7 +3,7 @@
 
 #include "Dosierer.h"
 
-Dosierer::Dosierer(float g, int ze, std::string input_inhalt, Waage * wg) : InternalDevice(), inhalt(input_inhalt) {
+Dosierer::Dosierer(float g, int ze, std::string &input_inhalt, Waage * wg) : InternalDevice(), inhalt(input_inhalt) {
     this->grammProZeit = g;
     this->zeiteinheit = ze;
     this->myWaage = wg;
@@ -41,6 +41,5 @@ Dosierer::Dosierer() {
   
 }
 float Dosierer::getGwicht() const {
-
   return gwicht;
 }
