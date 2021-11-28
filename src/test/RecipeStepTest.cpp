@@ -13,13 +13,10 @@
 
 class RecipeStepTest : public ::testing::Test{
  protected:
-  std::string ingredient;
-  RecipeStep* step;
+  std::string ingredient = "Banana";
+  RecipeStep* step = new RecipeStep();
   virtual void setup(){
-    ingredient = "Banana";
-    step = new RecipeStep();
-    step->setZutat(ingredient);
-    step->setMenge(0.7);
+
   }
 
   virtual void tearDown(){
@@ -27,3 +24,24 @@ class RecipeStepTest : public ::testing::Test{
   }
 };
 
+TEST_F(RecipeStepTest, getIngredient){
+  step->setZutat(ingredient);
+  std::string testIngredient = step->getZutat();
+  EXPECT_EQ(testIngredient, "Banana");
+}
+
+TEST_F(RecipeStepTest, getIngredientAmount){
+  step->setMenge(0.5);
+  EXPECT_EQ(step->getMenge(), 0.5);
+}
+
+TEST_F(RecipeStepTest, setIngredient){
+  ingredient = "Apfel";
+  step->setZutat(ingredient);
+  EXPECT_EQ(step->getZutat(), "Apfel");
+}
+
+TEST_F(RecipeStepTest, setAmount){
+  step->setMenge(1.5);
+  EXPECT_EQ(step->getMenge(), 1.5);
+}
