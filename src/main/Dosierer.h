@@ -19,6 +19,10 @@
 class Dosierer : public InternalDevice, public Observer {
 public:
     /**
+     * @brief default constructor
+     */
+    Dosierer();
+    /**
     *@brief constructor creates objects from Dosierer
     *@return a pointer to the created object
     *@param g is the amount in gram
@@ -42,7 +46,7 @@ public:
     /**
     * object of int
     */
-    int getStueckProZeit();
+    float getStueckProZeit();
 
 private:
     /**
@@ -61,6 +65,19 @@ private:
     * object of std::string
     */
     std::string inhalt;
+    /**
+     * @brief
+     * @return the weight
+     */
+    float getGwicht() const;
+    /**
+     * object of boolean
+     */
+    bool testCheckpoint = false;
+    /**
+     * object of boolean
+     */
+    bool testCheckpoint2 = false;
 };
 
 #endif

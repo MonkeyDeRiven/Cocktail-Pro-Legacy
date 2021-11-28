@@ -35,6 +35,9 @@ void DeviceVerwalter::createDevices() {
             myDevices->insert(std::make_pair(myZutat, new Dosierer(1, 250, myZutat, theWaage)));
     }
 }
+DeviceVerwalter::DeviceVerwalter() {
+
+}
 
 void DeviceVerwalter::setZutatenVerwalter(VorhandeneZutaten * zv) {
     myZutatenVerwalter = zv;

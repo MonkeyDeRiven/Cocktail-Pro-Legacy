@@ -27,6 +27,10 @@
 class DeviceVerwalter {
 public:
   /**
+   * @brief default constructor
+   */
+  DeviceVerwalter();
+  /**
    * @brief constructor creates objects from CocktailPro
    *
    * @param ze points on VorhandeneZutaten
