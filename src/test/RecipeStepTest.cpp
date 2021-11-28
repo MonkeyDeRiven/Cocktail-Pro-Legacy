@@ -27,23 +27,3 @@ class RecipeStepTest : public ::testing::Test{
   }
 };
 
-TEST_F(RecipeStepTest, getIngredient){
-  std::string testIngredient = step->getZutat();
-  EXPECT_EQ(testIngredient, "Banana");
-}
-
-TEST_F(RecipeStepTest, getIngredientAmount){
-  int amount = step->getMenge();
-  EXPECT_EQ(amount, 0.7);
-}
-
-TEST_F(RecipeStepTest, setIngredient){
-  ingredient = "Apfel";
-  step->setZutat(ingredient);
-  EXPECT_EQ(step->getZutat(), "Apfel");
-}
-
-TEST_F(RecipeStepTest, setAmount){
-  step->setMenge(1.33);
-  EXPECT_EQ(step->getMenge(), 1.33);
-}
