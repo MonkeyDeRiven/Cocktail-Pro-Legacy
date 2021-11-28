@@ -26,6 +26,10 @@ class DosiererTest : public ::testing::Test {
 
 TEST_F(DosiererTest, testUpdateForCheckpointReached){
   EXPECT_EQ(true, d->testCheckpoint);
+
+  d->doinIt = false;
+  EXPECT_EQ()
+
 }
 
 TEST_F(DosiererTest, testUpdateForCheckpoint2Reached){
@@ -43,3 +47,4 @@ TEST_F(DosiererTest, testGetGwichtForReturnValue){
   d->gwicht = testVal;
   EXPECT_EQ(testVal,d->getGwicht());
 }
+
