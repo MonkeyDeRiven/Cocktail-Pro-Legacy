@@ -24,7 +24,7 @@ public:
      * @brief The Method signals the user that the shaker is working
      * @param time a float for the time the shaker is working
      */
-    void doIt(float time);
+    bool doIt(float time);
 
 private:
 };

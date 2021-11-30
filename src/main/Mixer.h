@@ -25,7 +25,7 @@ public:
      *
      * the method sleeps for time seconds, to pretend the mixing process.
      */
-    void doIt(float time);
+    bool doIt(float time);
 
 private:
 

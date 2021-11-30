@@ -25,7 +25,7 @@ public:
      * @brief The Method signals the user that the masher is working
      * @param time a float for the time the masher is working
      */
-    void doIt(float time);
+    bool doIt(float time);
 
 private:
 };

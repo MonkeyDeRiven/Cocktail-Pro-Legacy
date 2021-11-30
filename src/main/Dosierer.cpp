@@ -18,7 +18,7 @@ void Dosierer::update() {
     }
 }
 
-void Dosierer::doIt(float gramm) {
+bool Dosierer::doIt(float gramm) {
     this->gwicht = gramm;
     myWaage->tara();
     doinIt = true;
