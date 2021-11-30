@@ -38,8 +38,8 @@ TEST_F(DosiererTest, testGetStueckProZeitForReturnValue){
   EXPECT_EQ(testVal,d->getStueckProZeit());
 }
 
-TEST_F(DosiererTest, testGetGwichtForReturnValue){
+/*TEST_F(DosiererTest, testGetGwichtForReturnValue){
   float testVal = 6.4;
   d->gwicht = testVal;
   EXPECT_EQ(testVal,d->getGwicht());
-}
+}*/
