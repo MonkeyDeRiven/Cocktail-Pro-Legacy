@@ -25,7 +25,7 @@ class DosiererTest : public ::testing::Test {
   }
 
   virtual void TearDown(){
-    d->myWaage->detach(d);
+    //d->myWaage->detach(d);
     delete testWaage;
     delete d;
   }
