@@ -10,26 +10,38 @@
 class DosiererTest : public ::testing::Test {
  protected:
   Dosierer* d;
+  Waage *testWaage;
 
   virtual void SetUp(){
-    d = new Dosierer();
-    d->myWaage = new Waage();
-    d->myTimer = new Timer();
-    d->doinIt = true;
-    d->update();
+    testWaage = new Waage();
+    std::string testString = "TestZutat";
+    d = new Dosierer(10.0, 1000, testString, testWaage);
+    d->doinIt = false;
+    d->grammProZeit = 10;
+    d->zeiteinheit = 1000;
+    d->inhalt = "TestZutat";
+    Timer *t = Timer::getInstance();
+    t->set_Turbo(50);
   }
 
   virtual void TearDown(){
+    d->myWaage->detach(d);
+    delete testWaage;
     delete d;
   }
 };
 
-TEST_F(DosiererTest, testUpdateForCheckpointReached){
-  EXPECT_EQ(true, d->testCheckpoint);
+TEST_F(DosiererTest, testUpdateIfItCorrectlyUpdates) {
+  d->doinIt = true;
+  d->gwicht = 4.2;
+  d->update();
+  EXPECT_EQ(d->doinIt, true);
 }
 
-TEST_F(DosiererTest, testUpdateForCheckpoint2Reached){
-  EXPECT_EQ(false, d->testCheckpoint2);
+TEST_F(DosiererTest, checkIfDoItDoesCorrectAmount) {
+  float amount = 9.9;
+  d->doIt(amount);
+  EXPECT_GE(testWaage->getDelta(), amount);
 }
 
 TEST_F(DosiererTest, testGetStueckProZeitForReturnValue){
@@ -37,9 +49,3 @@ TEST_F(DosiererTest, testGetStueckProZeitForReturnValue){
   d->grammProZeit = testVal;
   EXPECT_EQ(testVal,d->getStueckProZeit());
 }
-
-/*TEST_F(DosiererTest, testGetGwichtForReturnValue){
-  float testVal = 6.4;
-  d->gwicht = testVal;
-  EXPECT_EQ(testVal,d->getGwicht());
-}*/
