@@ -40,6 +40,6 @@ float Dosierer::getStueckProZeit() {
 Dosierer::Dosierer() {
   
 }
-float Dosierer::getGwicht() const {
+/*float Dosierer::getGwicht() const {
   return gwicht;
-}
+}*/

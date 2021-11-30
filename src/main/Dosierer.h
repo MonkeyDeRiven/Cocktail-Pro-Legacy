@@ -69,7 +69,7 @@ private:
      * @brief
      * @return the weight
      */
-    float getGwicht() const;
+    //float getGwicht() const;
     /**
      * object of boolean
      */
