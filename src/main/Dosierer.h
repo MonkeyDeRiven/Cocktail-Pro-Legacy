@@ -19,10 +19,6 @@
 class Dosierer : public InternalDevice, public Observer {
 public:
     /**
-     * @brief default constructor
-     */
-    Dosierer();
-    /**
     *@brief constructor creates objects from Dosierer
     *@return a pointer to the created object
     *@param g is the amount in gram
@@ -69,15 +65,6 @@ private:
      * @brief
      * @return the weight
      */
-    float getGwicht() const;
-    /**
-     * object of boolean
-     */
-    bool testCheckpoint = false;
-    /**
-     * object of boolean
-     */
-    bool testCheckpoint2 = false;
 };
 
 #endif

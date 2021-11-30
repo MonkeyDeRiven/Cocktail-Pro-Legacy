@@ -41,7 +41,8 @@ public:
     *@brief this method executes the output of cocktail that gets poured in the glass
     */
     bool doIt(float input);
-  float getValue() const;
+
+    float getValue() const;
 
  private:
     /**

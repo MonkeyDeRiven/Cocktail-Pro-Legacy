@@ -12,7 +12,6 @@ Dosierer::Dosierer(float g, int ze, std::string &input_inhalt, Waage * wg) : Int
 
 void Dosierer::update() {
     if (!this->doinIt) return;
-    this->testCheckpoint = true;
     if (myWaage->getDelta() >= gwicht) {
         doinIt = false;
     }
@@ -28,7 +27,6 @@ bool Dosierer::doIt(float gramm) {
         myWaage->changeWeight(grammProZeit);
         //myWaage->changeWeight(0);
     }
-    testCheckpoint2 = true;
     std::cout << std::endl << inhalt << " Ventil wurde geschlossen" << std::endl;
     std::cout << "Es wurden " << myWaage->getDelta() << "g " << inhalt << " abgefuellt" << std::endl;
     std::cout << std::endl;
@@ -36,10 +34,4 @@ bool Dosierer::doIt(float gramm) {
 
 float Dosierer::getStueckProZeit() {
     return this->grammProZeit;
-}
-Dosierer::Dosierer() {
-  
-}
-float Dosierer::getGwicht() const {
-  return gwicht;
 }
