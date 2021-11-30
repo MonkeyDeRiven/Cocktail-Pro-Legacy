@@ -34,7 +34,7 @@ public:
     /**
     *@brief this method executes the output of ingredients on the Waage.
     */
-    void doIt(float gramm);
+    bool doIt(float gramm);
     /**
     *@brief this method returns grammProZeit
     *@return grammProZeit

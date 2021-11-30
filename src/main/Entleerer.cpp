@@ -23,7 +23,7 @@ void Entleerer::update() {
         doinIt = 0;
 }
 
-void Entleerer::doIt(float input) {
+bool Entleerer::doIt(float input) {
     std::cout << "Ihr Cocktail hat ein Gesamtgewicht von " << myWaage->getWeight() << "g" << std::endl;
     std::cout << "Entleervorgang wird begonnen..." << std::endl;
     this->value = input;

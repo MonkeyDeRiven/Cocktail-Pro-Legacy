@@ -19,7 +19,7 @@ public:
     /** @brief implements a virtual base function for the task functions of the internal devices.
      *  @param value is a float, which represents the time.
      */
-    virtual void doIt(float value) = 0;
+    virtual bool doIt(float value) = 0;
 
     /** @brief cleans the device.
      */
