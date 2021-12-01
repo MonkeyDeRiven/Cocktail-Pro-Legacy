@@ -43,13 +43,13 @@ TEST_F(DeviceVerwalterTest, testZutatenVerwalterForCorrectIngredientStorage) {
 }
 
 TEST_F(DeviceVerwalterTest, testIfRezeptSchrittZubereitenCovertsCorrectly) {
-  float amount = 7.9;
+  float amount = 10;
   std::string testIngredient = "Wodka";
   deviceVerwalterVec->rezeptSchrittZubereiten(testIngredient, amount);
   EXPECT_GE(deviceVerwalterVec->theWaage->getDelta(), amount);
 
-  testIngredient = "Limettenstuecke";
-  deviceVerwalterVec->rezeptSchrittZubereiten(testIngredient, amount);
+  std::string testIngredient2 = "Limettenstuecke";
+  deviceVerwalterVec->rezeptSchrittZubereiten(testIngredient2, amount);
   int testSlicesMin = dynamic_cast<Dosierer*>(deviceVerwalterVec->myDevices->at(testIngredient))->getStueckProZeit();
   EXPECT_GE(deviceVerwalterVec->theWaage->getDelta(), amount * testSlicesMin);
 }
