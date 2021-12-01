@@ -49,18 +49,19 @@ RecipeBook::RecipeBook(void) {
     // cout << m_Liste->size() << endl;
 
   } else {
-    recipeElse();
+    recipeElse(in);
   }
 }
 
 
-void RecipeBook::recipeElse() {
-  std::ifstream in;
+void RecipeBook::recipeElse(std::ifstream &in) {
   // Read and output data
+  std::stringstream zeileStream;
   std::string zeile;
 
   // 1. line is title - Read and throw away!
-  getline(in, zeile);
+  zeileStream << in.rdbuf();
+  zeileStream >> zeile;
   // cout << zeile << endl;
 
   addRecipes(in, zeile);

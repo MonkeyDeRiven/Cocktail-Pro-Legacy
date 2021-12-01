@@ -63,3 +63,33 @@ TEST_F(RecipeBookTest,deleteRecipeRemovesCorrectRecipe){
     rez = r->getRecipe(0);
     EXPECT_EQ(rez->getName(),"Margarita");    
 }
+
+TEST_F(RecipeBookTest, addRecipeAddsCorrectRecipe){
+  std::ifstream recipes;
+  std::istringstream input("Bloody Mary;Bananen;10;Eis;5\nMy Drink;Zucker;2;Limetten;6");
+  recipes.basic_ios<char>::rdbuf(input.rdbuf());
+  //recipes.open("C:\\Users\\Max\\clion_projects\\src\\test\\RecipeBookTest.txt", std::ifstream::in);
+  std::string line;
+  EXPECT_EQ(r->getNumberOfRecipes(), 2);
+  r->addRecipes(recipes, line);
+  EXPECT_EQ(r->getNumberOfRecipes(), 4);
+  EXPECT_EQ(r->getRecipe(3)->getName(), "My Drink");
+}
+
+TEST_F(RecipeBookTest, importRecipeCreatesRecipe){
+  Recipe testRecipe;
+  std::istringstream input("Bananen;10;Eis;5");
+  r->importRecipe(input, &testRecipe);
+  EXPECT_EQ(testRecipe.getNoOfRecipeSteps(), 2);
+  EXPECT_EQ(testRecipe.getRecipeStep(0)->getMenge(), 10);
+  EXPECT_EQ(testRecipe.getRecipeStep(1)->getZutat(), "Eis");
+}
+
+TEST_F(RecipeBookTest, RecipeElseAppendsTxtSteps){
+  std::ifstream recipes;
+  std::istringstream input("Bloody Mary;Bananen;10;Eis;5\nMy Drink;Zucker;2;Limetten;6");
+  recipes.basic_ios<char>::rdbuf(input.rdbuf());
+  r->recipeElse(recipes);
+  EXPECT_EQ(r->getNumberOfRecipes(), 4);
+  EXPECT_EQ(r->getRecipe(2)->getName(), "Bloody Mary");
+}
