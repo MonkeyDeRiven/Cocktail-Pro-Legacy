@@ -8,5 +8,6 @@ Mixer::Mixer() : InternalDevice() {
 
 bool Mixer::doIt(float time) {
   myTimer->sleep_in_intervals(time * 1000);
-    std::cout << std::endl;
+  std::cout << std::endl;
+  return 0;//did that to avoid compiler warning -Arian
 }

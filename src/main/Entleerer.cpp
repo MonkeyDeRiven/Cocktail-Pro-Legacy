@@ -36,6 +36,7 @@ bool Entleerer::doIt(float input) {
     std::cout << std::endl;
     std::cout << "Entleervorgang wurde beendet, bitte entnehmen Sie ihren Cocktail!" << std::endl;
     std::cout << std::endl;
+    return 0;//did that to avoid compiler warning -Arian
 }
 /*float Entleerer::getValue() const {
   return value;

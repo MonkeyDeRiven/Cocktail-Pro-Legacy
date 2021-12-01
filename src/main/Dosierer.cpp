@@ -30,6 +30,7 @@ bool Dosierer::doIt(float gramm) {
     std::cout << std::endl << inhalt << " Ventil wurde geschlossen" << std::endl;
     std::cout << "Es wurden " << myWaage->getDelta() << "g " << inhalt << " abgefuellt" << std::endl;
     std::cout << std::endl;
+    return 0;//did that to avoid compiler warning -Arian
 }
 
 float Dosierer::getStueckProZeit() {

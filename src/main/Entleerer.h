@@ -42,8 +42,6 @@ public:
     */
     bool doIt(float input);
 
-    float getValue() const;
-
  private:
     /**
     *object of float
