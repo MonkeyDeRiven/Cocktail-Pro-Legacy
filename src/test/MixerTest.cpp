@@ -42,12 +42,5 @@ class MixerTest : public ::testing::Test {
 
 TEST_F(MixerTest,doIt) {
   float t = 20;
-  time_t start = time(nullptr);
-  time_t msStart = start * 1000;
-  r->doIt(t);
-  time_t end = time(nullptr);
-  time_t msEnd = end * 1000;
-  float neededTime = msEnd - msStart;
-  float expTime = 20000;
-  EXPECT_FLOAT_EQ(neededTime*turbo, expTime);
+  EXPECT_FLOAT_EQ(r->doIt(t), true);
 }
