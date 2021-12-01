@@ -6,11 +6,8 @@
 class RecipeTest : public ::testing::Test {
  protected:
   Recipe* r;
-  std::basic_streambuf<char>* old_buf;
-  std::stringstream ss;
 
   virtual void SetUp() {
-    old_buf = std::cout.rdbuf(ss.rdbuf());
     r = new Recipe();
 
     r->m_RecipeStep.clear();
@@ -25,7 +22,6 @@ class RecipeTest : public ::testing::Test {
   }
 
   virtual void TearDown() {
-    std::cout.rdbuf(old_buf); // redirect cout back to standard cout
     delete r;
   }
 };
@@ -35,15 +31,15 @@ TEST_F(RecipeTest,getNoOfRecipeStepsReturnsValueOfAttribute) {
   EXPECT_EQ(noOfRecipeSteps,r->getNoOfRecipeSteps());
 }
 
-TEST_F(RecipeTest,getRecipeStep) {
-
-}
-
 TEST_F(RecipeTest,getNameReturnName) {
   std::string name=r->m_Name;
   EXPECT_EQ(name,"Caipirinha");
 }
 
+TEST_F(RecipeTest,setName) {
+  r->setName("Margarita");
+  EXPECT_EQ(r->getName(),"Margarita");
+}
 
 TEST_F(RecipeTest,browseReturnRecipeSteps) {
   std::vector<std::string>* steps;

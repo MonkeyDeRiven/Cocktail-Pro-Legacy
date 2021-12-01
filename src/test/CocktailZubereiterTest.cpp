@@ -23,6 +23,7 @@ class CocktailZubereiterTest : public ::testing::Test {
     vz = new VorhandeneZutaten();
     dv = new DeviceVerwalter(vz);
     r = new CocktailZubereiter(dv);
+    r->myDeviceVerwalter->mySchuettler->myTimer->set_Turbo(20);
 
     recipe = new Recipe();
     recipe->setName("Caipirinha");
