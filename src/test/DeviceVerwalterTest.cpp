@@ -48,6 +48,10 @@ TEST_F(DeviceVerwalterTest, testIfRezeptSchrittZubereitenCovertsCorrectly) {
   testIngredient = "Gin";
   deviceVerwalterVec->rezeptSchrittZubereiten(testIngredient, amount);
   EXPECT_GE(deviceVerwalterVec->theWaage->getDelta(), amount);
+
+  deviceVerwalterVec->rezeptSchrittZubereiten(testIngredient, amount);
+  int testSlicesMin = dynamic_cast<Dosierer*>(deviceVerwalterVec->myDevices->at(testIngredient))->getStueckProZeit();
+  EXPECT_GE(deviceVerwalterVec->theWaage->getDelta(), amount * testSlicesMin);
 }
 
 
