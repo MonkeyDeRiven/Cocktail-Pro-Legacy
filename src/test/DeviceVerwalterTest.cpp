@@ -1,4 +1,4 @@
-/*
+
 #include <limits.h>
 #include "gtest/gtest.h"
 
@@ -8,18 +8,46 @@
 #undef protected
 #undef private
 
- class DeviceVerwalterTest : public ::testing::Test{
- protected:
-  DeviceVerwalter* v;
+  class DeviceVerwalterTest : public ::testing::Test {
+   protected:
+    DeviceVerwalter *deviceVerwalterVec;
+    VorhandeneZutaten *zutatenVecPointer;
 
-  virtual void SetUp(){
-    v = new DeviceVerwalter();
-  }
+    virtual void SetUp() {
+      zutatenVecPointer = new VorhandeneZutaten();
+      deviceVerwalterVec = new DeviceVerwalter(zutatenVecPointer);
+      Timer *t = Timer::getInstance();
+      t->set_Turbo(1000);
+    }
 
-  virtual void TearDown(){
-    delete v;
-  }
-};
+    virtual void TearDown() {
+      delete zutatenVecPointer;
+      delete deviceVerwalterVec;
+    }
+  };
+
+TEST_F(DeviceVerwalterTest, testForCorrectlyCreatedDevices) {
+  deviceVerwalterVec->myDevices->clear();
+  deviceVerwalterVec->createDevices();
+  EXPECT_NE(deviceVerwalterVec->myDevices->find("Entleeren"), deviceVerwalterVec->myDevices->end());
+  EXPECT_NE(deviceVerwalterVec->myDevices->find("Stampfen"), deviceVerwalterVec->myDevices->end());
+  EXPECT_EQ(deviceVerwalterVec->theWaage->getDelta(), 0);
+}
+
+TEST_F(DeviceVerwalterTest, testZutatenVerwalterForCorrectIngredientStorage) {
+  zutatenVecPointer->zutaten->clear();
+  std::string testIngredient = "TestZutat";
+  zutatenVecPointer->zutaten->push_back(testIngredient);
+  deviceVerwalterVec->setZutatenVerwalter(zutatenVecPointer);
+  EXPECT_EQ(testIngredient, zutatenVecPointer->zutaten->at(0));
+}
+
+TEST_F(DeviceVerwalterTest, testIfRezeptSchrittZubereitenCovertsCorrectly) {
+  float amount = 7.9;
+  std::string testIngredient = "TestZutat";
+  testIngredient = "Gin";
+  deviceVerwalterVec->rezeptSchrittZubereiten(testIngredient, amount);
+  EXPECT_GE(deviceVerwalterVec->theWaage->getDelta(), amount);
+}
 
 
-*/
