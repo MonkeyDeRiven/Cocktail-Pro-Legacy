@@ -141,7 +141,7 @@ class RecipeBook {
     /**
      * @brief else in our recipe building
      */
-    void recipeElse();
+    void recipeElse(std::ifstream &in);
 
 
 
