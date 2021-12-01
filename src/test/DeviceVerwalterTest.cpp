@@ -44,7 +44,7 @@ TEST_F(DeviceVerwalterTest, testZutatenVerwalterForCorrectIngredientStorage) {
 
 TEST_F(DeviceVerwalterTest, testIfRezeptSchrittZubereitenCovertsCorrectly) {
   float amount = 7.9;
-  std::string testIngredient = "TestZutat";
+  std::string testIngredient = "Limettenstuecke";
   testIngredient = "Gin";
   deviceVerwalterVec->rezeptSchrittZubereiten(testIngredient, amount);
   EXPECT_GE(deviceVerwalterVec->theWaage->getDelta(), amount);
