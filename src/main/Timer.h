@@ -42,13 +42,13 @@ class Timer {
    * if its >= 1000, we set our delay to = 0 and we stop waiting
    */
 
-  void sleep_in_intervals(long milliseconds);
+  bool sleep_in_intervals(long milliseconds);
   /**
    * @brief Methode sleep waits one time, how long we wait is depending on our parameter
    * @param delay_in_ms is the time we wait
    */
 
-  void sleep(long delay_in_ms);
+  bool sleep(long delay_in_ms);
 
 
  private:

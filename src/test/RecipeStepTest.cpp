@@ -14,12 +14,14 @@
 class RecipeStepTest : public ::testing::Test{
  protected:
   std::string ingredient = "Banana";
-  RecipeStep* step = new RecipeStep();
-  virtual void setup(){
+  RecipeStep* step;
+
+  virtual void SetUp() {
+    step = new RecipeStep();
 
   }
 
-  virtual void tearDown(){
+  virtual void TearDown() {
     delete step;
   }
 };

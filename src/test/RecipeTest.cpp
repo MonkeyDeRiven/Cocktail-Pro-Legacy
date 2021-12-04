@@ -31,6 +31,12 @@ TEST_F(RecipeTest,getNoOfRecipeStepsReturnsValueOfAttribute) {
   EXPECT_EQ(noOfRecipeSteps,r->getNoOfRecipeSteps());
 }
 
+TEST_F(RecipeTest,getRecipeStepReturnsCorrectRecipeStep){
+  RecipeStep* rezstep;
+  rezstep = r->getRecipeStep(0);
+  EXPECT_EQ(rezstep->getZutat(),"Limettenstuecke");
+}
+
 TEST_F(RecipeTest,getNameReturnName) {
   std::string name=r->m_Name;
   EXPECT_EQ(name,"Caipirinha");
