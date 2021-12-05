@@ -17,7 +17,7 @@ Timer * Timer::getInstance() {
     }
 }
 
-void Timer::sleep(long delay_in_ms){
+bool Timer::sleep(long delay_in_ms){
     // if netbeans does not recognize system_clock you have to set the project properties to C++11:
     // Project-Properties->Code Assistance -> C++ (and C). Seit it to C++!
     long now_millis = time_point_cast<milliseconds>(system_clock::now()).time_since_epoch().count();      
@@ -27,9 +27,10 @@ void Timer::sleep(long delay_in_ms){
 
         now_millis = time_point_cast<milliseconds>(system_clock::now()).time_since_epoch().count();;
     }
+  return true;
 }
 
-void Timer::sleep_in_intervals(long delay_in_ms) {
+bool Timer::sleep_in_intervals(long delay_in_ms) {
     // to improve compatibility between Linux and Windows this implementation
     // is using busy wait (and avoids threads)! On purpose...
     long delay=0;
@@ -45,7 +46,8 @@ void Timer::sleep_in_intervals(long delay_in_ms) {
             delay_in_ms = 0;          
         }
         sleep(delay);
-    }   
+    }
+    return true;
 }
 
 
