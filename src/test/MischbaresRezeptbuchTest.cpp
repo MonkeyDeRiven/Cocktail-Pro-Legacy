@@ -19,7 +19,7 @@ class MischbaresRezeptbuchTest : public ::testing::Test {
   virtual void SetUp() {
     ingredients = new VorhandeneZutaten();
     mixableRecipeBook = new MischbaresRezeptbuch(ingredients);
-    mixableRecipeBook->rezepte.clear();
+    mixableRecipeBook->recipeList.clear();
 
     Recipe* testRecipe1 = new Recipe();
     testRecipe1->setName("Margarita");
@@ -28,7 +28,7 @@ class MischbaresRezeptbuchTest : public ::testing::Test {
     testRecipe1->appendStep("Tequilla", 4);
     testRecipe1->appendStep("Eis", 50);
     testRecipe1->appendStep("Mischen", 20);
-    mixableRecipeBook->rezepte.push_back(testRecipe1);
+    mixableRecipeBook->recipeList.push_back(testRecipe1);
 
 
     Recipe* testRecipe2 = new Recipe();
@@ -39,7 +39,7 @@ class MischbaresRezeptbuchTest : public ::testing::Test {
     testRecipe2->appendStep("Rum braun", 6);
     testRecipe2->appendStep("Eis", 100);
     testRecipe2->appendStep("Mischen", 20);
-    mixableRecipeBook->rezepte.push_back(testRecipe2);
+    mixableRecipeBook->recipeList.push_back(testRecipe2);
 
   }
 
@@ -52,9 +52,9 @@ class MischbaresRezeptbuchTest : public ::testing::Test {
 };
 
 TEST_F(MischbaresRezeptbuchTest,isRecipeValidTest){
-  bool valid = mixableRecipeBook->isRecipeStepValid(mixableRecipeBook->rezepte[0]);
+  bool valid = mixableRecipeBook->isRecipeStepValid(mixableRecipeBook->recipeList[0]);
   EXPECT_EQ(valid, true);
-  valid = mixableRecipeBook->isRecipeStepValid(mixableRecipeBook->rezepte[1]);
+  valid = mixableRecipeBook->isRecipeStepValid(mixableRecipeBook->recipeList[1]);
   EXPECT_EQ(valid, false);
 }
 

@@ -37,6 +37,7 @@ class CocktailZubereiterTest : public ::testing::Test {
 
 TEST_F(CocktailZubereiterTest, cocktailZubereiterInitialisesCorrect){
   EXPECT_EQ(r->myDeviceVerwalter, dv);
+
 }
 
 TEST_F(CocktailZubereiterTest, cocktailZubereitenDoesNotCrash){
