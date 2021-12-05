@@ -9,7 +9,7 @@
 #undef protected
 #undef private
 
-class CocktailProTest : public ::testing::Test {
+class CocktailPro_Test : public ::testing::Test {
 
  protected:
   CocktailPro* testPro;
@@ -36,16 +36,20 @@ class CocktailProTest : public ::testing::Test {
 };
 
 
-TEST_F(CocktailProTest, checkInput){
+TEST_F(CocktailPro_Test, checkInput){
   EXPECT_EQ(10, testPro->checkInput(input, inputNumber, max));
 }
-TEST_F(CocktailProTest, checkInputMax){
+TEST_F(CocktailPro_Test, checkInputMax){
   EXPECT_LE(testPro->checkInputMax(input, inputNumber, max), max);
 }
-TEST_F(CocktailProTest, waehleTest){
+TEST_F(CocktailPro_Test, waehleTest){
 
-  new_cin << "5";
+  new_cin << "5" << std::endl;
   EXPECT_EQ(testPro->waehle(), 5);
+  new_cin.clear();
+  new_cin << "-1" << std::endl;
+
+  EXPECT_EXIT(testPro->waehle(), testing::ExitedWithCode(0), "");
 
 }
 
