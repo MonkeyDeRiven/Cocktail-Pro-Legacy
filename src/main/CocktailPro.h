@@ -68,7 +68,8 @@ class CocktailPro {
   * those in protected variables are initialized with dynamic objects
   *
   */
-  explicit CocktailPro(int argc, char * * turbo);
+  explicit CocktailPro(int argc, char ** turbo);
+
   /**
    * @brief
    * @param toCopyObject
@@ -104,6 +105,7 @@ class CocktailPro {
    * @return the number selected by the user
    */
   int checkInputMax(const std::string &input, int inputNumber, int max) const;
+
 };
 
 #endif

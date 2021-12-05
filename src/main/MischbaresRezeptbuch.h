@@ -44,7 +44,7 @@ private:
     /**
      *  contains every mixable recipe
      */
-    std::vector<Recipe *> rezepte;
+    std::vector<Recipe *> recipeList;
 
     /**
      * @brief assigns a new ingredient manager

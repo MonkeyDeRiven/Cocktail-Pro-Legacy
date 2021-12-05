@@ -53,21 +53,21 @@ void CocktailPro::demo() {
 
 int CocktailPro::waehle() {
     while (true) {
-        std::cout << "********** Mischbare Rezepte **********" << std::endl;
-        theMischbaresRezeptbuch->browse();
-        std::cout << "Was haetten Sie denn gern? (-1 zum Verlassen)" << std::endl;
+      std::cout << "********** Mischbare Rezepte **********" << std::endl;
+      theMischbaresRezeptbuch->browse();
+      std::cout << "Was haetten Sie denn gern? (-1 zum Verlassen)" << std::endl;
 
-        std::string input = "";
+      std::string input = "";
 
-        //cin.ignore();       
-        std::cin >> input;
+      // std::cin.ignore();
+      std::cin >> input;
 
-        int inputNumber = atoi(input.c_str());
-        int max = theMischbaresRezeptbuch->getNumberOfRecipes();
-        if (inputNumber == -1) {
-          exit(0);
-        }
-        return checkInput(input, inputNumber, max);
+      int inputNumber = atoi(input.c_str());
+      int max = theMischbaresRezeptbuch->getNumberOfRecipes();
+      if (inputNumber == -1) {
+        exit(0);
+      }
+      return checkInput(input, inputNumber, max);
     }
 }
 int CocktailPro::checkInput(const std::string &input, int inputNumber, int max) const {
