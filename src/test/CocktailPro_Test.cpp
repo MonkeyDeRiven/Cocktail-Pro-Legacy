@@ -48,5 +48,4 @@ TEST_F(CocktailPro_Test, waehleTest){
   new_cin << "0" << std::endl;
 
   EXPECT_EQ(testPro->waehle(), 0);
-
 }
