@@ -43,13 +43,3 @@ TEST_F(CocktailPro_Test, checkInput){
 TEST_F(CocktailPro_Test, checkInputMax){
   EXPECT_LE(testPro->checkInputMax(input, inputNumber, max), max);
 }
-TEST_F(CocktailPro_Test, waehleTest){
-
-  new_cin << "5" << std::endl;
-  EXPECT_EQ(testPro->waehle(), 5);
-  new_cin.clear();
-  new_cin << "0" << std::endl;
-
- // EXPECT_EQ(testPro->waehle(), 0);
-
-}
