@@ -74,8 +74,7 @@ TEST_F(VorhandeneZutatenTest,FileZutatenDotTxtIsNotAvailable)
 
 TEST_F(VorhandeneZutatenTest, CopyConstructor){
 
-
-  VorhandeneZutaten* zv3(zv);
+  VorhandeneZutaten* zv3 = new VorhandeneZutaten();
+  zv3 = zv;
   EXPECT_EQ(zv3, zv);
-
 }
