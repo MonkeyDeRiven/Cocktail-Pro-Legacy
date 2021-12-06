@@ -21,7 +21,7 @@ class CocktailPro_Test : public ::testing::Test {
   virtual void SetUp() {
     oldBufInput = std::cin.rdbuf(new_cin.rdbuf());
     demomode = new char*[2];
-    char demoChar[2] = {'-', 'D'};
+    char demoChar[2] = {'-', 'X'};
     demomode[1] = demoChar;
     testPro = new CocktailPro(2,demomode);
 
