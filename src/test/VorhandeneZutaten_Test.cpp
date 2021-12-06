@@ -71,3 +71,11 @@ TEST_F(VorhandeneZutatenTest,FileZutatenDotTxtIsNotAvailable)
         }
     }, std::string );
 }
+
+TEST_F(VorhandeneZutatenTest, CopyConstructor){
+
+
+  VorhandeneZutaten* zv3(zv);
+  EXPECT_EQ(zv3, zv);
+
+}
