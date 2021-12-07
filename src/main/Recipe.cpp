@@ -30,12 +30,20 @@ std::string Recipe::getName(void) const {
     return m_Name;
 }
 
+int Recipe::getNumber(void) const {
+  return m_Number;
+}
+
+void Recipe::setNumber(const int& number) {
+  this->m_Number = number;
+}
+
 void Recipe::setName(const std::string& Name) {
     this->m_Name = Name;
 }
 
 std::vector<std::string>* Recipe::browse() {
-    std::cout << m_Name << ": ";
+    std::cout << m_Number << ". " << m_Name << ": ";
     std::vector<std::string> *recipeStepsOfRecipe = new std::vector<std::string>;
     for (int i = 0; i< this->getNoOfRecipeSteps(); i++) {
         if (i > 0) std::cout << ", ";

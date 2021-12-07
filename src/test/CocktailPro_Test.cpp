@@ -34,12 +34,6 @@ class CocktailPro_Test : public ::testing::Test {
 };
 
 
-TEST_F(CocktailPro_Test, checkInput){
-  EXPECT_EQ(10, testPro->checkInput(input, inputNumber, max));
-}
-TEST_F(CocktailPro_Test, checkInputMax){
-  EXPECT_LE(testPro->checkInputMax(input, inputNumber, max), max);
-}
 TEST_F(CocktailPro_Test, waehleTest){
 
   new_cin << "5" << std::endl;
