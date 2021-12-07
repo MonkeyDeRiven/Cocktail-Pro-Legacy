@@ -49,3 +49,16 @@ TEST_F(CocktailPro_Test, waehleTest){
 
   EXPECT_EQ(testPro->waehle(), 0);
 }
+
+TEST_F(CocktailPro_Test, overload){
+  CocktailPro* cpy(testPro);
+
+  EXPECT_EQ(cpy, testPro);
+
+  CocktailPro* overload = new CocktailPro(2, demomode);
+
+  overload = testPro;
+
+  EXPECT_EQ(overload, testPro);
+
+}
