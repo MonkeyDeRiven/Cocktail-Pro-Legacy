@@ -7,6 +7,7 @@
 Recipe::Recipe(void) {
     m_RecipeStep.clear();
     m_Name = "";
+    m_Number = 0;
 }
 
 Recipe::~Recipe() {
