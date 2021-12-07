@@ -8,17 +8,21 @@ void CocktailPro::start(){
     while (true) {
         int CocktailNo = waehle();
         bool cocktailExist=false;
-        int numInList=0;
         int max = theMischbaresRezeptbuch->getNumberOfRecipes();
-        for(int rlist=0; rlist<max; rlist++){
-          numInList++;
-          if (CocktailNo == theMischbaresRezeptbuch->getRecipe(rlist)->getNumber()) {
-            cocktailExist=true;
-            break;
-          }
-        }
-      prepareCocktail(cocktailExist, numInList);
+        int numInList = checkInputInListForStart(CocktailNo, max, cocktailExist);
+        prepareCocktail(cocktailExist, numInList);
     }
+}
+int CocktailPro::checkInputInListForStart(int CocktailNo, int max, bool &cocktailExist) {
+  int numInList = 0;
+  for(int rlist=0; rlist<max; rlist++){
+    numInList++;
+    if (CocktailNo == theMischbaresRezeptbuch->getRecipe(rlist)->getNumber()) {
+      cocktailExist=true;
+      break;
+    }
+  }
+  return numInList;
 }
 void CocktailPro::prepareCocktail(bool cocktailExist, int numInList) {
   if (cocktailExist) {

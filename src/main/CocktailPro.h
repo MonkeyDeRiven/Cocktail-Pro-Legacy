@@ -105,6 +105,17 @@ class CocktailPro {
   int checkInputInList(int inputNumber);
 
   /**
+   * @brief this method checks if the number which was enter is in the List of Recipes
+   * It returns the number of the position of the recipe in the list
+   *
+   * @param CocktailNo return of waehle()
+   * @param max size of Recipe List
+   * @param cocktailExist bool that checks if the recipe exists
+   * @return the number of the position in the list
+   */
+  int checkInputInListForStart(int CocktailNo, int max, bool &cocktailExist);
+
+  /**
    * @brief this method checks if the recipe exists and prepares it
    * @param cocktailExist bool that checks if the recipe exists
    * @param numInList number of the recipe in the list
