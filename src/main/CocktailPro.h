@@ -91,10 +91,18 @@ class CocktailPro {
    *
    * @param input the input of the user
    * @param inputNumber the input of the user
-   * @param max the number of cocktails
    * @return the number selected by the user
    */
-  int checkInput(const std::string &input, int inputNumber) const;
+  int checkInput(const std::string &input, int inputNumber);
+
+  /**
+   * @brief this method checks if the number which was enter is in the List of Recipes
+   * It returns 0 if the number is not assigned to any cocktail
+   *
+   * @param inputNumber the input of the user
+   * @return the number of the Input or 0
+   */
+  int checkInputInList(int inputNumber);
 
   /**
    * @brief this method checks if the recipe exists and prepares it

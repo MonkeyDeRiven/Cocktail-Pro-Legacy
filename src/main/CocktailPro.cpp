@@ -82,16 +82,25 @@ int CocktailPro::waehle() {
       return checkInput(input, inputNumber);
     }
 }
-int CocktailPro::checkInput(const std::string &input, int inputNumber) const {
-  for (int rlist = 0; rlist < theMischbaresRezeptbuch->getNumberOfRecipes(); rlist++) {
-    if (inputNumber == theMischbaresRezeptbuch->getRecipe(rlist)->getNumber()) {
-      return inputNumber;
-    }
-  }
+int CocktailPro::checkInput(const std::string &input, int inputNumber) {
+  int inputInList = checkInputInList(inputNumber);
+  if(inputInList!=0)
+    return inputNumber;
   std::cout << "MEEEP! Too many fingers on keyboard error!" << std::endl;
   std::cout << "Ihre Eingabe: " << input << " ist nicht in der Auswahl vorhanden!" << std::endl;
   return 0;
 }
+
+int CocktailPro::checkInputInList(int inputNumber) {
+  int inputIsInList = 0;
+  for (int rlist = 0; rlist < theMischbaresRezeptbuch->getNumberOfRecipes(); rlist++) {
+    if (inputNumber == theMischbaresRezeptbuch->getRecipe(rlist)->getNumber()) {
+      inputIsInList = inputNumber;
+    }
+  }
+  return inputIsInList;
+}
+
 
 CocktailPro& CocktailPro::operator=(CocktailPro overload) {
   theMischbaresRezeptbuch = overload.theMischbaresRezeptbuch;
