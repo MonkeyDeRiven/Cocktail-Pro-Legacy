@@ -21,12 +21,9 @@ void CocktailPro::start(){
 int CocktailPro::checkInputInListForStart(int CocktailNo, int max, bool &cocktailExist) {
   int numInList = 0;
   for(int rlist=0; rlist<max; rlist++) {
-    if (cocktailExist) {
-      continue;
-    }
-    numInList++;
     if (CocktailNo == theMischbaresRezeptbuch->getRecipe(rlist)->getNumber()) {
       cocktailExist = true;
+      numInList = rlist;
     }
   }
   return numInList;
