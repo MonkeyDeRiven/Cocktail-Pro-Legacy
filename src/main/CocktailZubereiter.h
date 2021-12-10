@@ -26,6 +26,7 @@ public:
     /**
     *@brief this method starts the process of creating the cocktail based on a recipe.
     *@param rzpt is the recipe for the Cocktail
+    *@param ingredients contains a list of ingredients and their available amounts.
     *
     *@return true
     */

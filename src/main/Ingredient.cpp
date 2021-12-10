@@ -5,9 +5,8 @@
 #include "Ingredient.h"
 
 
-Ingredient::Ingredient(std::string newName, int newAmount) {
-  this->name = newName;
-  this->amount = newAmount;
+Ingredient::Ingredient(std::string &newName, int newAmount) : name(newName){
+  amount = newAmount;
 }
 
 std::string Ingredient::getName() {

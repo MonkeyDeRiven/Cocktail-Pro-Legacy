@@ -7,6 +7,10 @@
 
 #include <string>
 
+/**
+ * @class Ingredient
+ * @brief represents Ingredients with a name and a value.
+ */
 class Ingredient{
  private:
   std::string name;
@@ -18,7 +22,7 @@ class Ingredient{
    * @param newName is the name for the ingredient
    * @param newAmount is the amount available of the ingredient
    */
-  Ingredient(std::string newName, int newAmount);
+  Ingredient(std::string &newName, int newAmount);
   /**
    * get function for the class variable name, returns the name of the ingredient.
    * @return the name of the ingredient.

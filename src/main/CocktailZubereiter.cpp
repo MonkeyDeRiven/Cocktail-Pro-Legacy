@@ -17,8 +17,7 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* in
         RecipeStep * schritt = rzpt->getRecipeStep(i);
         std::string zutat = schritt->getZutat();
         float menge = schritt->getMenge();
-        float amountInGramm = menge;
-        amountInGramm = amountToGramm(zutat, menge);
+        float amountInGramm = amountToGramm(zutat, menge);
         std::cout << "Rezeptschritt: " << zutat << ", " << menge << std::endl;
         int restAmount = ingredients->getIngredientByName(zutat)->getAmount() - amountInGramm;
         if(restAmount < 0){
