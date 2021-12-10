@@ -79,7 +79,7 @@ class VorhandeneZutaten {
    * The function takes the name of the ingredient as parameter, loops the list of Ingredients and
    * returns the ingredient if the parameter name matches the Ingredients name.
    */
-  Ingredient* getIngredientByName(std::string name);
+  Ingredient* getIngredientByName(std::string &name);
 
  private:
   /**

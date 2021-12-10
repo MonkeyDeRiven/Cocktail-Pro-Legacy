@@ -20,10 +20,12 @@ VorhandeneZutaten::VorhandeneZutaten() {
 
 
   browse();
-
-  zutaten->push_back(new Ingredient("Mischen", 0));
-  zutaten->push_back(new Ingredient("Stampfen", 0));
-  zutaten->push_back(new Ingredient("Schuetteln", 0));
+  std::string name = std::string("Mischen");
+  zutaten->push_back(new Ingredient(name, 0));
+  name = std::string("Stampfen");
+  zutaten->push_back(new Ingredient(name, 0));
+  name = std::string("Schuetteln");
+  zutaten->push_back(new Ingredient(name, 0));
 
   anzahlDosierer = zutaten->size();
 
@@ -101,7 +103,7 @@ void VorhandeneZutaten::fillIngredients() {
   std::cout << "Alle Zutaten wurden nachgefüllt!" << std::endl;
 }
 
-Ingredient* VorhandeneZutaten::getIngredientByName(std::string name) {
+Ingredient* VorhandeneZutaten::getIngredientByName(std::string &name) {
   Ingredient* zutat = nullptr;
   for(unsigned int i = 0; i < zutaten->size(); i++){
     if(zutaten->at(i)->getName() == name){
