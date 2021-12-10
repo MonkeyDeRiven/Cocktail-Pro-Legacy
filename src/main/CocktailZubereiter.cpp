@@ -18,12 +18,7 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* in
         std::string zutat = schritt->getZutat();
         float menge = schritt->getMenge();
         float amountInGramm = menge;
-        if(zutat == "Limettenstuecke"){
-          amountInGramm = menge*10;
-        }
-        if(zutat == "Eis"){
-          amountInGramm = menge + 10;
-        }
+        amountInGramm = amountToGramm(zutat, menge);
         std::cout << "Rezeptschritt: " << zutat << ", " << menge << std::endl;
         int restAmount = ingredients->getIngredientByName(zutat)->getAmount() - amountInGramm;
         if(restAmount < 0){
@@ -36,11 +31,7 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* in
     }
   myDeviceVerwalter->myEntleerer->doIt(i);
 
-  for(u_int16_t k = 0; k<rzpt->getNoOfRecipeSteps(); ++k){
-    RecipeStep* schritt = rzpt->getRecipeStep(k);//we use the same pointer as above, as it is already pointing to the right date
-    std::string putzen = schritt->getZutat();
-    std::cout << "Device mit der Aktion:" << putzen << " wird jetzt geputzt" << std::endl;
-  }
+  cleanUsedDevices(rzpt);
   return (true);
 
 
@@ -49,6 +40,23 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* in
    // std::cout << "Device mit der Aktion: " << cleanIt->first << " wird jetzt geputzt: " << std::endl;
   //  cleanIt->second->putzen();
  // }
+}
+void CocktailZubereiter::cleanUsedDevices(Recipe *rzpt) const {
+  for(u_int16_t k = 0; k<rzpt->getNoOfRecipeSteps(); ++k){
+    RecipeStep* schritt = rzpt->getRecipeStep(k);//we use the same pointer as above, as it is already pointing to the right date
+    std::string putzen = schritt->getZutat();
+    std::cout << "Device mit der Aktion:" << putzen << " wird jetzt geputzt" << std::endl;
+  }
+}
+float CocktailZubereiter::amountToGramm(const std::string &zutat, float menge) const {
+  float amountInGramm = menge;
+  if(zutat == "Limettenstuecke"){
+    amountInGramm = menge*10;
+  }
+  if(zutat == "Eis"){
+    amountInGramm = menge + 10;
+  }
+  return amountInGramm;
 }
 /*DeviceVerwalter *CocktailZubereiter::getMyDeviceVerwalter() const {
   return myDeviceVerwalter;
