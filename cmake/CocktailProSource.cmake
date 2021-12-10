@@ -35,7 +35,7 @@ add_library(CocktailProSource STATIC
         ../src/main/VorhandeneZutaten.h
         ../src/main/Waage.cpp
         ../src/main/Waage.h
-        )
+        ../src/main/Ingredient.h ../src/main/Ingredient.cpp)
 
 # Adds a bunch of flags, enabling some compiler warnings
 addCompilerWarningFlags(CocktailProSource)

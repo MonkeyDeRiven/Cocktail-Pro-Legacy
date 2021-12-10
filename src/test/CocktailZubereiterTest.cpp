@@ -40,5 +40,5 @@ TEST_F(CocktailZubereiterTest, cocktailZubereiterInitialisesCorrect){
 }
 
 TEST_F(CocktailZubereiterTest, cocktailZubereitenDoesNotCrash){
-  EXPECT_EQ(r->cocktailZubereiten(recipe), true);
+  EXPECT_EQ(r->cocktailZubereiten(recipe, vz), true);
 }

@@ -8,7 +8,11 @@ void CocktailPro::start(){
     bool programIsRunning = true;
     while (programIsRunning) {
         int CocktailNo = waehle();
-        bool cocktailExist = false;
+        if(CocktailNo == -2){
+          theZutatenVerwalter->fillIngredients();
+          continue;
+        }
+        bool cocktailExist=false;
         int max = theMischbaresRezeptbuch->getNumberOfRecipes();
         int numInList = checkInputInListForStart(CocktailNo, max, cocktailExist);
         prepareCocktail(cocktailExist, numInList);
@@ -32,7 +36,7 @@ void CocktailPro::prepareCocktail(bool cocktailExist, int numInList) {
   if (cocktailExist) {
     Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(numInList - 1);
     std::cout << rezeptptr->getName() << std::endl;
-    theCocktailZubereiter->cocktailZubereiten(rezeptptr);
+    theCocktailZubereiter->cocktailZubereiten(rezeptptr, theZutatenVerwalter);
   } else {
     std::cout << "Falsche Cocktailnummer!" << std::endl;
   }
@@ -67,15 +71,16 @@ void CocktailPro::demo() {
     int CocktailNo = 1;
     Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(CocktailNo - 1);
     std::cout << rezeptptr->getName() << std::endl;
-    theCocktailZubereiter->cocktailZubereiten(rezeptptr);
+    theCocktailZubereiter->cocktailZubereiten(rezeptptr, theZutatenVerwalter);
 }
 
 
 int CocktailPro::waehle() {
     while (true) {
-      std::cout << "********** Mischbare Rezepte **********" << std::endl;
+      theZutatenVerwalter->browse();
+      std::cout << std::endl << "********** Mischbare Rezepte **********" << std::endl;
       theMischbaresRezeptbuch->browse();
-      std::cout << "Was haetten Sie denn gern? (-1 zum Verlassen)" << std::endl;
+      std::cout << "Was haetten Sie denn gern? (-1 zum Verlassen)(-2 zum Nachfüllen)" << std::endl;
 
       std::string input = "";
 
@@ -86,6 +91,9 @@ int CocktailPro::waehle() {
       //int max = theMischbaresRezeptbuch->getNumberOfRecipes();
       if (inputNumber == -1) {
         exit(0);
+      }
+      if(inputNumber == -2){
+        return inputNumber;
       }
       return checkInput(input, inputNumber);
     }
