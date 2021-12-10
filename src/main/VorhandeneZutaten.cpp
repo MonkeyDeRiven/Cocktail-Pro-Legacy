@@ -102,12 +102,13 @@ void VorhandeneZutaten::fillIngredients() {
 }
 
 Ingredient* VorhandeneZutaten::getIngredientByName(std::string name) {
+  Ingredient* zutat = nullptr;
   for(unsigned int i = 0; i < zutaten->size(); i++){
     if(zutaten->at(i)->getName() == name){
-      return zutaten->at(i);
+      zutat = zutaten->at(i);
     }
   }
-  return nullptr;
+  return zutat;
 }
 
 
