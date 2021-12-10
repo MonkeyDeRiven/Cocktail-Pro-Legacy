@@ -7,7 +7,7 @@
 void CocktailPro::start(){
     while (true) {
         int CocktailNo = waehle();
-        bool cocktailExist=false;
+        bool cocktailExist = false;
         int max = theMischbaresRezeptbuch->getNumberOfRecipes();
         int numInList = checkInputInListForStart(CocktailNo, max, cocktailExist);
         prepareCocktail(cocktailExist, numInList);
