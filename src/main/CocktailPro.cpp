@@ -5,12 +5,17 @@
 #include <string>
 
 void CocktailPro::start(){
-    while (true) {
+    bool programIsRunning = true;
+    while (programIsRunning) {
         int CocktailNo = waehle();
         bool cocktailExist = false;
         int max = theMischbaresRezeptbuch->getNumberOfRecipes();
         int numInList = checkInputInListForStart(CocktailNo, max, cocktailExist);
         prepareCocktail(cocktailExist, numInList);
+        if(getIsATest()){
+          setIsATest(false);
+          programIsRunning = false;
+        }
     }
 }
 int CocktailPro::checkInputInListForStart(int CocktailNo, int max, bool &cocktailExist) {
@@ -112,5 +117,11 @@ CocktailPro& CocktailPro::operator=(CocktailPro overload) {
   theCocktailZubereiter = overload.theCocktailZubereiter;
   theZutatenVerwalter = overload.theZutatenVerwalter;
   return *this;
+}
+bool CocktailPro::getIsATest() const {
+  return isATest;
+}
+void CocktailPro::setIsATest(bool input) {
+  CocktailPro::isATest = input;
 }
 

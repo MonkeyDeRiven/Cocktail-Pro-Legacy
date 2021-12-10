@@ -52,6 +52,7 @@ TEST_F(CocktailPro_Test, checkInputInListForStartIfExitWithExistingCocktailEqual
 }
 
 TEST_F(CocktailPro_Test, testStart){
-
-  EXPECT_EQ(true, true);
+  testPro->setIsATest(true);
+  testPro->start();
+  EXPECT_EQ(false, testPro->getIsATest());
 }
