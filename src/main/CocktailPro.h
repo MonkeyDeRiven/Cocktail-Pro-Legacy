@@ -17,6 +17,11 @@
  * and it selects the recipe number
  */
 class CocktailPro {
+ private:
+  /**
+  * object of boolean
+  */
+  bool isATest = false;
  protected:
   /**
   * object of CocktailZubereiter
@@ -121,6 +126,17 @@ class CocktailPro {
    * @param numInList number of the recipe in the list
    */
   void prepareCocktail(bool cocktailExist, int numInList);
+
+  /**
+   * @brief get method for isATest
+   * @return if it is a test or not
+   */
+  bool getIsATest() const;
+  /**
+   * @brief set method for whether it is a test or not
+   * @param input true or false
+   */
+  void setIsATest(bool input);
 };
 
 #endif
