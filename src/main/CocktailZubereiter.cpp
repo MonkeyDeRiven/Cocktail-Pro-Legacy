@@ -7,7 +7,7 @@ CocktailZubereiter::CocktailZubereiter(DeviceVerwalter * dv) {
     myDeviceVerwalter = dv;
 }
 
-bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt) {
+bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* ingredients) {
     //std::system("clear");
     std::cout << "Hallo, ich bin der CocktailZubereiter!" << std::endl
             << "Ich habe Ihre Bestellung: " << rzpt->getName() << " erhalten." << std::endl
@@ -17,7 +17,21 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt) {
         RecipeStep * schritt = rzpt->getRecipeStep(i);
         std::string zutat = schritt->getZutat();
         float menge = schritt->getMenge();
+        float amountInGramm = menge;
+        if(zutat == "Limettenstuecke"){
+          amountInGramm = menge*10;
+        }
+        if(zutat == "Eis"){
+          amountInGramm = menge + 10;
+        }
         std::cout << "Rezeptschritt: " << zutat << ", " << menge << std::endl;
+        int restAmount = ingredients->getIngredientByName(zutat)->getAmount() - amountInGramm;
+        if(restAmount < 0){
+          ingredients->getIngredientByName(zutat)->setAmount(0);
+        }
+        else{
+          ingredients->getIngredientByName(zutat)->setAmount(restAmount);
+        }
         myDeviceVerwalter->rezeptSchrittZubereiten(zutat, menge);
     }
   myDeviceVerwalter->myEntleerer->doIt(i);

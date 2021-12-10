@@ -29,7 +29,7 @@ public:
     *
     *@return true
     */
-    bool cocktailZubereiten(Recipe * rzpt);
+    bool cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* ingredients);
     //CocktailZubereiter& operator=(CocktailZubereiter overload);
 
 private:
