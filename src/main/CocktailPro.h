@@ -59,6 +59,11 @@ class CocktailPro {
 
  public:
   /**
+   * if flag is reached it turns to true
+   */
+  bool testFlag = false;
+
+  /**
    * @brief overloads operators
    * @param overload is the overload
    * @return a reference to the storage address

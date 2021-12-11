@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 #define protected public
 #define private public
-
+#include "Timer.h"
 #include "CocktailPro.h"
 #undef protected
 #undef private
@@ -17,6 +17,7 @@ class CocktailPro_Test : public ::testing::Test {
   std::string input = "5";
   int max = 20;
   char** demomode;
+  Timer *theTimer;
 
   virtual void SetUp() {
     oldBufInput = std::cin.rdbuf(new_cin.rdbuf());
@@ -24,7 +25,8 @@ class CocktailPro_Test : public ::testing::Test {
     char demoChar[2] = {'-', 'X'};
     demomode[1] = demoChar;
     testPro = new CocktailPro(2,demomode);
-
+    theTimer = Timer::getInstance();
+    theTimer->set_Turbo(1000);
   }
   virtual void TearDown() {
     std::cin.rdbuf(oldBufInput);
@@ -54,13 +56,22 @@ TEST_F(CocktailPro_Test, overload){
   EXPECT_EQ(overload, testPro);
 
 }
-TEST_F(CocktailPro_Test, checkInputInListForStartIfExitWithExistingCocktailEqualsTrue){
+TEST_F(CocktailPro_Test, checkInputInListForStartIfExitWithExistingCocktailEqualsTrueAndTestPrepareCocktail){
   int numOfCocktails = testPro->waehle();
   bool cocktailExist = false;
   int max = testPro->theMischbaresRezeptbuch->getNumberOfRecipes();
   testPro->theMischbaresRezeptbuch->getRecipe(0)->setNumber(0);
   testPro->checkInputInListForStart(numOfCocktails, max, cocktailExist);
   EXPECT_EQ(true, cocktailExist);
+
+  bool cocktailExists = true;
+  Recipe* testRecipe = new Recipe();
+  testRecipe->setNumber(1);
+  testRecipe->setName("TestCocktail");
+  testPro->theMischbaresRezeptbuch->recipeList.push_back(testRecipe);
+  numOfCocktails = 1;
+  testPro->prepareCocktail(cocktailExists, numOfCocktails);
+  EXPECT_EQ(true, testPro->testFlag);
 }
 
 TEST_F(CocktailPro_Test, testStart){
@@ -68,4 +79,5 @@ TEST_F(CocktailPro_Test, testStart){
   testPro->start();
   EXPECT_EQ(false, testPro->getIsATest());
 }
+
 

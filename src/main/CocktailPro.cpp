@@ -37,6 +37,7 @@ void CocktailPro::prepareCocktail(bool cocktailExist, int numInList) {
     Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(numInList - 1);
     std::cout << rezeptptr->getName() << std::endl;
     theCocktailZubereiter->cocktailZubereiten(rezeptptr, theZutatenVerwalter);
+    if(!testFlag) testFlag = true;
   } else {
     std::cout << "Falsche Cocktailnummer!" << std::endl;
   }
