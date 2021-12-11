@@ -34,19 +34,11 @@ class CocktailPro_Test : public ::testing::Test {
 };
 
 
-TEST_F(CocktailPro_Test, checkInput){
-  EXPECT_EQ(10, testPro->checkInput(input, inputNumber, max));
-}
-TEST_F(CocktailPro_Test, checkInputMax){
-  EXPECT_LE(testPro->checkInputMax(input, inputNumber, max), max);
-}
 TEST_F(CocktailPro_Test, waehleTest){
-
   new_cin << "5" << std::endl;
   EXPECT_EQ(testPro->waehle(), 5);
   new_cin.clear();
   new_cin << "0" << std::endl;
-
   EXPECT_EQ(testPro->waehle(), 0);
 }
 
@@ -62,3 +54,18 @@ TEST_F(CocktailPro_Test, overload){
   EXPECT_EQ(overload, testPro);
 
 }
+TEST_F(CocktailPro_Test, checkInputInListForStartIfExitWithExistingCocktailEqualsTrue){
+  int numOfCocktails = testPro->waehle();
+  bool cocktailExist = false;
+  int max = testPro->theMischbaresRezeptbuch->getNumberOfRecipes();
+  testPro->theMischbaresRezeptbuch->getRecipe(0)->setNumber(0);
+  testPro->checkInputInListForStart(numOfCocktails, max, cocktailExist);
+  EXPECT_EQ(true, cocktailExist);
+}
+
+TEST_F(CocktailPro_Test, testStart){
+  testPro->setIsATest(true);
+  testPro->start();
+  EXPECT_EQ(false, testPro->getIsATest());
+}
+

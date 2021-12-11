@@ -11,7 +11,7 @@ void MischbaresRezeptbuch::browse() {
 
     for (int i = 0; i<this->getNumberOfRecipes(); i++) {
         Recipe* r = this->getRecipe(i);
-        std::cout << i + 1 << ". ";
+        //std::cout << i + 1 << ". ";
         r->browse();
         std::cout << std::endl;
     }
@@ -59,7 +59,7 @@ bool MischbaresRezeptbuch::isIngredientInStock(const std::string &gesuchteZutat)
 
   bool isWantedIngredient = false;
   for (int k = 0; k < myZutatenVerwalter->getAnzahlVorhandeneZutaten(); k++) {//checks for needed ingredient
-    if (myZutatenVerwalter->getZutat(k) == gesuchteZutat)
+    if (myZutatenVerwalter->getZutat(k)->getName() == gesuchteZutat)
       isWantedIngredient = true;
   }
   return isWantedIngredient;

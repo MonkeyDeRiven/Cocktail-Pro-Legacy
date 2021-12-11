@@ -3,6 +3,8 @@
 #ifndef VorhandeneZutaten_H_H
 #define VorhandeneZutaten_H_H
 
+#include "Ingredient.h"
+
 #include <string>
 #include <map>
 #include <vector>
@@ -47,7 +49,7 @@ class VorhandeneZutaten {
    * @return is the Ingredient
    * @param i is the indicator for our Ingredients
    */
-  std::string getZutat(int i);
+  Ingredient* getZutat(int i);
 
   /**
    * @brief getter for numb. of Ingredients
@@ -62,11 +64,28 @@ class VorhandeneZutaten {
    */
   void getOurData(std::ifstream& in, VorhandeneZutaten* ingredient);
 
+  /**
+   * @brief sets all ingredient amounts to 1000 gram.
+   *
+   * loops through the ingredient list and sets their amounts to 1000.
+   */
+  void fillIngredients();
+
+  /**
+   * @brief returns the right Ingredient by its name.
+   * @param name is the Identifier for the ingredient.
+   * @return the right ingredient.
+   *
+   * The function takes the name of the ingredient as parameter, loops the list of Ingredients and
+   * returns the ingredient if the parameter name matches the Ingredients name.
+   */
+  Ingredient* getIngredientByName(std::string &name);
+
  private:
   /**
    * @brief list of Ingredients
    */
-  std::vector<std::string> * zutaten;
+  std::vector<Ingredient*> * zutaten;
 
 /**
  * @brief we can read our Ingredients from a given filaName

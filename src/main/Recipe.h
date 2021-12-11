@@ -30,6 +30,11 @@ private:
      */
     std::string m_Name;
 
+    /**
+     * contains the number of the recipe
+     */
+     int m_Number;
+
 public:
 
     /**
@@ -62,6 +67,18 @@ public:
      * @return recipe name.
      */
     std::string getName(void) const;
+
+    /**
+    * @brief returns the number of the recipe.
+    * @return recipe number.
+    */
+    int getNumber(void) const;
+
+    /**
+    * @brief sets the number of the recipe.
+    * @param Number contains the new recipe number.
+    */
+    void setNumber(const int& Number);
 
     /**
      * @brief sets the name of the recipe.

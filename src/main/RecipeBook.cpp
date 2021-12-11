@@ -70,6 +70,7 @@ void RecipeBook::recipeElse(std::ifstream &in) {
   in.close();
 }
 void RecipeBook::addRecipes(std::ifstream &in, std::string &line) {
+  int recipeNumber = 0;
   while (std::getline(in, line)) {
     // cout << line << endl;
     std::istringstream inputString(line);
@@ -78,6 +79,8 @@ void RecipeBook::addRecipes(std::ifstream &in, std::string &line) {
     Recipe* r1;
     r1 = new Recipe;
 
+    r1->setNumber(recipeNumber+1);
+    recipeNumber++;
     // Read name from istringstream with semicolon as separator
     getline(inputString, name, ';');
     r1->setName(name);
@@ -131,6 +134,7 @@ bool RecipeBook::deleteRecipe(unsigned int i) {
 }
 
 void RecipeBook::recipeCaipirinha(Recipe *r1) {
+  r1->setNumber(1);
   r1->setName("Caipirinha");
   r1->appendStep("Limettenstuecke", 8);//We're giving the name of the Ingredient and the amount how much we need to create our Cocktail
   r1->appendStep("Zucker", 15);
@@ -142,6 +146,7 @@ void RecipeBook::recipeCaipirinha(Recipe *r1) {
 }
 
 void RecipeBook::recipeMargarita(Recipe *r1) {
+  r1->setNumber(2);
   r1->setName("Margarita");
   r1->appendStep("Zitronensaft", 2);
   r1->appendStep("Cointreau", 2);
@@ -152,6 +157,7 @@ void RecipeBook::recipeMargarita(Recipe *r1) {
 }
 
 void RecipeBook::recipeDaiquiri(Recipe *r1) {
+  r1->setNumber(3);
   r1->setName("Daiquiri");
   r1->appendStep("Limettensaft", 2);
   r1->appendStep("Zuckersirup", 2);
@@ -162,6 +168,7 @@ void RecipeBook::recipeDaiquiri(Recipe *r1) {
 }
 
 void RecipeBook::recipePlantersPunch(Recipe *r1) {
+  r1->setNumber(4);
   r1->setName("Planters Punch");
   r1->appendStep("Zitronensaft", 2);
   r1->appendStep("Grenadine", 1);
@@ -173,6 +180,7 @@ void RecipeBook::recipePlantersPunch(Recipe *r1) {
 }
 
 void RecipeBook::recipeCaipiroska(Recipe *r1) {
+  r1->setNumber(5);
   r1->setName("Caipiroska");
   r1->appendStep("Limettenstuecke", 8);
   r1->appendStep("Zucker", 15);
@@ -184,6 +192,7 @@ void RecipeBook::recipeCaipiroska(Recipe *r1) {
 }
 
 void RecipeBook::recipeCaipirisma(Recipe *r1) {
+  r1->setNumber(6);
   r1->setName("Caipirissima");
   r1->appendStep("Limettenstuecke", 8);
   r1->appendStep("Zucker", 15);
@@ -195,6 +204,7 @@ void RecipeBook::recipeCaipirisma(Recipe *r1) {
 }
 
 void RecipeBook::recipeCubanIsland(Recipe *r1) {
+  r1->setNumber(7);
   r1->setName("Cuban Island");
   r1->appendStep("Zitronensaft", 2);
   r1->appendStep("Cointreau", 2);
@@ -206,6 +216,7 @@ void RecipeBook::recipeCubanIsland(Recipe *r1) {
 }
 
 void RecipeBook::recipeMartiniJamesB(Recipe *r1) {
+  r1->setNumber(8);
   r1->setName("Martini James B");
   r1->appendStep("Gin", 6);
   r1->appendStep("Wodka", 2);

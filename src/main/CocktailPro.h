@@ -17,6 +17,11 @@
  * and it selects the recipe number
  */
 class CocktailPro {
+ private:
+  /**
+  * object of boolean
+  */
+  bool isATest = false;
  protected:
   /**
   * object of CocktailZubereiter
@@ -91,21 +96,47 @@ class CocktailPro {
    *
    * @param input the input of the user
    * @param inputNumber the input of the user
-   * @param max the number of cocktails
    * @return the number selected by the user
    */
-  int checkInput(const std::string &input, int inputNumber, int max) const;
+  int checkInput(const std::string &input, int inputNumber);
+
   /**
-   * @brief this method checks which number was entered and returns the corresponding number.
+   * @brief this method checks if the number which was enter is in the List of Recipes
    * It returns 0 if the number is not assigned to any cocktail
    *
-   * @param input the input of the user
    * @param inputNumber the input of the user
-   * @param max the number of cocktails
-   * @return the number selected by the user
+   * @return the number of the Input or 0
    */
-  int checkInputMax(const std::string &input, int inputNumber, int max) const;
+  int checkInputInList(int inputNumber);
 
+  /**
+   * @brief this method checks if the number which was enter is in the List of Recipes
+   * It returns the number of the position of the recipe in the list
+   *
+   * @param CocktailNo return of waehle()
+   * @param max size of Recipe List
+   * @param cocktailExist bool that checks if the recipe exists
+   * @return the number of the position in the list
+   */
+  int checkInputInListForStart(int CocktailNo, int max, bool &cocktailExist);
+
+  /**
+   * @brief this method checks if the recipe exists and prepares it
+   * @param cocktailExist bool that checks if the recipe exists
+   * @param numInList number of the recipe in the list
+   */
+  void prepareCocktail(bool cocktailExist, int numInList);
+
+  /**
+   * @brief get method for isATest
+   * @return if it is a test or not
+   */
+  bool getIsATest() const;
+  /**
+   * @brief set method for whether it is a test or not
+   * @param input true or false
+   */
+  void setIsATest(bool input);
 };
 
 #endif

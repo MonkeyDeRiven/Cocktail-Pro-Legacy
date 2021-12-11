@@ -5,17 +5,41 @@
 #include <string>
 
 void CocktailPro::start(){
-    while (true) {
+    bool programIsRunning = true;
+    while (programIsRunning) {
         int CocktailNo = waehle();
+        if(CocktailNo == -2){
+          theZutatenVerwalter->fillIngredients();
+          continue;
+        }
+        bool cocktailExist=false;
         int max = theMischbaresRezeptbuch->getNumberOfRecipes();
-        if (CocktailNo > 0 && CocktailNo <= max) {
-            Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(CocktailNo - 1);
-            std::cout << rezeptptr->getName() << std::endl;
-            theCocktailZubereiter->cocktailZubereiten(rezeptptr);
-        } else {
-            std::cout << "Falsche Cocktailnummer!" << std::endl;
+        int numInList = checkInputInListForStart(CocktailNo, max, cocktailExist);
+        prepareCocktail(cocktailExist, numInList);
+        if(getIsATest()){
+          setIsATest(false);
+          programIsRunning = false;
         }
     }
+}
+int CocktailPro::checkInputInListForStart(int CocktailNo, int max, bool &cocktailExist) {
+  int numInList = 0;
+  for(int rlist=0; rlist<max; rlist++) {
+    if (CocktailNo == theMischbaresRezeptbuch->getRecipe(rlist)->getNumber()) {
+      cocktailExist = true;
+      numInList = rlist;
+    }
+  }
+  return numInList;
+}
+void CocktailPro::prepareCocktail(bool cocktailExist, int numInList) {
+  if (cocktailExist) {
+    Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(numInList - 1);
+    std::cout << rezeptptr->getName() << std::endl;
+    theCocktailZubereiter->cocktailZubereiten(rezeptptr, theZutatenVerwalter);
+  } else {
+    std::cout << "Falsche Cocktailnummer!" << std::endl;
+  }
 }
 
 CocktailPro::CocktailPro(int argc, char * * param) {
@@ -47,15 +71,16 @@ void CocktailPro::demo() {
     int CocktailNo = 1;
     Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(CocktailNo - 1);
     std::cout << rezeptptr->getName() << std::endl;
-    theCocktailZubereiter->cocktailZubereiten(rezeptptr);
+    theCocktailZubereiter->cocktailZubereiten(rezeptptr, theZutatenVerwalter);
 }
 
 
 int CocktailPro::waehle() {
     while (true) {
-      std::cout << "********** Mischbare Rezepte **********" << std::endl;
+      theZutatenVerwalter->browse();
+      std::cout << std::endl << "********** Mischbare Rezepte **********" << std::endl;
       theMischbaresRezeptbuch->browse();
-      std::cout << "Was haetten Sie denn gern? (-1 zum Verlassen)" << std::endl;
+      std::cout << "Was haetten Sie denn gern? (-1 zum Verlassen)(-2 zum Nachfüllen)" << std::endl;
 
       std::string input = "";
 
@@ -63,32 +88,35 @@ int CocktailPro::waehle() {
       std::cin >> input;
 
       int inputNumber = atoi(input.c_str());
-      int max = theMischbaresRezeptbuch->getNumberOfRecipes();
+      //int max = theMischbaresRezeptbuch->getNumberOfRecipes();
       if (inputNumber == -1) {
         exit(0);
       }
-      return checkInput(input, inputNumber, max);
+      if(inputNumber == -2){
+        return inputNumber;
+      }
+      return checkInput(input, inputNumber);
     }
 }
-int CocktailPro::checkInput(const std::string &input, int inputNumber, int max) const {
-
-  if (inputNumber > 0) {
-    return checkInputMax(input, inputNumber, max);
-  }
-    //std::system("clear");
-    std::cout << "MEEEP! Too many fingers on keyboard error!" << std::endl;
-    std::cout << "Ihre Eingabe: " << input << " war nicht zwischen 1 und " << max << "!" << std::endl;
-    return 0;
-}
-int CocktailPro::checkInputMax(const std::string &input, int inputNumber, int max) const {
-  if (inputNumber <= max)
+int CocktailPro::checkInput(const std::string &input, int inputNumber) {
+  int inputInList = checkInputInList(inputNumber);
+  if(inputInList!=0)
     return inputNumber;
-  else{
-    std::cout << "MEEEP! Too many fingers on keyboard error!" << std::endl;
-    std::cout << "Ihre Eingabe: " << input << " war nicht zwischen 1 und " << max << "!" << std::endl;
-    return 0;
-  }
+  std::cout << "MEEEP! Too many fingers on keyboard error!" << std::endl;
+  std::cout << "Ihre Eingabe: " << input << " ist nicht in der Auswahl vorhanden!" << std::endl;
+  return 0;
 }
+
+int CocktailPro::checkInputInList(int inputNumber) {
+  int inputIsInList = 0;
+  for (int rlist = 0; rlist < theMischbaresRezeptbuch->getNumberOfRecipes(); rlist++) {
+    if (inputNumber == theMischbaresRezeptbuch->getRecipe(rlist)->getNumber()) {
+      inputIsInList = inputNumber;
+    }
+  }
+  return inputIsInList;
+}
+
 
 CocktailPro& CocktailPro::operator=(CocktailPro overload) {
   theMischbaresRezeptbuch = overload.theMischbaresRezeptbuch;
@@ -96,5 +124,11 @@ CocktailPro& CocktailPro::operator=(CocktailPro overload) {
   theCocktailZubereiter = overload.theCocktailZubereiter;
   theZutatenVerwalter = overload.theZutatenVerwalter;
   return *this;
+}
+bool CocktailPro::getIsATest() const {
+  return isATest;
+}
+void CocktailPro::setIsATest(bool input) {
+  CocktailPro::isATest = input;
 }
 

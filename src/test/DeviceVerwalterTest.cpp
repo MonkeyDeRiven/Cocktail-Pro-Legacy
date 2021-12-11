@@ -36,7 +36,8 @@ TEST_F(DeviceVerwalterTest, testForCorrectlyCreatedDevices) {
 
 TEST_F(DeviceVerwalterTest, testZutatenVerwalterForCorrectIngredientStorage) {
   zutatenVecPointer->zutaten->clear();
-  std::string testIngredient = "TestZutat";
+  std::string name = std::string("TestZutat");
+  Ingredient* testIngredient = new Ingredient(name, 1000);
   zutatenVecPointer->zutaten->push_back(testIngredient);
   deviceVerwalterVec->setZutatenVerwalter(zutatenVecPointer);
   EXPECT_EQ(testIngredient, zutatenVecPointer->zutaten->at(0));

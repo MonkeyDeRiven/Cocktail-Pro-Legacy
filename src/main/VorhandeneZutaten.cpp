@@ -10,7 +10,7 @@ VorhandeneZutaten& VorhandeneZutaten::operator= (VorhandeneZutaten original){
 }
 
 VorhandeneZutaten::VorhandeneZutaten() {
-  zutaten = new std::vector<std::string>;
+  zutaten = new std::vector<Ingredient*>;
 
   // int einlesen(list<string>* zutaten, std::string FileName)
 // Stream anlegen
@@ -20,10 +20,12 @@ VorhandeneZutaten::VorhandeneZutaten() {
 
 
   browse();
-
-  zutaten->push_back("Mischen");
-  zutaten->push_back("Stampfen");
-  zutaten->push_back("Schuetteln");
+  std::string name = std::string("Mischen");
+  zutaten->push_back(new Ingredient(name, 0));
+  name = std::string("Stampfen");
+  zutaten->push_back(new Ingredient(name, 0));
+  name = std::string("Schuetteln");
+  zutaten->push_back(new Ingredient(name, 0));
 
   anzahlDosierer = zutaten->size();
 
@@ -46,7 +48,7 @@ void VorhandeneZutaten::getOurData(std::ifstream& in, VorhandeneZutaten* ingredi
       zeile = zeile.substr(0, zeile.size() - 1);
     }
 
-    ingredient->zutaten->push_back(zeile);
+    ingredient->zutaten->push_back(new Ingredient(zeile, 1000));
   }
 }
 void VorhandeneZutaten::ZutatenDateiEinlesen(std::string myfile) {
@@ -73,16 +75,42 @@ void VorhandeneZutaten::ZutatenDateiEinlesen(std::string myfile) {
 
 void VorhandeneZutaten::browse(void) {
     std::cout << "*********** Verfuegbare Einheiten bzw. Zutaten: ***********" << std::endl;
-    for (unsigned int i = 0; i < zutaten->size(); i++/*std::string zutat : zutaten*/) {
-        std::cout << zutaten->at(i) << std::endl;
+    for (unsigned int i = 0; i < zutaten->size()-3; i++/*std::string zutat : zutaten*/) {
+        std::cout << zutaten->at(i)->getName() << "  " << zutaten->at(i)->getAmount() << "g";
+        if(zutaten->at(i)->getAmount() == 0){
+          std::cout << " (empty)";
+        }
+        else if(zutaten->at(i)->getAmount() < 100){
+        std::cout << " *";
+      }
+      std::cout << std::endl;
     }
     std::cout << "**********************************************************" << std::endl;
 }
 
-std::string VorhandeneZutaten::getZutat(int i) {
+Ingredient* VorhandeneZutaten::getZutat(int i) {
     return zutaten->at(i);
 }
 
 int VorhandeneZutaten::getAnzahlVorhandeneZutaten() {
     return zutaten->size();
 }
+
+void VorhandeneZutaten::fillIngredients() {
+  for(unsigned int i = 0; i < zutaten->size()-3; i++){
+    zutaten->at(i)->setAmount(1000);
+  }
+  std::cout << "Alle Zutaten wurden nachgefüllt!" << std::endl;
+}
+
+Ingredient* VorhandeneZutaten::getIngredientByName(std::string &name) {
+  Ingredient* zutat = nullptr;
+  for(unsigned int i = 0; i < zutaten->size(); i++){
+    if(zutaten->at(i)->getName() == name){
+      zutat = zutaten->at(i);
+    }
+  }
+  return zutat;
+}
+
+
