@@ -80,4 +80,8 @@ TEST_F(CocktailPro_Test, testStart){
   EXPECT_EQ(false, testPro->getIsATest());
 }
 
+TEST_F(CocktailPro_Test, assignmentOperatorCocktailPro){
+  CocktailPro * testPro2 = testPro;
+  EXPECT_EQ(testPro2,testPro);
+}
 
