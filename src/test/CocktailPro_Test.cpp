@@ -42,6 +42,18 @@ TEST_F(CocktailPro_Test, waehleTest){
   EXPECT_EQ(testPro->waehle(), 0);
 }
 
+TEST_F(CocktailPro_Test, overload){
+  CocktailPro* cpy(testPro);
+
+  EXPECT_EQ(cpy, testPro);
+
+  CocktailPro* overload = new CocktailPro(2, demomode);
+
+  overload = testPro;
+
+  EXPECT_EQ(overload, testPro);
+
+}
 TEST_F(CocktailPro_Test, checkInputInListForStartIfExitWithExistingCocktailEqualsTrue){
   int numOfCocktails = testPro->waehle();
   bool cocktailExist = false;
@@ -56,3 +68,4 @@ TEST_F(CocktailPro_Test, testStart){
   testPro->start();
   EXPECT_EQ(false, testPro->getIsATest());
 }
+

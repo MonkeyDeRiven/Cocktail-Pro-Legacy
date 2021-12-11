@@ -78,3 +78,13 @@ TEST_F(VorhandeneZutatenTest, CopyConstructor){
   zv3 = zv;
   EXPECT_EQ(zv3, zv);
 }
+
+TEST_F(VorhandeneZutatenTest, fillIngredientAndGetByName){
+  Ingredient* i;
+  std::string name = "Wodka";
+  i = zv->getIngredientByName(name);
+  i->setAmount(50);
+  zv->fillIngredients();
+  EXPECT_EQ(zv->getIngredientByName(name)->getAmount(), 1000);
+
+}
