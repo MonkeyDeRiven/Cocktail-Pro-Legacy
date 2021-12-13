@@ -34,7 +34,7 @@ int CocktailPro::checkInputInListForStart(int CocktailNo, int max, bool &cocktai
 }
 void CocktailPro::prepareCocktail(bool cocktailExist, int numInList) {
   if (cocktailExist) {
-    Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(numInList - 1);
+    Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(numInList);
     std::cout << rezeptptr->getName() << std::endl;
     theCocktailZubereiter->cocktailZubereiten(rezeptptr, theZutatenVerwalter);
     if(!testFlag) testFlag = true;
