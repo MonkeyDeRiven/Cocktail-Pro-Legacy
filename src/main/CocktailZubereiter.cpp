@@ -13,6 +13,7 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* in
             << "Ich habe Ihre Bestellung: " << rzpt->getName() << " erhalten." << std::endl
             << "Jetzt geht es los!\n" << std::endl;
 	int i=0;
+    bool enoughAmount=true;
     for (i = 0; i < rzpt->getNoOfRecipeSteps(); i++) {
         RecipeStep * schritt = rzpt->getRecipeStep(i);
         std::string zutat = schritt->getZutat();
@@ -20,17 +21,22 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* in
         float amountInGramm = amountToGramm(zutat, menge);
         std::cout << "Rezeptschritt: " << zutat << ", " << menge << std::endl;
         int restAmount = ingredients->getIngredientByName(zutat)->getAmount() - amountInGramm;
-        if(restAmount < 0){
-          ingredients->getIngredientByName(zutat)->setAmount(0);
-        }
-        else{
-          ingredients->getIngredientByName(zutat)->setAmount(restAmount);
+        if(i!=rzpt->getNoOfRecipeSteps()-1) {
+          if (restAmount < 0) {
+            ingredients->getIngredientByName(zutat)->setAmount(0);
+            enoughAmount=false;
+            break;
+          } else {
+            ingredients->getIngredientByName(zutat)->setAmount(restAmount);
+          }
         }
         myDeviceVerwalter->rezeptSchrittZubereiten(zutat, menge);
     }
-  myDeviceVerwalter->myEntleerer->doIt(i);
-
-  cleanUsedDevices(rzpt);
+    if(enoughAmount){
+      myDeviceVerwalter->myEntleerer->doIt(i);
+      cleanUsedDevices(rzpt);
+    }else
+      std::cout << "Diese Zutat ist leer! Bitte nachfüllen!" << std::endl;
   return (true);
 
 
