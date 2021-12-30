@@ -94,7 +94,6 @@ void CocktailZubereiter::checkMixinPossible(Recipe *rzpt, VorhandeneZutaten *ing
        std::cout << " ===== Der Cocktail kann nicht zubereitet werden, da die Zutat " << zutat
                  << " nicht ausreichend vorhanden ist =====\n";
        ausreichend = false;
-        break;
       }
   }
 
