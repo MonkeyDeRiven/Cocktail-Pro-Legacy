@@ -53,6 +53,16 @@ private:
    * @param rzpt steps from devices which must be cleaned
    */
   void cleanUsedDevices(Recipe *rzpt) const;
+
+  /**
+   * @brief prepare the cocktail step by step. Stops when the ingredient is empty
+   *
+   * @param rzpt is the recipe for the Cocktail
+   * @param ingredients contains a list of ingredients and their available amounts.
+   * @param i
+   * @param enoughAmount checks if the ingredient is enough
+   */
+  void prepareSteps(Recipe *rzpt, VorhandeneZutaten *ingredients, int &i, bool &enoughAmount);
 };
 
 #endif
