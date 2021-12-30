@@ -24,13 +24,6 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* in
       float menge = schritt->getMenge();
       float amountInGramm = amountToGramm(zutat, menge);
 
-      if (ingredients->getIngredientByName(zutat)->getAmount() < amountInGramm
-          && zutat != "Stampfen" && zutat != "Mischen") {
-        std::cout << " ===== Der Cocktail kann nicht zubereitet werden, da die Zutat " << zutat
-                  << " nicht ausreichend vorhanden ist =====\n";
-        break;
-      }
-
       std::cout << "Rezeptschritt: " << zutat << ", " << menge << std::endl;
       int restAmount = ingredients->getIngredientByName(zutat)->getAmount() - amountInGramm;
       if (restAmount < 0) {
