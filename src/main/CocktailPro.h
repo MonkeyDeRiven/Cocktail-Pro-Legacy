@@ -22,6 +22,7 @@ class CocktailPro {
   * object of boolean
   */
   bool isATest = false;
+
  protected:
   /**
   * object of CocktailZubereiter

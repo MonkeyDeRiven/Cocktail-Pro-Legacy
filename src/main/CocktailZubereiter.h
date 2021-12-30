@@ -35,6 +35,10 @@ public:
 
 private:
   /**
+ * object of boolean for not enough ingrdient
+ */
+  bool ausreichend = true;
+  /**
   * object of DeviceVerwalter
   */
   DeviceVerwalter * myDeviceVerwalter;
@@ -53,6 +57,13 @@ private:
    * @param rzpt steps from devices which must be cleaned
    */
   void cleanUsedDevices(Recipe *rzpt) const;
+
+  /**
+   * @brief checking, if we can mix cocktail n, if not, a boolean insides turn false and provides the mixing
+   * @param rzpt our recipe
+   * @param ingredients our ingredients
+   */
+  void checkMixinPossible(Recipe * rzpt, VorhandeneZutaten* ingredients);
 };
 
 #endif
