@@ -16,24 +16,28 @@
 *  
 */
 class CocktailZubereiter {
-public:
-    /**
-    *@brief constructor creates objects of CocktailZubereiter
-    *@param dv points to DeviceVerwalter
-    *@return a pointer to the created object
-    */
-    explicit CocktailZubereiter(DeviceVerwalter * dv);
-    /**
-    *@brief this method starts the process of creating the cocktail based on a recipe.
-    *@param rzpt is the recipe for the Cocktail
-    *@param ingredients contains a list of ingredients and their available amounts.
-    *
-    *@return true
-    */
-    bool cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* ingredients);
-    //CocktailZubereiter& operator=(CocktailZubereiter overload);
+ public:
+  /**
+  *@brief constructor creates objects of CocktailZubereiter
+  *@param dv points to DeviceVerwalter
+  *@return a pointer to the created object
+  */
+  explicit CocktailZubereiter(DeviceVerwalter * dv);
+  /**
+  *@brief this method starts the process of creating the cocktail based on a recipe.
+  *@param rzpt is the recipe for the Cocktail
+  *@param ingredients contains a list of ingredients and their available amounts.
+  *
+  *@return true
+  */
+  bool cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* ingredients);
+  //CocktailZubereiter& operator=(CocktailZubereiter overload);
 
-private:
+ private:
+  /**
+ * object of boolean for not enough ingrdient
+ */
+  bool ausreichend = true;
   /**
   * object of DeviceVerwalter
   */
@@ -55,14 +59,11 @@ private:
   void cleanUsedDevices(Recipe *rzpt) const;
 
   /**
-   * @brief prepare the cocktail step by step. Stops when the ingredient is empty
-   *
-   * @param rzpt is the recipe for the Cocktail
-   * @param ingredients contains a list of ingredients and their available amounts.
-   * @param i
-   * @param enoughAmount checks if the ingredient is enough
+   * @brief checking, if we can mix cocktail n, if not, a boolean insides turn false and provides the mixing
+   * @param rzpt our recipe
+   * @param ingredients our ingredients
    */
-  void prepareSteps(Recipe *rzpt, VorhandeneZutaten *ingredients, int &i, bool &enoughAmount);
+  void checkMixinPossible(Recipe * rzpt, VorhandeneZutaten* ingredients);
 };
 
 #endif
