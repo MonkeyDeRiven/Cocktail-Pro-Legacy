@@ -84,8 +84,8 @@ void CocktailZubereiter::checkMixinPossible(Recipe *rzpt, VorhandeneZutaten *ing
       continue;
 
     if (ingredients->getIngredientByName(zutat)->getAmount() < amountInGramm) {
-      std::cout << " ===== Der Cocktail kann nicht zubereitet werden, da die Zutat " << zutat
-                << " nicht ausreichend vorhanden ist =====\n";
+      std::cout << " ===== Der Cocktail kann nicht zubereitet werden, da die Zutat '" << zutat
+                << "' nicht ausreichend vorhanden ist =====\n";
       ausreichend = false;
     }
   }
