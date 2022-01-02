@@ -12,6 +12,7 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* in
   checkMixinPossible(rzpt, ingredients);
   if(!ausreichend) return false;
 
+<<<<<<< HEAD
     std::cout << "Hallo, ich bin der CocktailZubereiter!" << std::endl
               << "Ich habe Ihre Bestellung: " << rzpt->getName() << " erhalten." << std::endl
               << "Jetzt geht es los!\n" << std::endl;
@@ -35,6 +36,32 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* in
     }
 
     myDeviceVerwalter->myEntleerer->doIt(i);
+
+=======
+  std::cout << "Hallo, ich bin der CocktailZubereiter!" << std::endl
+            << "Ich habe Ihre Bestellung: " << rzpt->getName() << " erhalten." << std::endl
+            << "Jetzt geht es los!\n" << std::endl;
+  int i = 0;
+
+  for (i = 0; i < rzpt->getNoOfRecipeSteps(); i++) {
+
+    RecipeStep *schritt = rzpt->getRecipeStep(i);
+    std::string zutat = schritt->getZutat();
+    float menge = schritt->getMenge();
+    float amountInGramm = amountToGramm(zutat, menge);
+
+    std::cout << "Rezeptschritt: " << zutat << ", " << menge << std::endl;
+    int restAmount = ingredients->getIngredientByName(zutat)->getAmount() - amountInGramm;
+    if (restAmount < 0) {
+      ingredients->getIngredientByName(zutat)->setAmount(0);
+    } else {
+      ingredients->getIngredientByName(zutat)->setAmount(restAmount);
+    }
+    myDeviceVerwalter->rezeptSchrittZubereiten(zutat, menge);
+  }
+
+  myDeviceVerwalter->myEntleerer->doIt(i);
+>>>>>>> test_branch_SN
 
 
   cleanUsedDevices(rzpt);
@@ -75,6 +102,7 @@ CocktailZubereiter& CocktailZubereiter::operator=(CocktailZubereiter overload) {
 void CocktailZubereiter::checkMixinPossible(Recipe *rzpt, VorhandeneZutaten *ingredients) {
   for (int i = 0; i < rzpt->getNoOfRecipeSteps() - 1; ++i){
 
+<<<<<<< HEAD
       RecipeStep *schritt = rzpt->getRecipeStep(i);
       std::string zutat = schritt->getZutat();
       float menge = schritt->getMenge();
@@ -91,3 +119,21 @@ void CocktailZubereiter::checkMixinPossible(Recipe *rzpt, VorhandeneZutaten *ing
   }
 
 }
+=======
+    RecipeStep *schritt = rzpt->getRecipeStep(i);
+    std::string zutat = schritt->getZutat();
+    float menge = schritt->getMenge();
+    float amountInGramm = amountToGramm(zutat, menge);
+
+    if (zutat == "Stampfen")
+      continue;
+
+    if (ingredients->getIngredientByName(zutat)->getAmount() < amountInGramm) {
+      std::cout << " ===== Der Cocktail kann nicht zubereitet werden, da die Zutat '" << zutat
+                << "' nicht ausreichend vorhanden ist =====\n";
+      ausreichend = false;
+    }
+  }
+
+}
+>>>>>>> test_branch_SN

@@ -16,24 +16,28 @@
 *  
 */
 class CocktailZubereiter {
-public:
-    /**
-    *@brief constructor creates objects of CocktailZubereiter
-    *@param dv points to DeviceVerwalter
-    *@return a pointer to the created object
-    */
-    explicit CocktailZubereiter(DeviceVerwalter * dv);
-    /**
-    *@brief this method starts the process of creating the cocktail based on a recipe.
-    *@param rzpt is the recipe for the Cocktail
-    *@param ingredients contains a list of ingredients and their available amounts.
-    *
-    *@return true
-    */
-    bool cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* ingredients);
-    //CocktailZubereiter& operator=(CocktailZubereiter overload);
+ public:
+  /**
+  *@brief constructor creates objects of CocktailZubereiter
+  *@param dv points to DeviceVerwalter
+  *@return a pointer to the created object
+  */
+  explicit CocktailZubereiter(DeviceVerwalter * dv);
+  /**
+  *@brief this method starts the process of creating the cocktail based on a recipe.
+  *@param rzpt is the recipe for the Cocktail
+  *@param ingredients contains a list of ingredients and their available amounts.
+  *
+  *@return true
+  */
+  bool cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* ingredients);
+  //CocktailZubereiter& operator=(CocktailZubereiter overload);
 
-private:
+ private:
+  /**
+ * object of boolean for not enough ingrdient
+ */
+  bool ausreichend = true;
   /**
  * object of boolean for not enough ingrdient
  */
