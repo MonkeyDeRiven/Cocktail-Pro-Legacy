@@ -39,10 +39,6 @@ class CocktailZubereiter {
  */
   bool ausreichend = true;
   /**
- * object of boolean for not enough ingrdient
- */
-  bool ausreichend = true;
-  /**
   * object of DeviceVerwalter
   */
   DeviceVerwalter * myDeviceVerwalter;
