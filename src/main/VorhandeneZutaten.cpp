@@ -115,7 +115,7 @@ Ingredient* VorhandeneZutaten::getIngredientByName(std::string &name) {
   return zutat;
 }
 
-bool VorhandeneZutaten::isIngredientDoubled(std::basic_string<char> inputIngredient){
+bool VorhandeneZutaten::isIngredientDoubled(std::string &inputIngredient){
   std::string line_;
   std::vector<std::string> zutatenInVec;
   std::ifstream zutatenIfstream("../src/resources/zutaten.txt");
