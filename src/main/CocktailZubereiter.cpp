@@ -89,5 +89,4 @@ void CocktailZubereiter::checkMixinPossible(Recipe *rzpt, VorhandeneZutaten *ing
       ausreichend = false;
     }
   }
-
 }

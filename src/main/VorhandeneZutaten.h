@@ -81,6 +81,19 @@ class VorhandeneZutaten {
    */
   Ingredient* getIngredientByName(std::string &name);
 
+  /**
+   * @brief checks if an Ingredient is doubled.
+   * @param inputIngredient is the wished ingredient
+   * @return is ingredient doubled
+   */
+  bool isIngredientDoubled(std::string inputIngredient);
+
+  /**
+   * @brief doubles an ingredient
+   * @param inputIngredient is the wished ingredient
+   */
+  void doubleIngredient(std::string inputIngredient);
+
  private:
   /**
    * @brief list of Ingredients
@@ -92,7 +105,6 @@ class VorhandeneZutaten {
  * @param string is our fileName from where we want to read and initialize our Ingredients
  */
   virtual void ZutatenDateiEinlesen(std::string);
-
 
   int anzahlDosierer;
 
