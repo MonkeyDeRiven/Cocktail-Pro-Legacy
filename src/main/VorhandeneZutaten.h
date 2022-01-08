@@ -86,7 +86,7 @@ class VorhandeneZutaten {
    * @param inputIngredient is the wished ingredient
    * @return is ingredient doubled
    */
-  bool isIngredientDoubled(std::string inputIngredient);
+  bool isIngredientDoubled(std::basic_string<char> inputIngredient);
 
   /**
    * @brief doubles an ingredient
