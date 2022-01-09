@@ -8,25 +8,10 @@ void CocktailPro::start(){
     bool programIsRunning = true;
     while (programIsRunning) {
         int CocktailNo = waehle();
-        if(CocktailNo == -2){
+        if(CocktailNo == -2) {
           theZutatenVerwalter->fillIngredients();
           continue;
         }
-      if(CocktailNo == -3){
-        std::cout << "Bitte geben sie das zu verdoppelnde Zutat ein:";
-        std::string ingredient = "";
-        std::cin.ignore();
-        std::getline(std::cin, ingredient);
-        bool ingredientIsDoubled = theZutatenVerwalter->isIngredientDoubled(ingredient);
-        if(ingredientIsDoubled){
-          std::cout << "Diese Zutat wurde bereits verdoppelt." << std::endl;
-        }
-        else {
-          theZutatenVerwalter->doubleIngredient(ingredient);
-          std::cout << "Die Zutat " + ingredient + " wurde verdoppelt." << std::endl;
-        }
-        continue;
-      }
         bool cocktailExist=false;
         int max = theMischbaresRezeptbuch->getNumberOfRecipes();
         int numInList = checkInputInListForStart(CocktailNo, max, cocktailExist);
@@ -99,7 +84,7 @@ int CocktailPro::waehle() {
       theZutatenVerwalter->browse();
       std::cout << std::endl << "********** Mischbare Rezepte **********" << std::endl;
       theMischbaresRezeptbuch->browse();
-      std::cout << "Was haetten Sie denn gern? (-1 zum Verlassen)(-2 zum Nachfüllen)(-3 Zutat verdoppeln)" << std::endl;
+      std::cout << "Was haetten Sie denn gern? (-1 zum Verlassen)(-2 zum Nachfüllen)" << std::endl;
 
       std::string input = "";
 

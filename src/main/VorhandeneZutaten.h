@@ -83,16 +83,20 @@ class VorhandeneZutaten {
 
   /**
    * @brief checks if an Ingredient is doubled.
-   * @param inputIngredient is the wished ingredient
    * @return is ingredient doubled
    */
-  bool isIngredientDoubled(std::string inputIngredient);
+  bool isIngredientDoubled();
 
   /**
    * @brief doubles an ingredient
    * @param inputIngredient is the wished ingredient
    */
-  void doubleIngredient(std::string inputIngredient);
+  //void doubleIngredient(std::string inputIngredient);
+
+  /**
+   * object of bool
+   */
+  bool ingredientGotDoubled = false;
 
  private:
   /**

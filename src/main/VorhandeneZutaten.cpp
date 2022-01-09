@@ -115,29 +115,13 @@ Ingredient* VorhandeneZutaten::getIngredientByName(std::string &name) {
   return zutat;
 }
 
-bool VorhandeneZutaten::isIngredientDoubled(std::string inputIngredient){
-  std::string line_;
-  std::vector<std::string> zutatenInVec;
-  std::ifstream zutatenIfstream("../src/resources/zutaten.txt");
-  if(zutatenIfstream.is_open()){
-    while(getline(zutatenIfstream, line_)){
-      zutatenInVec.push_back(line_);
-    }
-    zutatenIfstream.close();
-  }
-  else
-    std::cout << "zutaten.txt kann nicht geoeffnet werden." << std::endl;
-  int counter = 0;
-  for(unsigned int posInVec = 0; posInVec < zutatenInVec.size(); posInVec++){
-    if(zutatenInVec.at(posInVec) == inputIngredient)
-      counter++;
-    if(counter == 1)
+bool VorhandeneZutaten::isIngredientDoubled(){
+    if(ingredientGotDoubled)
       return true;
-  }
   return false;
 }
 
-void VorhandeneZutaten::doubleIngredient(std::string inputIngredient){
+/*void VorhandeneZutaten::doubleIngredient(std::string inputIngredient){
   std::string line_;
   std::vector<std::string> zutatenInVec;
   std::ifstream zutatenIfstream("../src/resources/zutaten.txt");
@@ -169,6 +153,6 @@ void VorhandeneZutaten::doubleIngredient(std::string inputIngredient){
   zutaten->push_back(new Ingredient(name, 0));
   name = std::string("Schuetteln");
   zutaten->push_back(new Ingredient(name, 0));
-}
+}*/
 
 
