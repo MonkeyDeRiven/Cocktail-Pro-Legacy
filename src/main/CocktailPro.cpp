@@ -100,9 +100,6 @@ int CocktailPro::waehle() {
       if(inputNumber == -2){
         return inputNumber;
       }
-      if(inputNumber == -3){
-        return inputNumber;
-      }
       return checkInput(input, inputNumber);
     }
 }
