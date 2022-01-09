@@ -36,7 +36,7 @@ protected:
 
 TEST_F(VorhandeneZutatenTest,getAnzahlVorhandeneZutaten)
 {
-    EXPECT_EQ(16,zv->getAnzahlVorhandeneZutaten());
+    EXPECT_EQ(17,zv->getAnzahlVorhandeneZutaten());
 }
 
 TEST_F(VorhandeneZutatenTest,FileZutatenDotTxtIsAvailable)

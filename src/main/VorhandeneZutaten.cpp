@@ -110,49 +110,20 @@ Ingredient* VorhandeneZutaten::getIngredientByName(std::string &name) {
   for(unsigned int i = 0; i < zutaten->size(); i++){
     if(zutaten->at(i)->getName() == name){
       zutat = zutaten->at(i);
+      if(zutat->getAmount() < 10 && zutaten->size()-3 >= i){
+        return zutaten->at(i-1);
+      }
     }
   }
   return zutat;
 }
-
-bool VorhandeneZutaten::isIngredientDoubled(){
-    if(ingredientGotDoubled)
-      return true;
-  return false;
-}
-
-/*void VorhandeneZutaten::doubleIngredient(std::string inputIngredient){
-  std::string line_;
-  std::vector<std::string> zutatenInVec;
-  std::ifstream zutatenIfstream("../src/resources/zutaten.txt");
-  if(zutatenIfstream.is_open()){
-    while(getline(zutatenIfstream, line_)){
-      zutatenInVec.push_back(line_);
-    }
-    zutatenIfstream.close();
+/*void VorhandeneZutaten::setGinAmountToZero() {
+  if(!done){
+    std::string name = "Gin";
+    Ingredient* zutat = this->getIngredientByName(name);
+    zutat->setAmount(0);
+    //done = true;
   }
-
-  zutatenInVec.push_back(inputIngredient);
-  std::ofstream zutatenOfstream;
-  zutatenOfstream.open("../src/resources/zutaten.txt");
-  if(!zutatenOfstream){
-    std::cerr << "zutaten.txt kann nicht geoeffnet werden.\n" << std::endl;
-    return;
-  }
-  for(unsigned int i = 0; i < zutatenInVec.size(); i++){
-    zutatenOfstream << zutatenInVec.at(i) << std::endl;
-  }
-  zutatenOfstream.close();
-  zutaten->pop_back();
-  zutaten->pop_back();
-  zutaten->pop_back();
-  zutaten->push_back(new Ingredient(inputIngredient, 0));
-  std::string name = std::string("Mischen");
-  zutaten->push_back(new Ingredient(name, 0));
-  name = std::string("Stampfen");
-  zutaten->push_back(new Ingredient(name, 0));
-  name = std::string("Schuetteln");
-  zutaten->push_back(new Ingredient(name, 0));
 }*/
 
 

@@ -80,6 +80,7 @@ void CocktailPro::demo() {
 
 
 int CocktailPro::waehle() {
+  //theZutatenVerwalter->setGinAmountToZero();
     while (true) {
       theZutatenVerwalter->browse();
       std::cout << std::endl << "********** Mischbare Rezepte **********" << std::endl;

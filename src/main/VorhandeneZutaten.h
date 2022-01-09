@@ -82,22 +82,9 @@ class VorhandeneZutaten {
   Ingredient* getIngredientByName(std::string &name);
 
   /**
-   * @brief checks if an Ingredient is doubled.
-   * @return is ingredient doubled
+   * @brief is a method used for testing
    */
-
-  bool isIngredientDoubled();
-
-  /**
-   * @brief doubles an ingredient
-   * @param inputIngredient is the wished ingredient
-   */
-  //void doubleIngredient(std::string inputIngredient);
-
-  /**
-   * object of bool
-   */
-  bool ingredientGotDoubled = false;
+  //void setGinAmountToZero();
 
  private:
   /**
@@ -112,6 +99,8 @@ class VorhandeneZutaten {
   virtual void ZutatenDateiEinlesen(std::string);
 
   int anzahlDosierer;
+
+  //bool done = false;
 
 };
 /**
