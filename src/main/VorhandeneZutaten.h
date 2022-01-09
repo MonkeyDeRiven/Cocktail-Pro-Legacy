@@ -85,6 +85,7 @@ class VorhandeneZutaten {
    * @brief checks if an Ingredient is doubled.
    * @return is ingredient doubled
    */
+
   bool isIngredientDoubled();
 
   /**

@@ -56,12 +56,12 @@ TEST_F(CocktailZubereiterTest, setAmountToGramm){
   EXPECT_EQ(r->amountToGramm(Limettenstuecke, amount), 100);
 }
 
-/*TEST_F(CocktailZubereiterTest, CleanUsedDev) {
+TEST_F(CocktailZubereiterTest, CleanUsedDev) {
   int number = 1;
   recipe->setNumber(number);
 
   newCout.flush();
   r->cleanUsedDevices(recipe);
   std::string testString = "Device mit der Aktion:Limettenstuecke wird jetzt geputzt\n";
-  EXPECT_EQ(testString, newCout.str().substr(318));
-}*/
+  EXPECT_EQ(testString, newCout.str().substr(335));
+}
