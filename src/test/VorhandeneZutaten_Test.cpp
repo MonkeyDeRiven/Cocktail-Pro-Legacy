@@ -86,5 +86,4 @@ TEST_F(VorhandeneZutatenTest, fillIngredientAndGetByName){
   i->setAmount(50);
   zv->fillIngredients();
   EXPECT_EQ(zv->getIngredientByName(name)->getAmount(), 1000);
-
 }
