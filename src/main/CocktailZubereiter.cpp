@@ -38,6 +38,7 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* in
 
 
   cleanUsedDevices(rzpt);
+
   return (true);
 
 
@@ -72,8 +73,8 @@ CocktailZubereiter& CocktailZubereiter::operator=(CocktailZubereiter overload) {
   return *this;
 }*/
 
-void CocktailZubereiter::checkMixinPossible(Recipe *rzpt, VorhandeneZutaten *ingredients) {
-  for (int i = 0; i < rzpt->getNoOfRecipeSteps() - 1; ++i){
+void CocktailZubereiter::checkMixinPossible(Recipe *rzpt, VorhandeneZutaten* ingredients) {
+  for (int i = 0; i < rzpt->getNoOfRecipeSteps() - 1; ++i) {
 
     RecipeStep *schritt = rzpt->getRecipeStep(i);
     std::string zutat = schritt->getZutat();
@@ -87,6 +88,8 @@ void CocktailZubereiter::checkMixinPossible(Recipe *rzpt, VorhandeneZutaten *ing
       std::cout << " ===== Der Cocktail kann nicht zubereitet werden, da die Zutat " << zutat
                 << " nicht ausreichend vorhanden ist =====\n";
       ausreichend = false;
+      rzpt->isMixable = false;
     }
   }
 }
+

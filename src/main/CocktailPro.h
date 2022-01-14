@@ -143,6 +143,7 @@ class CocktailPro {
    * @param input true or false
    */
   void setIsATest(bool input);
+
 };
 
 #endif

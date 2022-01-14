@@ -10,6 +10,7 @@ void CocktailPro::start(){
         int CocktailNo = waehle();
         if(CocktailNo == -2){
           theZutatenVerwalter->fillIngredients();
+          theMischbaresRezeptbuch->allRecipesMixableTrue();
           continue;
         }
       if(CocktailNo == -3){
@@ -55,6 +56,8 @@ void CocktailPro::prepareCocktail(bool cocktailExist, int numInList) {
     Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(numInList);
     std::cout << rezeptptr->getName() << std::endl;
     theCocktailZubereiter->cocktailZubereiten(rezeptptr, theZutatenVerwalter);
+
+
     if(!testFlag) testFlag = true;
   } else {
     std::cout << "Falsche Cocktailnummer!" << std::endl;

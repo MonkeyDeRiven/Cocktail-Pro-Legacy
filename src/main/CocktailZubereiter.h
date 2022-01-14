@@ -34,6 +34,8 @@ class CocktailZubereiter {
   //CocktailZubereiter& operator=(CocktailZubereiter overload);
 
  private:
+  std::string zutatNichtVorhanden = ""; //TESSST
+
   /**
  * object of boolean for not enough ingrdient
  */
@@ -63,7 +65,9 @@ class CocktailZubereiter {
    * @param rzpt our recipe
    * @param ingredients our ingredients
    */
-  void checkMixinPossible(Recipe * rzpt, VorhandeneZutaten* ingredients);
+  void checkMixinPossible(Recipe * rzpt, VorhandeneZutaten * i);
+
+
 };
 
 #endif

@@ -10,6 +10,7 @@ void MischbaresRezeptbuch::browse() {
     std::cout << "Es gibt " << this->getNumberOfRecipes() << " Cocktails" << std::endl;
 
     for (int i = 0; i<this->getNumberOfRecipes(); i++) {
+
         Recipe* r = this->getRecipe(i);
         //std::cout << i + 1 << ". ";
         r->browse();
@@ -69,3 +70,10 @@ void MischbaresRezeptbuch::setZutatenVerwalter(VorhandeneZutaten * zv) {
     myZutatenVerwalter = zv;
 }
 
+void MischbaresRezeptbuch::allRecipesMixableTrue(){
+
+  for(size_t i = 0; i<recipeList.size(); i++){
+    recipeList[i]->isMixable = true;
+  }
+
+}
