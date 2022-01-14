@@ -18,7 +18,7 @@
  *  @brief contains all mixable recipes.
  *
  *  knows every mixable recipe and is able to print them.
- *  
+ *
  */
 class MischbaresRezeptbuch : public RecipeBook {
 public:
@@ -34,17 +34,21 @@ public:
      */
     void browse();
 
+    /**
+     * @brief method is calles in fillIngredients and after we filled it, all Recipes are Mixable
+     */
+    void allRecipesMixableTrue();
 
 private:
+  /**
+      *  contains every mixable recipe
+      */
+  std::vector<Recipe *> recipeList;
+
     /**
      *  contains the ingredient manager which contains all ingredients and their amount.
      */
     VorhandeneZutaten * myZutatenVerwalter;
-
-    /**
-     *  contains every mixable recipe
-     */
-    std::vector<Recipe *> recipeList;
 
     /**
      * @brief assigns a new ingredient manager

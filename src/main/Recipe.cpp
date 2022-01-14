@@ -44,13 +44,23 @@ void Recipe::setName(const std::string& Name) {
 }
 
 std::vector<std::string>* Recipe::browse() {
-    std::cout << m_Number << ". " << m_Name << ": ";
+
+  if(!isMixable){
+    std::cout << "[" ;
+  }
+    std::cout << m_Number << ". " << m_Name << ": " << m_Name << ": ";
     std::vector<std::string> *recipeStepsOfRecipe = new std::vector<std::string>;
-    for (int i = 0; i< this->getNoOfRecipeSteps(); i++) {
-        if (i > 0) std::cout << ", ";
-        std::cout << getRecipeStep(i)->getZutat();
-        recipeStepsOfRecipe->push_back(getRecipeStep(i)->getZutat());
-    }
+    for (int i = 0; i < this->getNoOfRecipeSteps(); i++) {
+      if (i > 0) std::cout << ", ";
+      std::cout << getRecipeStep(i)->getZutat();
+      recipeStepsOfRecipe->push_back(getRecipeStep(i)->getZutat());
+
+  }
+
+  if(!isMixable){
+    std::cout << "]" ;
+  }
+
   return recipeStepsOfRecipe;
 }
 

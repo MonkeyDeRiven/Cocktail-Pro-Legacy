@@ -35,7 +35,16 @@ private:
      */
      int m_Number;
 
-public:
+    /**
+     * recipe is Mixable or not. In default its true
+     */
+
+ public:
+  /**
+   * recipe is Mixable or not. In default its true
+   */
+
+  bool isMixable = true;
 
     /**
      * @brief constructor of the class, clears all recipe steps and sets the name to "".
