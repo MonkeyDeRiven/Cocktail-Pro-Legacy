@@ -71,3 +71,9 @@ TEST_F(MischbaresRezeptbuchTest, setZutatenVerwalter){
   mixableRecipeBook->setZutatenVerwalter(ingredients);
   EXPECT_EQ( mixableRecipeBook->myZutatenVerwalter, ingredients);
 }
+
+TEST_F(MischbaresRezeptbuchTest, allRecipesMixableTrueTest){
+  mixableRecipeBook->getRecipe(1)->isMixable = false;
+  mixableRecipeBook->allRecipesMixableTrue();
+  EXPECT_EQ(mixableRecipeBook->getRecipe(1)->isMixable, true);
+}
