@@ -41,7 +41,7 @@ void CocktailPro::prepareCocktail(bool cocktailExist, int numInList) {
     Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(numInList);
     std::cout << rezeptptr->getName() << std::endl;
     theCocktailZubereiter->cocktailZubereiten(rezeptptr, theZutatenVerwalter);
-    for(unsigned int i = 0; i < theMischbaresRezeptbuch->getNumberOfRecipes(); i++){
+    for(int i = 0; i < theMischbaresRezeptbuch->getNumberOfRecipes(); i++){
       theCocktailZubereiter->checkMixinPossible(theMischbaresRezeptbuch->getRecipe(i), theZutatenVerwalter);
     }
     if(!testFlag) testFlag = true;
