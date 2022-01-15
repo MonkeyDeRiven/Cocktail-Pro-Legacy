@@ -33,6 +33,13 @@ class CocktailZubereiter {
   bool cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* ingredients);
   //CocktailZubereiter& operator=(CocktailZubereiter overload);
 
+  /**
+ * @brief checking, if we can mix cocktail n, if not, a boolean insides turn false and provides the mixing
+ * @param rzpt our recipe
+ * @param ingredients our ingredients
+ */
+  void checkMixinPossible(Recipe * rzpt, VorhandeneZutaten * i);
+
  private:
   std::string zutatNichtVorhanden = ""; //TESSST
 
@@ -59,14 +66,6 @@ class CocktailZubereiter {
    * @param rzpt steps from devices which must be cleaned
    */
   void cleanUsedDevices(Recipe *rzpt) const;
-
-  /**
-   * @brief checking, if we can mix cocktail n, if not, a boolean insides turn false and provides the mixing
-   * @param rzpt our recipe
-   * @param ingredients our ingredients
-   */
-  void checkMixinPossible(Recipe * rzpt, VorhandeneZutaten * i);
-
 
 };
 

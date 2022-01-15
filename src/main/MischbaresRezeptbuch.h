@@ -39,12 +39,12 @@ public:
      */
     void allRecipesMixableTrue();
 
-private:
-  /**
-      *  contains every mixable recipe
-      */
-  std::vector<Recipe *> recipeList;
+    /**
+    *  contains every mixable recipe
+    */
+    std::vector<Recipe *> recipeList;
 
+private:
     /**
      *  contains the ingredient manager which contains all ingredients and their amount.
      */

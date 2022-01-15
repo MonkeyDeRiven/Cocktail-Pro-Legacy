@@ -71,9 +71,8 @@ void MischbaresRezeptbuch::setZutatenVerwalter(VorhandeneZutaten * zv) {
 }
 
 void MischbaresRezeptbuch::allRecipesMixableTrue(){
-
-  for(size_t i = 0; i<recipeList.size(); i++){
-    recipeList[i]->isMixable = true;
+  for(size_t i = 0; i < getNumberOfRecipes(); i++){
+    getRecipe(i)->isMixable = true;
   }
 
 }

@@ -10,7 +10,11 @@ CocktailZubereiter::CocktailZubereiter(DeviceVerwalter * dv) {
 bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* ingredients) {
   //std::system("clear");
   checkMixinPossible(rzpt, ingredients);
-  if(!ausreichend) return false;
+  if(!ausreichend){
+    std::cout << " ===== Der Cocktail kann nicht zubereitet werden, bitte füllen Sie die "
+              <<  "entsprechenden Zutaten nach=====\n";
+    return false;
+  }
 
   std::cout << "Hallo, ich bin der CocktailZubereiter!" << std::endl
             << "Ich habe Ihre Bestellung: " << rzpt->getName() << " erhalten." << std::endl
@@ -35,7 +39,6 @@ bool CocktailZubereiter::cocktailZubereiten(Recipe * rzpt, VorhandeneZutaten* in
   }
 
   myDeviceVerwalter->myEntleerer->doIt(i);
-
 
   cleanUsedDevices(rzpt);
 
@@ -84,11 +87,11 @@ void CocktailZubereiter::checkMixinPossible(Recipe *rzpt, VorhandeneZutaten* ing
     if (zutat == "Stampfen")
       continue;
     if (ingredients->getIngredientByName(zutat)->getAmount() < amountInGramm) {
-      std::cout << " ===== Der Cocktail kann nicht zubereitet werden, da die Zutat " << zutat
-                << " nicht ausreichend vorhanden ist =====\n";
       ausreichend = false;
       rzpt->isMixable = false;
+      return;
     }
   }
+  ausreichend = true;
 }
 

@@ -110,7 +110,7 @@ Ingredient* VorhandeneZutaten::getIngredientByName(std::string &name) {
   for(unsigned int i = 0; i < zutaten->size(); i++){
     if(zutaten->at(i)->getName() == name){
       zutat = zutaten->at(i);
-      if(zutat->getAmount() < 10 && i < zutaten->size()-3){
+      if(zutat->getAmount() < 10 && zutaten->at(i-1)->getName() == name){
         return zutaten->at(i-1);
       }
     }
