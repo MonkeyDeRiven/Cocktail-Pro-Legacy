@@ -44,6 +44,12 @@ TEST_F(CocktailPro_Test, waehleTest){
   EXPECT_EQ(testPro->waehle(), 0);
 }
 
+TEST_F(CocktailPro_Test, testWaehleMinus2){
+  testPro->setIsATest(true);
+  testPro->start();
+  EXPECT_EQ(testPro->isATest, false);
+}
+
 TEST_F(CocktailPro_Test, overload){
   CocktailPro* cpy(testPro);
 

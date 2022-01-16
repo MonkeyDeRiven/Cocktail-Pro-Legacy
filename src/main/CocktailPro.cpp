@@ -11,6 +11,10 @@ void CocktailPro::start(){
         if(CocktailNo == -2) {
           theZutatenVerwalter->fillIngredients();
           theMischbaresRezeptbuch->allRecipesMixableTrue();
+          if(isATest){
+            setIsATest(false);
+            programIsRunning = false;
+          }
           continue;
         }
         bool cocktailExist=false;
@@ -100,6 +104,9 @@ int CocktailPro::waehle() {
       //int max = theMischbaresRezeptbuch->getNumberOfRecipes();
       if (inputNumber == -1) {
         exit(0);
+      }
+      if(isATest){
+        inputNumber = -2;
       }
       if(inputNumber == -2){
         return inputNumber;
