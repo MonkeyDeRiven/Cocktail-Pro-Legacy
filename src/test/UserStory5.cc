@@ -1,18 +1,15 @@
-//
-// Created by arian on 23/11/2021.
-//
-
 #include <limits.h>
 #include "gtest/gtest.h"
 
 #define protected public
 #define private public
-#include "MischbaresRezeptbuch.h"
+#include "CocktailPro.h"
 #undef protected
 #undef private
 
-class MischbaresRezeptbuchTest : public ::testing::Test {
+class UserStory5Test : public ::testing::Test {
  protected:
+
   VorhandeneZutaten* ingredients;
   MischbaresRezeptbuch* mixableRecipeBook;
 
@@ -40,34 +37,16 @@ class MischbaresRezeptbuchTest : public ::testing::Test {
     testRecipe2->appendStep("Eis", 100);
     testRecipe2->appendStep("Mischen", 20);
     mixableRecipeBook->recipeList.push_back(testRecipe2);
-
   }
 
   virtual void TearDown() {
-    // Code here will be called immediately after each test
-    // (right before the destructor).
     delete ingredients;
     delete mixableRecipeBook;
   }
 };
 
-TEST_F(MischbaresRezeptbuchTest,isRecipeValidTest){
-  bool valid = mixableRecipeBook->isRecipeStepValid(mixableRecipeBook->recipeList[0]);
-  EXPECT_EQ(valid, true);
-  valid = mixableRecipeBook->isRecipeStepValid(mixableRecipeBook->recipeList[1]);
-  EXPECT_EQ(valid, false);
-}
-
-TEST_F(MischbaresRezeptbuchTest, isIngredientInStock){
-  bool valid = mixableRecipeBook->isIngredientInStock("Zucker");
-  EXPECT_EQ(valid, true);
-  valid = mixableRecipeBook->isIngredientInStock("Rum braun");
-  EXPECT_EQ(valid, false);
-}
-
-TEST_F(MischbaresRezeptbuchTest, setZutatenVerwalter){
-  mixableRecipeBook->setZutatenVerwalter(nullptr);
-  EXPECT_EQ(mixableRecipeBook->myZutatenVerwalter, nullptr);
-  mixableRecipeBook->setZutatenVerwalter(ingredients);
-  EXPECT_EQ( mixableRecipeBook->myZutatenVerwalter, ingredients);
+TEST_F(UserStory5Test, allRecipesMixableTrueTest){
+  mixableRecipeBook->getRecipe(1)->isMixable = false;
+  mixableRecipeBook->allRecipesMixableTrue();
+  EXPECT_EQ(mixableRecipeBook->getRecipe(1)->isMixable, true);
 }
