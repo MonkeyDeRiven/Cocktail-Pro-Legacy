@@ -11,8 +11,8 @@ void CocktailPro::start(){
         if(CocktailNo == -2) {
           theZutatenVerwalter->fillIngredients();
           theMischbaresRezeptbuch->allRecipesMixableTrue();
-          if(isATest){
-            setIsATest(false);
+          if(isATest2){
+            isATest2 = false;
             programIsRunning = false;
           }
           continue;
@@ -105,7 +105,7 @@ int CocktailPro::waehle() {
       if (inputNumber == -1) {
         exit(0);
       }
-      if(isATest){
+      if(isATest2){
         inputNumber = -2;
       }
       if(inputNumber == -2){
