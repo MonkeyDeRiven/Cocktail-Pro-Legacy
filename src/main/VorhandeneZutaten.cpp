@@ -18,7 +18,7 @@ VorhandeneZutaten::VorhandeneZutaten() {
 // Stream anlegen
 
 
-  ZutatenDateiEinlesen("../src/resources/zutaten.txt");
+  ZutatenDateiEinlesen("zutaten.txt");
 
 
   browse();
