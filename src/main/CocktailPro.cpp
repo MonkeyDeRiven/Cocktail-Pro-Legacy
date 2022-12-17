@@ -11,6 +11,10 @@ void CocktailPro::start(){
         if(CocktailNo == -2) {
           theZutatenVerwalter->fillIngredients();
           theMischbaresRezeptbuch->allRecipesMixableTrue();
+          if(isATest2){
+            isATest2 = false;
+            programIsRunning = false;
+          }
           continue;
         }
         bool cocktailExist=false;
@@ -41,7 +45,7 @@ void CocktailPro::prepareCocktail(bool cocktailExist, int numInList) {
     Recipe * rezeptptr = theMischbaresRezeptbuch->getRecipe(numInList);
     std::cout << rezeptptr->getName() << std::endl;
     theCocktailZubereiter->cocktailZubereiten(rezeptptr, theZutatenVerwalter);
-    for(unsigned int i = 0; i < theMischbaresRezeptbuch->getNumberOfRecipes(); i++){
+    for(int i = 0; i < theMischbaresRezeptbuch->getNumberOfRecipes(); i++){
       theCocktailZubereiter->checkMixinPossible(theMischbaresRezeptbuch->getRecipe(i), theZutatenVerwalter);
     }
     if(!testFlag) testFlag = true;
@@ -100,6 +104,9 @@ int CocktailPro::waehle() {
       //int max = theMischbaresRezeptbuch->getNumberOfRecipes();
       if (inputNumber == -1) {
         exit(0);
+      }
+      if(isATest2){
+        inputNumber = -2;
       }
       if(inputNumber == -2){
         return inputNumber;

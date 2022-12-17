@@ -36,7 +36,7 @@ class CocktailZubereiter {
   /**
  * @brief checking, if we can mix cocktail n, if not, a boolean insides turn false and provides the mixing
  * @param rzpt our recipe
- * @param ingredients our ingredients
+ * @param i our ingredients
  */
   void checkMixinPossible(Recipe * rzpt, VorhandeneZutaten * i);
 

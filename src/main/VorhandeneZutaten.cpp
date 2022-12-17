@@ -18,7 +18,7 @@ VorhandeneZutaten::VorhandeneZutaten() {
 // Stream anlegen
 
 
-  ZutatenDateiEinlesen("../src/resources/zutaten.txt");
+  ZutatenDateiEinlesen("zutaten.txt");
 
 
   browse();
@@ -100,7 +100,7 @@ int VorhandeneZutaten::getAnzahlVorhandeneZutaten() {
 
 void VorhandeneZutaten::fillIngredients() {
   for(unsigned int i = 0; i < zutaten->size()-3; i++){
-    zutaten->at(i)->setAmount(1000);
+    zutaten->at(i)->setAmount(100);
   }
   std::cout << "Alle Zutaten wurden nachgefüllt!" << std::endl;
 }
